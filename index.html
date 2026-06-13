@@ -6,24 +6,24 @@
   <title>Anderson Schultz Ribeiro — DevOps Engineer | SRE | Cloud & Automation</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Anderson Schultz Ribeiro — DevOps Engineer, SRE, Middleware Specialist com 15+ anos de experiência em Cloud Computing, Observabilidade, Automação e IA." />
-  <meta name="keywords" content="DevOps, SRE, Site Reliability Engineering, Cloud, Middleware, Observabilidade, Automação, Inteligência Artificial, Kubernetes, Docker, AWS, Azure, Grafana, Prometheus, CI/CD, Terraform, Ansible, Linux" />
+  <meta name="description" content="Anderson Schultz Ribeiro — DevOps Engineer, SRE, Middleware Specialist com 15+ anos de experiência em Cloud Computing, Observabilidade, Automação e IA. MBA em Finanças e Mercado de Capitais." />
+  <meta name="keywords" content="DevOps, SRE, Site Reliability Engineering, Cloud, Middleware, Observabilidade, Automação, Inteligência Artificial, Kubernetes, Docker, AWS, Azure, Grafana, Prometheus, CI/CD, Terraform, Ansible, Linux, Bitcoin, Mercado de Capitais, Finanças, Economia" />
   <meta name="author" content="Anderson Schultz Ribeiro" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://andersonschultz.com/" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="profile" />
-  <meta property="og:title"       content="Anderson Schultz Ribeiro — DevOps/SRE Engineer" />
-  <meta property="og:description" content="15+ anos transformando operações críticas em ambientes corporativos de alta disponibilidade." />
+  <meta property="og:title"       content="Anderson Schultz Ribeiro — DevOps/SRE Engineer | Finanças & IA" />
+  <meta property="og:description" content="15+ anos transformando operações críticas. Perfil híbrido: Engenharia · Economia · Inteligência Artificial." />
   <meta property="og:image"       content="assets/images/fotoperfil.jpg" />
   <meta property="og:url"         content="https://andersonschultz.com/" />
   <meta property="og:locale"      content="pt_BR" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Anderson Schultz Ribeiro — DevOps Engineer | SRE" />
-  <meta name="twitter:description" content="15+ anos em DevOps, SRE, Cloud e Automação." />
+  <meta name="twitter:title"       content="Anderson Schultz Ribeiro — DevOps Engineer | SRE | Finanças" />
+  <meta name="twitter:description" content="15+ anos em DevOps, SRE, Cloud, Automação e Mercado de Capitais." />
   <meta name="twitter:image"       content="assets/images/fotoperfil.jpg" />
 
   <!-- Schema.org Person -->
@@ -32,14 +32,14 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Anderson Schultz Ribeiro",
-    "jobTitle": "DevOps Engineer | SRE | Middleware | Telecom | Economy | Cloud & Automation",
+    "jobTitle": "DevOps Engineer | SRE | Middleware | Cloud & Automation | Economia & Mercado de Capitais",
     "url": "https://andersonschultz.com/",
     "image": "assets/images/fotoperfil.jpg",
     "sameAs": [
       "https://www.linkedin.com/in/anderson-schultz-ribeiro0001/",
       "https://github.com/andersonschultz-cloud"
     ],
-    "knowsAbout": ["DevOps","SRE","Cloud Computing","Kubernetes","Docker","Ansible","Observabilidade","Automação","Inteligência Artificial","Middleware","Linux",Economy]
+    "knowsAbout": ["DevOps","SRE","Cloud Computing","Kubernetes","Docker","Ansible","Observabilidade","Automação","Inteligência Artificial","Middleware","Linux","Economia","Mercado de Capitais","Bitcoin","Finanças","Business Intelligence"]
   }
   </script>
 
@@ -51,8 +51,14 @@
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- BACKGROUND CANVAS -->
+<!-- BACKGROUND CANVAS (partículas originais) -->
 <canvas id="bg-canvas"></canvas>
+
+<!-- [NOVO] CANVAS PARA MODO BITCOIN/LINUX — sobreposto ao original -->
+<canvas id="btc-canvas"></canvas>
+
+<!-- [NOVO] CONTAINER PARA CHUVA DE PINGUINS -->
+<div id="penguin-rain" aria-hidden="true"></div>
 
 <!-- LOADING SCREEN -->
 <div id="loading-screen">
@@ -112,14 +118,15 @@
         </h1>
 
         <p class="hero-title fade-up fade-up-delay-2">
-          DevOps/SRE Engineer &nbsp;·&nbsp; SRE &nbsp;·&nbsp; Middleware<br>
-          Cloud &amp; Automation &nbsp;·&nbsp; Observabilidade &amp; IA
+          DevOps/SRE Engineer &nbsp;·&nbsp; Middleware &nbsp;·&nbsp; Cloud &amp; Automation<br>
+          <span style="color:var(--amber);opacity:0.85;">Economia &nbsp;·&nbsp; Mercado de Capitais &nbsp;·&nbsp; IA</span>
         </p>
 
         <p class="hero-subtitle fade-up fade-up-delay-3">
           15 anos transformando operações críticas em ambientes corporativos
-          de alta disponibilidade. Conectando desenvolvimento, operações e
-          negócios através de automação, confiabilidade e inovação.
+          de alta disponibilidade. Perfil híbrido que une <strong style="color:var(--cyan)">engenharia de sistemas</strong>,
+          <strong style="color:var(--amber)">visão de negócios e mercado financeiro</strong>
+          e <strong style="color:var(--green)">inteligência artificial</strong>.
         </p>
 
         <div class="hero-actions fade-up fade-up-delay-4">
@@ -152,11 +159,18 @@
       </div>
 
       <!-- RIGHT / PHOTO -->
+      <!-- [MODIFICADO] Adicionado id na img e wrapper para easter egg -->
       <div class="hero-img-wrap fade-up fade-up-delay-2">
         <div class="hero-img-frame">
           <div class="hero-img-bg"></div>
-          <div class="hero-img-border">
-            <img src="assets/images/fotoperfil.jpg" alt="Anderson Schultz Ribeiro — DevOps Engineer &amp; SRE" loading="eager" />
+          <div class="hero-img-border" id="profile-img-border">
+            <!-- [EASTER EGG] img com id para troca suave -->
+            <img
+              id="profile-photo"
+              src="assets/images/fotoperfil.jpg"
+              alt="Anderson Schultz Ribeiro — DevOps Engineer &amp; SRE"
+              loading="eager"
+            />
             <div class="hero-img-overlay"></div>
           </div>
           <div class="hero-corner tl"></div>
@@ -165,6 +179,9 @@
           <div class="hero-corner br"></div>
           <div class="hero-float-badge badge-top">⎈ Middleware &bull; Production Ready</div>
           <div class="hero-float-badge badge-bottom">● DevOps/SRE &bull; 99.99% Availability</div>
+
+          <!-- [NOVO] Hint discreto no mobile -->
+          <div class="photo-hint" id="photo-hint" aria-hidden="true">toque aqui 🐧</div>
         </div>
       </div>
 
@@ -239,7 +256,35 @@
             Hoje atuo conectando desenvolvimento, operações e negócios através de
             <strong>automação, observabilidade, confiabilidade e inovação tecnológica</strong> —
             transformando complexidade em sistemas previsíveis e resilientes.
+            Essa visão técnica é ampliada por formação sólida em <strong>economia e mercado financeiro</strong>,
+            permitindo avaliar impacto de decisões técnicas diretamente no resultado do negócio.
           </p>
+        </div>
+
+        <!-- [NOVO] Card perfil híbrido -->
+        <div class="hybrid-card fade-up fade-up-delay-3">
+          <div class="hybrid-card-header">
+            <span class="hybrid-card-label">Perfil Híbrido</span>
+          </div>
+          <div class="hybrid-pillars">
+            <div class="hybrid-pillar">
+              <div class="hybrid-pillar-icon" style="color:var(--cyan)">⚙</div>
+              <div class="hybrid-pillar-name">Engenharia</div>
+              <div class="hybrid-pillar-desc">DevOps · SRE · Cloud · Linux · Automação</div>
+            </div>
+            <div class="hybrid-connector">✕</div>
+            <div class="hybrid-pillar">
+              <div class="hybrid-pillar-icon" style="color:var(--amber)">₿</div>
+              <div class="hybrid-pillar-name">Economia</div>
+              <div class="hybrid-pillar-desc">Mercado de Capitais · Finanças · Criptoativos</div>
+            </div>
+            <div class="hybrid-connector">✕</div>
+            <div class="hybrid-pillar">
+              <div class="hybrid-pillar-icon" style="color:var(--green)">◈</div>
+              <div class="hybrid-pillar-name">Inteligência Artificial</div>
+              <div class="hybrid-pillar-desc">MBA IA · BI · Análise de Dados</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -276,7 +321,47 @@
           <div class="info-panel-icon">⚡</div>
           <div>
             <div class="info-panel-label">Especialidades</div>
-            <div class="info-panel-value">DevOps · SRE · Cloud · Observabilidade · IA · Economy</div>
+            <div class="info-panel-value">DevOps · SRE · Cloud · Observabilidade · IA · Economia</div>
+          </div>
+        </div>
+
+        <!-- [NOVO] Painel de competências visuais -->
+        <div class="skill-bars-panel fade-up" style="transition-delay:0.5s">
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-bar-label" style="color:var(--cyan)">Tecnologia & DevOps</span>
+              <span class="skill-bar-pct">Senior</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="95" style="background:linear-gradient(90deg,var(--cyan),#0099cc)"></div>
+            </div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-bar-label" style="color:var(--amber)">Finanças & Economia</span>
+              <span class="skill-bar-pct">MBA</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="80" style="background:linear-gradient(90deg,var(--amber),#cc8800)"></div>
+            </div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-bar-label" style="color:var(--green)">Inteligência Artificial</span>
+              <span class="skill-bar-pct">MBA</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="78" style="background:linear-gradient(90deg,var(--green),#00cc66)"></div>
+            </div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-bar-label" style="color:var(--purple);filter:brightness(1.6)">Automação & SRE</span>
+              <span class="skill-bar-pct">Expert</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="92" style="background:linear-gradient(90deg,#a855f7,#7c3aed)"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -340,7 +425,8 @@
         <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">
           Jornada de crescimento contínuo dentro da maior cooperativa de crédito
           do Brasil. Cada papel assumido aprofundou competências e ampliou impacto
-          sistêmico em ambientes de missão crítica financeira.
+          sistêmico em ambientes de missão crítica financeira — onde confiabilidade
+          e performance têm impacto direto no resultado dos associados.
         </p>
 
         <div class="exp-timeline-steps">
@@ -402,10 +488,17 @@
         <div class="edu-year">2024</div>
       </div>
 
-      <div class="edu-card fade-up fade-up-delay-2">
-        <div class="edu-level">MBA</div>
+      <!-- [MODIFICADO] Card de Finanças destacado visualmente -->
+      <div class="edu-card edu-card-finance fade-up fade-up-delay-2">
+        <div class="edu-level edu-level-finance">MBA · Finanças</div>
         <div class="edu-degree">MBA em Finanças com Ênfase em Mercado de Capitais</div>
         <div class="edu-school">Descomplica</div>
+        <div class="edu-finance-tags">
+          <span>Mercado de Capitais</span>
+          <span>Derivativos</span>
+          <span>Valuation</span>
+          <span>B3</span>
+        </div>
         <div class="edu-year">2023</div>
       </div>
 
@@ -489,6 +582,56 @@
       </div>
     </div>
 
+    <!-- [NOVO] Subseção Economia & Mercado Financeiro -->
+    <div class="cert-finance-section fade-up" style="margin-top:56px;">
+      <div class="cert-finance-header">
+        <div class="section-eyebrow" style="margin-bottom:8px;">Formação Complementar</div>
+        <h3 class="cert-finance-title">Economia &amp; Mercado Financeiro</h3>
+      </div>
+      <div class="cert-finance-grid">
+        <div class="cert-card cert-card-finance">
+          <div class="cert-img-wrap">
+            <img src="assets/images/certificado5.jpg" alt="Certificado Economia e Mercado Financeiro" loading="lazy" />
+            <div class="cert-img-overlay"></div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-issuer cert-issuer-finance">Economia · Finanças · Mercado de Capitais</div>
+            <div class="cert-name">MBA em Finanças com Ênfase em Mercado de Capitais</div>
+          </div>
+        </div>
+        <div class="cert-finance-info-col">
+          <div class="cert-finance-pill">
+            <span class="cfp-icon">₿</span>
+            <div>
+              <div class="cfp-title">Bitcoin &amp; Criptoativos</div>
+              <div class="cfp-desc">Fundamentos de blockchain, tokenomics e análise de mercado de criptoativos</div>
+            </div>
+          </div>
+          <div class="cert-finance-pill">
+            <span class="cfp-icon">📊</span>
+            <div>
+              <div class="cfp-title">Mercado de Capitais</div>
+              <div class="cfp-desc">Renda variável, derivativos, valuation e estratégias de investimento na B3</div>
+            </div>
+          </div>
+          <div class="cert-finance-pill">
+            <span class="cfp-icon">📈</span>
+            <div>
+              <div class="cfp-title">Análise Econômica</div>
+              <div class="cfp-desc">Macroeconomia, política monetária, ciclos econômicos e análise fundamentalista</div>
+            </div>
+          </div>
+          <div class="cert-finance-pill">
+            <span class="cfp-icon">⚙</span>
+            <div>
+              <div class="cfp-title">FinTech &amp; Sistemas Financeiros</div>
+              <div class="cfp-desc">Operação de sistemas críticos em cooperativa de crédito de escala nacional</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -528,54 +671,51 @@
         </div>
       </div>
 
-<div class="proj-card fade-up fade-up-delay-1">
-  <div class="proj-img-wrap">
-    <img class="proj-img" src="assets/images/projeto2.jpg" alt="Arquitetura SOA e Middleware Corporativo" loading="lazy" />
-    <div class="proj-img-overlay"></div>
-  </div>
-  <div class="proj-body">
-    <div class="proj-tags">
-      <span class="proj-tag">SOA</span>
-      <span class="proj-tag">WebLogic</span>
-      <span class="proj-tag">OSB</span>
-      <span class="proj-tag">Oracle</span>
+      <div class="proj-card fade-up fade-up-delay-1">
+        <div class="proj-img-wrap">
+          <img class="proj-img" src="assets/images/projeto2.jpg" alt="Arquitetura SOA e Middleware Corporativo" loading="lazy" />
+          <div class="proj-img-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">SOA</span>
+            <span class="proj-tag">WebLogic</span>
+            <span class="proj-tag">OSB</span>
+            <span class="proj-tag">Oracle</span>
+          </div>
+          <div class="proj-name">Arquitetura SOA e Middleware Corporativo</div>
+          <p class="proj-desc">
+            Implementação e administração de ambientes corporativos com foco em
+            integração de serviços via OSB e WebLogic. Gerenciamento de cache com Varnish
+            e CacheCorp, servidores Apache e infraestrutura Linux em alta disponibilidade.
+          </p>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up fade-up-delay-2">
+        <div class="proj-img-wrap">
+          <img class="proj-img" src="assets/images/projeto3.jpg" alt="Análise de Mercado de Capitais" loading="lazy" />
+          <div class="proj-img-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">Renda Variável</span>
+            <span class="proj-tag">Derivativos</span>
+            <span class="proj-tag">Valuation</span>
+            <span class="proj-tag">B3</span>
+          </div>
+          <div class="proj-name">Análise de Mercado de Capitais</div>
+          <p class="proj-desc">
+            Estudo aprofundado de instrumentos financeiros, precificação de ativos e
+            estratégias de investimento. Foco em análise fundamentalista, técnica e
+            gestão de portfólios no mercado brasileiro e internacional.
+          </p>
+        </div>
+      </div>
+
     </div>
-    <div class="proj-name">Arquitetura SOA e Middleware Corporativo</div>
-    <p class="proj-desc">
-      Implementação e administração de ambientes corporativos com foco em 
-      integração de serviços via OSB e WebLogic. Gerenciamento de camadas de 
-      cache com Varnish e CacheCorp, servidores Apache e infraestrutura Linux, 
-      garantindo alta disponibilidade e performance em ambientes críticos.
-    </p>
   </div>
-</div>
-
-
-<div class="proj-card fade-up fade-up-delay-2">
-  <div class="proj-img-wrap">
-    <img class="proj-img" src="assets/images/projeto3.jpg" alt="Análise de Mercado de Capitais" loading="lazy" />
-    <div class="proj-img-overlay"></div>
-  </div>
-  <div class="proj-body">
-    <div class="proj-tags">
-      <span class="proj-tag">Renda Variável</span>
-      <span class="proj-tag">Derivativos</span>
-      <span class="proj-tag">Valuation</span>
-      <span class="proj-tag">B3</span>
-    </div>
-    <div class="proj-name">Análise de Mercado de Capitais</div>
-    <p class="proj-desc">
-      Estudo aprofundado de instrumentos financeiros, precificação de ativos e
-      estratégias de investimento. Foco em análise fundamentalista, técnica e
-      gestão de portfólios no mercado brasileiro e internacional.
-    </p>
-  </div>
-</div>
-
-</div>
-</div>
 </section>
-
 
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║         PREMIAÇÕES           ║ -->
@@ -657,6 +797,10 @@
       <div class="tech-item fade-up"><div class="tech-icon">⛅</div><div class="tech-name">Cloud</div></div>
       <div class="tech-item fade-up"><div class="tech-icon">🤖</div><div class="tech-name">IA</div></div>
       <div class="tech-item fade-up"><div class="tech-icon">⚡</div><div class="tech-name">Automação</div></div>
+      <!-- [NOVOS] itens de finanças/bitcoin integrados com elegância -->
+      <div class="tech-item tech-item-finance fade-up"><div class="tech-icon">₿</div><div class="tech-name">Bitcoin</div></div>
+      <div class="tech-item tech-item-finance fade-up"><div class="tech-icon">📉</div><div class="tech-name">Mercado Cap.</div></div>
+      <div class="tech-item tech-item-finance fade-up"><div class="tech-icon">🏦</div><div class="tech-name">FinTech</div></div>
     </div>
   </div>
 </section>
@@ -675,7 +819,8 @@
       <div>
         <p class="section-subtitle fade-up fade-up-delay-2" style="margin-bottom:0;">
           Estou disponível para discutir colaboração em projetos de transformação
-          tecnológica e economia.
+          tecnológica, liderança de plataformas críticas ou iniciativas na
+          intersecção entre tecnologia e mercado financeiro.
         </p>
 
         <div class="contact-links">
@@ -752,7 +897,7 @@
         <a href="#contato">Contato</a>
       </nav>
       <p class="footer-text">
-        © 2026 Anderson Schultz Ribeiro &nbsp;·&nbsp; DevOps SRE Engineer | Cloud | Economy &amp; Automation IA
+        © 2026 Anderson Schultz Ribeiro &nbsp;·&nbsp; DevOps SRE Engineer | Cloud | Economia | IA
       </p>
       <p class="footer-text" style="color:var(--text-muted);font-size:0.6rem;">
         Construído com HTML · CSS · JavaScript &nbsp;·&nbsp; Hospedado no GitHub Pages
