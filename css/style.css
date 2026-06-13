@@ -1,55 +1,49 @@
 /* ============================================================
-   Anderson Schultz Ribeiro — Portfolio Premium
+   Anderson Schultz Ribeiro — DevOps/SRE Premium Portfolio
    Design System: Deep-space dark, electric-cyan accents,
    monospace data-panel aesthetic
-   v2 — Consolidado e otimizado
    ============================================================ */
 
-/* ============================================================
-   VARIABLES
-   ============================================================ */
-
+/* === FONTS === */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap');
 
+/* === TOKENS === */
 :root {
-  --bg-void:        #020408;
-  --bg-deep:        #060d14;
-  --bg-panel:       #0a1628;
-  --bg-card:        #0d1f35;
-  --bg-glass:       rgba(13, 31, 53, 0.6);
+  --bg-void:       #020408;
+  --bg-deep:       #060d14;
+  --bg-panel:      #0a1628;
+  --bg-card:       #0d1f35;
+  --bg-glass:      rgba(13, 31, 53, 0.6);
 
-  --cyan:           #00d4ff;
-  --cyan-dim:       rgba(0, 212, 255, 0.15);
-  --cyan-glow:      rgba(0, 212, 255, 0.4);
-  --green:          #00ff88;
-  --green-dim:      rgba(0, 255, 136, 0.1);
-  --amber:          #ffb800;
-  --purple:         #7c3aed;
-  --red-alert:      #ff4757;
+  --cyan:          #00d4ff;
+  --cyan-dim:      rgba(0, 212, 255, 0.15);
+  --cyan-glow:     rgba(0, 212, 255, 0.4);
+  --green:         #00ff88;
+  --green-dim:     rgba(0, 255, 136, 0.1);
+  --amber:         #ffb800;
+  --purple:        #7c3aed;
+  --red-alert:     #ff4757;
 
-  --text-primary:   #e8f4fd;
-  --text-secondary: #8aa8c8;
-  --text-muted:     #4a6a8a;
-  --text-mono:      #00d4ff;
+  --text-primary:  #e8f4fd;
+  --text-secondary:#8aa8c8;
+  --text-muted:    #4a6a8a;
+  --text-mono:     #00d4ff;
 
-  --border:         rgba(0, 212, 255, 0.12);
-  --border-bright:  rgba(0, 212, 255, 0.35);
+  --border:        rgba(0, 212, 255, 0.12);
+  --border-bright: rgba(0, 212, 255, 0.35);
 
-  --font-display:   'Space Grotesk', sans-serif;
-  --font-body:      'Inter', sans-serif;
-  --font-mono:      'JetBrains Mono', monospace;
+  --font-display:  'Space Grotesk', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
 
-  --radius:         8px;
-  --radius-lg:      16px;
-  --transition:     0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-cyan:    0 0 30px rgba(0, 212, 255, 0.2);
-  --shadow-card:    0 8px 40px rgba(0, 0, 0, 0.6);
+  --radius:        8px;
+  --radius-lg:     16px;
+  --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-cyan:   0 0 30px rgba(0, 212, 255, 0.2);
+  --shadow-card:   0 8px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* ============================================================
-   RESET
-   ============================================================ */
-
+/* === RESET === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
@@ -63,15 +57,10 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
-/* ============================================================
-   GLOBAL
-   ============================================================ */
-
-/* Custom Cursor */
+/* === CUSTOM CURSOR === */
 #cursor {
   position: fixed;
-  width: 12px;
-  height: 12px;
+  width: 12px; height: 12px;
   background: var(--cyan);
   border-radius: 50%;
   pointer-events: none;
@@ -82,8 +71,7 @@ ul { list-style: none; }
 }
 #cursor-ring {
   position: fixed;
-  width: 36px;
-  height: 36px;
+  width: 36px; height: 36px;
   border: 1px solid var(--cyan-glow);
   border-radius: 50%;
   pointer-events: none;
@@ -93,39 +81,7 @@ ul { list-style: none; }
 }
 body:hover #cursor { opacity: 1; }
 
-/* Canvas Backgrounds */
-#bg-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-#btc-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-#btc-canvas.active { opacity: 1; }
-
-/* Penguin Rain */
-#penguin-rain {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  overflow: hidden;
-}
-.penguin-svg {
-  position: absolute;
-  top: -80px;
-  animation: penguinFall linear forwards;
-  will-change: transform, opacity;
-}
-
-/* Loading Screen */
+/* === LOADING SCREEN === */
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -166,57 +122,15 @@ body:hover #cursor { opacity: 1; }
   letter-spacing: 0.1em;
 }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-
-section {
-  position: relative;
-  z-index: 1;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-.section-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  color: var(--cyan);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-eyebrow::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--cyan);
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-}
-.section-title .accent { color: var(--cyan); }
-.section-subtitle {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
+/* === CANVAS BACKGROUND === */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* ============================================================
-   NAVBAR
-   ============================================================ */
-
+/* === NAV === */
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -272,10 +186,7 @@ section {
   font-weight: 700 !important;
   letter-spacing: 0.05em;
 }
-.nav-cta:hover {
-  background: var(--green) !important;
-  color: var(--bg-void) !important;
-}
+.nav-cta:hover { background: var(--green) !important; color: var(--bg-void) !important; }
 .hamburger {
   display: none;
   flex-direction: column;
@@ -290,32 +201,52 @@ section {
   background: var(--cyan);
   transition: var(--transition);
 }
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 68px; left: 0; right: 0;
-  background: rgba(2, 4, 8, 0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  padding: 24px 40px;
-  gap: 16px;
-  z-index: 999;
+
+/* === SECTIONS BASE === */
+section {
+  position: relative;
+  z-index: 1;
 }
-.mobile-nav.open { display: flex; }
-.mobile-nav a {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.section-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--cyan);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.section-title .accent { color: var(--cyan); }
+.section-subtitle {
+  font-size: 1rem;
   color: var(--text-secondary);
-  letter-spacing: 0.05em;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+  line-height: 1.7;
+  max-width: 600px;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
-
+/* === HERO === */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -345,11 +276,14 @@ section {
   margin-bottom: 24px;
 }
 .hero-badge .dot {
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   background: var(--green);
   border-radius: 50%;
   animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
 }
 .hero-name {
   font-family: var(--font-display);
@@ -468,6 +402,10 @@ section {
   border-radius: 50%;
   animation: pulse-bg 4s ease-in-out infinite;
 }
+@keyframes pulse-bg {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
 .hero-img-border {
   position: absolute;
   inset: 0;
@@ -491,8 +429,7 @@ section {
 }
 .hero-corner {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 20px; height: 20px;
   border-color: var(--cyan);
   border-style: solid;
   border-width: 0;
@@ -524,28 +461,12 @@ section {
   color: var(--green);
   border-color: rgba(0, 255, 136, 0.3);
 }
-.photo-hint {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--cyan);
-  letter-spacing: 0.12em;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  white-space: nowrap;
-  pointer-events: none;
-}
-#profile-photo {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
-
+/* === COUNTERS / METRICS BAR === */
 #metrics {
   padding: 0;
   position: relative;
@@ -588,7 +509,10 @@ section {
   margin-top: 6px;
 }
 
-#sobre { padding: 120px 0; }
+/* === SOBRE MIM === */
+#sobre {
+  padding: 120px 0;
+}
 .sobre-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -638,111 +562,7 @@ section {
   margin-top: 2px;
 }
 
-/* Hybrid Card — Perfil Profissional */
-.hybrid-card {
-  margin-top: 32px;
-  background: linear-gradient(135deg, rgba(13, 31, 53, 0.9), rgba(6, 13, 20, 0.9));
-  border: 1px solid var(--border-bright);
-  border-radius: var(--radius-lg);
-  padding: 24px 28px;
-  position: relative;
-  overflow: hidden;
-}
-.hybrid-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyan), var(--amber), var(--green));
-}
-.hybrid-card-header { margin-bottom: 20px; }
-.hybrid-card-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.hybrid-pillars {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.hybrid-pillar {
-  flex: 1;
-  text-align: center;
-}
-.hybrid-pillar-icon {
-  font-size: 1.6rem;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.hybrid-pillar-name {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-.hybrid-pillar-desc {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  letter-spacing: 0.03em;
-}
-.hybrid-connector {
-  font-size: 0.75rem;
-  color: var(--border-bright);
-  flex-shrink: 0;
-  font-weight: 300;
-}
-
-/* Skill Bars */
-.skill-bars-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.skill-bar-item { display: flex; flex-direction: column; gap: 6px; }
-.skill-bar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.skill-bar-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
-.skill-bar-pct {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-}
-.skill-bar-track {
-  height: 3px;
-  background: var(--bg-panel);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  width: 0%;
-  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ============================================================
-   EXPERIENCE
-   ============================================================ */
-
+/* === EXPERIÊNCIA === */
 #experiencia {
   padding: 120px 0;
   background: var(--bg-deep);
@@ -766,8 +586,7 @@ section {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
-  height: 3px;
+  width: 100%; height: 3px;
   background: linear-gradient(90deg, var(--cyan), var(--green));
   opacity: 0;
   transition: opacity var(--transition);
@@ -794,8 +613,7 @@ section {
 .exp-period::before {
   content: '';
   display: block;
-  width: 20px;
-  height: 1px;
+  width: 20px; height: 1px;
   background: var(--cyan);
 }
 .exp-tags {
@@ -853,8 +671,7 @@ section {
 }
 .timeline-dot.active::after {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   background: var(--cyan);
   border-radius: 50%;
 }
@@ -889,11 +706,10 @@ section {
   line-height: 1.5;
 }
 
-/* ============================================================
-   EDUCATION
-   ============================================================ */
-
-#formacao { padding: 120px 0; }
+/* === FORMAÇÃO === */
+#formacao {
+  padding: 120px 0;
+}
 .edu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -939,41 +755,7 @@ section {
   margin-top: auto;
 }
 
-/* Edu Card — Finance Variant */
-.edu-card-finance {
-  border-color: rgba(255, 184, 0, 0.22) !important;
-  background: linear-gradient(135deg, var(--bg-card), rgba(255, 184, 0, 0.04));
-}
-.edu-card-finance:hover {
-  border-color: rgba(255, 184, 0, 0.5) !important;
-  box-shadow: 0 8px 30px rgba(255, 184, 0, 0.08) !important;
-}
-.edu-level-finance {
-  background: rgba(255, 184, 0, 0.12) !important;
-  color: var(--amber) !important;
-  border: 1px solid rgba(255, 184, 0, 0.25);
-}
-.edu-finance-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-.edu-finance-tags span {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  border-radius: 3px;
-  background: rgba(255, 184, 0, 0.07);
-  color: var(--amber);
-  border: 1px solid rgba(255, 184, 0, 0.18);
-}
-
-/* ============================================================
-   CERTIFICATIONS
-   ============================================================ */
-
+/* === CERTIFICAÇÕES === */
 #certificacoes {
   padding: 120px 0;
   background: var(--bg-deep);
@@ -1011,7 +793,9 @@ section {
   inset: 0;
   background: linear-gradient(to top, var(--bg-card) 0%, transparent 60%);
 }
-.cert-info { padding: 20px 24px; }
+.cert-info {
+  padding: 20px 24px;
+}
 .cert-issuer {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -1051,72 +835,10 @@ section {
 }
 .cert-text-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
 
-/* Cert Finance Section */
-.cert-finance-section {
-  border-top: 1px solid var(--border);
-  padding-top: 56px;
+/* === PROJETOS === */
+#projetos {
+  padding: 120px 0;
 }
-.cert-finance-header { margin-bottom: 32px; }
-.cert-finance-title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-.cert-finance-title .accent { color: var(--amber); }
-.cert-finance-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
-}
-.cert-card-finance { border-color: rgba(255, 184, 0, 0.2) !important; }
-.cert-card-finance:hover {
-  border-color: rgba(255, 184, 0, 0.5) !important;
-  box-shadow: 0 8px 30px rgba(255, 184, 0, 0.08) !important;
-}
-.cert-issuer-finance { color: var(--amber) !important; }
-.cert-finance-info-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.cert-finance-pill {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  transition: border-color var(--transition);
-}
-.cert-finance-pill:hover { border-color: rgba(255, 184, 0, 0.3); }
-.cfp-icon {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  width: 28px;
-  text-align: center;
-  margin-top: 2px;
-}
-.cfp-title {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-.cfp-desc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ============================================================
-   PROJECTS
-   ============================================================ */
-
-#projetos { padding: 120px 0; }
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1130,7 +852,6 @@ section {
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .proj-card:hover { border-color: var(--border-bright); box-shadow: var(--shadow-cyan); }
-.proj-img-wrap { overflow: hidden; position: relative; }
 .proj-img {
   width: 100%;
   height: 200px;
@@ -1138,6 +859,7 @@ section {
   transition: transform 0.5s ease;
 }
 .proj-card:hover .proj-img { transform: scale(1.05); }
+.proj-img-wrap { overflow: hidden; position: relative; }
 .proj-img-overlay {
   position: absolute;
   inset: 0;
@@ -1164,10 +886,7 @@ section {
 }
 .proj-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
-/* ============================================================
-   AWARDS
-   ============================================================ */
-
+/* === PREMIAÇÕES === */
 #premiacoes {
   padding: 120px 0;
   background: var(--bg-deep);
@@ -1178,7 +897,9 @@ section {
   gap: 72px;
   align-items: center;
 }
-.award-img-wrap { position: relative; }
+.award-img-wrap {
+  position: relative;
+}
 .award-img-frame {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1217,6 +938,7 @@ section {
   opacity: 0.8;
   letter-spacing: 0.1em;
 }
+.award-content {}
 .award-event {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -1251,7 +973,11 @@ section {
   line-height: 1.8;
   margin-bottom: 32px;
 }
-.award-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.award-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .award-pill {
   display: flex;
   align-items: center;
@@ -1265,11 +991,10 @@ section {
   color: var(--amber);
 }
 
-/* ============================================================
-   TECHNOLOGIES
-   ============================================================ */
-
-#tecnologias { padding: 120px 0; }
+/* === TECNOLOGIAS === */
+#tecnologias {
+  padding: 120px 0;
+}
 .tech-subtitle { margin-bottom: 56px; }
 .tech-grid {
   display: grid;
@@ -1298,18 +1023,7 @@ section {
   letter-spacing: 0.05em;
 }
 
-/* Tech Item — Finance Variant */
-.tech-item-finance { border-color: rgba(255, 184, 0, 0.15); }
-.tech-item-finance:hover {
-  border-color: rgba(255, 184, 0, 0.45);
-  box-shadow: 0 0 20px rgba(255, 184, 0, 0.1);
-}
-.tech-item-finance .tech-name { color: var(--amber); }
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-
+/* === CONTATO === */
 #contato {
   padding: 120px 0;
   background: var(--bg-deep);
@@ -1365,8 +1079,7 @@ section {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.form-input,
-.form-textarea {
+.form-input, .form-textarea {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -1378,13 +1091,11 @@ section {
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
 }
-.form-input:focus,
-.form-textarea:focus {
+.form-input:focus, .form-textarea:focus {
   border-color: var(--border-bright);
   box-shadow: 0 0 0 3px var(--cyan-dim);
 }
-.form-input::placeholder,
-.form-textarea::placeholder { color: var(--text-muted); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
 .form-textarea { height: 140px; resize: vertical; }
 .form-submit {
   background: linear-gradient(135deg, var(--cyan), #0099cc);
@@ -1417,16 +1128,9 @@ section {
   border-radius: var(--radius);
   display: none;
 }
-#form-message.success {
-  background: var(--green-dim);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  color: var(--green);
-}
+#form-message.success { background: var(--green-dim); border: 1px solid rgba(0, 255, 136, 0.3); color: var(--green); }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
+/* === FOOTER === */
 footer {
   background: var(--bg-void);
   border-top: 1px solid var(--border);
@@ -1452,7 +1156,10 @@ footer {
   color: var(--text-muted);
   letter-spacing: 0.1em;
 }
-.footer-nav { display: flex; gap: 24px; }
+.footer-nav {
+  display: flex;
+  gap: 24px;
+}
 .footer-nav a {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -1462,11 +1169,7 @@ footer {
 }
 .footer-nav a:hover { color: var(--cyan); }
 
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
-
-/* Scroll Reveal */
+/* === SCROLL ANIMATIONS === */
 .fade-up {
   opacity: 0;
   transform: translateY(32px);
@@ -1478,7 +1181,342 @@ footer {
 .fade-up-delay-3 { transition-delay: 0.3s; }
 .fade-up-delay-4 { transition-delay: 0.4s; }
 
-/* Bitcoin Mode */
+/* === MOBILE NAV === */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: rgba(2, 4, 8, 0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 40px;
+  gap: 16px;
+  z-index: 999;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+  .hero-stats { justify-content: center; }
+  .hero-actions { justify-content: center; }
+  .hero-subtitle { max-width: 100%; }
+  .hero-img-wrap { order: -1; }
+  .hero-img-frame { width: 280px; height: 320px; margin: 0 auto; }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .exp-timeline { grid-template-columns: 1fr; }
+  .award-feature { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  #navbar { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .metric-item:nth-child(2) { border-right: none; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .cert-extra { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-img-frame { width: 240px; height: 280px; }
+  section { padding: 80px 0; }
+  .hero-float-badge { display: none; }
+}
+@media (max-width: 480px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+}
+
+/* ============================================================
+   ADIÇÕES v2 — Economia · Easter Egg · Bitcoin Mode
+   Todos os estilos novos foram ADICIONADOS ao final do arquivo.
+   Nenhum estilo original foi alterado.
+   ============================================================ */
+
+/* === [NOVO] CANVAS BITCOIN (sobreposto, oculto por padrão) === */
+#btc-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;           /* mesmo z-index do bg-canvas */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+#btc-canvas.active { opacity: 1; }
+
+/* === [NOVO] CONTAINER PINGUINS === */
+#penguin-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+.penguin-svg {
+  position: absolute;
+  top: -80px;
+  animation: penguinFall linear forwards;
+  will-change: transform, opacity;
+}
+@keyframes penguinFall {
+  0%   { transform: translateY(0) rotate(0deg);   opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(20deg); opacity: 0; }
+}
+
+/* === [NOVO] EASTER EGG — FOTO HERO === */
+#profile-photo {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+#profile-img-border.egg-active #profile-photo {
+  /* nenhum estilo extra — JS controla via classe */
+}
+.photo-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+/* Mostrar hint no mobile (hover impossível) */
+@media (hover: none) {
+  .photo-hint { opacity: 0.6; }
+}
+
+/* === [NOVO] CARD PERFIL HÍBRIDO (Sobre Mim) === */
+.hybrid-card {
+  margin-top: 32px;
+  background: linear-gradient(135deg, rgba(13,31,53,0.9), rgba(6,13,20,0.9));
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.hybrid-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--amber), var(--green));
+}
+.hybrid-card-header {
+  margin-bottom: 20px;
+}
+.hybrid-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.hybrid-pillars {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hybrid-pillar {
+  flex: 1;
+  text-align: center;
+}
+.hybrid-pillar-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hybrid-pillar-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.hybrid-pillar-desc {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+.hybrid-connector {
+  font-size: 0.75rem;
+  color: var(--border-bright);
+  flex-shrink: 0;
+  font-weight: 300;
+}
+@media (max-width: 600px) {
+  .hybrid-pillars { flex-direction: column; gap: 12px; }
+  .hybrid-connector { display: none; }
+}
+
+/* === [NOVO] BARRAS DE COMPETÊNCIAS === */
+.skill-bars-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.skill-bar-item { display: flex; flex-direction: column; gap: 6px; }
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.skill-bar-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.skill-bar-pct {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+.skill-bar-track {
+  height: 3px;
+  background: var(--bg-panel);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0%;                        /* animado via JS */
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === [NOVO] CARD FORMAÇÃO FINANÇAS DESTACADO === */
+.edu-card-finance {
+  border-color: rgba(255,184,0,0.22) !important;
+  background: linear-gradient(135deg, var(--bg-card), rgba(255,184,0,0.04));
+}
+.edu-card-finance:hover {
+  border-color: rgba(255,184,0,0.5) !important;
+  box-shadow: 0 8px 30px rgba(255,184,0,0.08) !important;
+}
+.edu-level-finance {
+  background: rgba(255,184,0,0.12) !important;
+  color: var(--amber) !important;
+  border: 1px solid rgba(255,184,0,0.25);
+}
+.edu-finance-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.edu-finance-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(255,184,0,0.07);
+  color: var(--amber);
+  border: 1px solid rgba(255,184,0,0.18);
+}
+
+/* === [NOVO] SEÇÃO CERTIFICADO ECONOMIA === */
+.cert-finance-section {
+  border-top: 1px solid var(--border);
+  padding-top: 56px;
+}
+.cert-finance-header { margin-bottom: 32px; }
+.cert-finance-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.cert-finance-title .accent { color: var(--amber); }
+.cert-finance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.cert-card-finance {
+  border-color: rgba(255,184,0,0.2) !important;
+}
+.cert-card-finance:hover {
+  border-color: rgba(255,184,0,0.5) !important;
+  box-shadow: 0 8px 30px rgba(255,184,0,0.08) !important;
+}
+.cert-issuer-finance { color: var(--amber) !important; }
+.cert-finance-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cert-finance-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  transition: border-color var(--transition);
+}
+.cert-finance-pill:hover { border-color: rgba(255,184,0,0.3); }
+.cfp-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  margin-top: 2px;
+}
+.cfp-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.cfp-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .cert-finance-grid { grid-template-columns: 1fr; }
+}
+
+/* === [NOVO] TECH ITEMS FINANÇAS — cor âmbar sutil === */
+.tech-item-finance {
+  border-color: rgba(255,184,0,0.15);
+}
+.tech-item-finance:hover {
+  border-color: rgba(255,184,0,0.45);
+  box-shadow: 0 0 20px rgba(255,184,0,0.1);
+}
+.tech-item-finance .tech-name { color: var(--amber); }
+
+/* === [NOVO] MODO BITCOIN — overlay de fundo === */
 body.btc-mode #bg-canvas {
   opacity: 0;
   transition: opacity 1s ease;
@@ -1488,73 +1526,158 @@ body.btc-mode-restore #bg-canvas {
   transition: opacity 1.5s ease;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.2; }
-}
-@keyframes pulse-bg {
-  0%, 100% { transform: scale(1);    opacity: 0.6; }
-  50%      { transform: scale(1.08); opacity: 1; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-@keyframes penguinFall {
-  0%   { transform: translateY(0) rotate(0deg);      opacity: 1; }
-  80%  { opacity: 1; }
-  100% { transform: translateY(110vh) rotate(20deg); opacity: 0; }
+/* === RESPONSIVIDADE adicional === */
+@media (max-width: 768px) {
+  .hybrid-pillar-name { font-size: 0.8rem; }
 }
 
 /* ============================================================
-   MEDIA QUERIES
+   AUDITORIA DESKTOP — Correções de Compatibilidade
+   Mobile = referência. Estes ajustes alinham o comportamento
+   Desktop/Notebook/2K/4K/Ultrawide ao já validado em mobile.
+   Nenhuma cor, animação ou componente foi removido.
    ============================================================ */
 
-@media (max-width: 1024px) {
-  .hero-grid         { grid-template-columns: 1fr; text-align: center; gap: 48px; }
-  .hero-stats        { justify-content: center; }
-  .hero-actions      { justify-content: center; }
-  .hero-subtitle     { max-width: 100%; }
-  .hero-img-wrap     { order: -1; }
-  .hero-img-frame    { width: 280px; height: 320px; margin: 0 auto; }
-  .sobre-grid        { grid-template-columns: 1fr; }
-  .exp-timeline      { grid-template-columns: 1fr; }
-  .award-feature     { grid-template-columns: 1fr; }
-  .contact-grid      { grid-template-columns: 1fr; }
-  .proj-grid         { grid-template-columns: repeat(2, 1fr); }
-  .cert-grid         { grid-template-columns: 1fr; }
+/* ── FIX 1 & 2: Cursor customizado — evita "salto" no canto
+   superior esquerdo antes do primeiro mousemove e some
+   completamente caso o JS não tenha disparado ainda ── */
+#cursor, #cursor-ring {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.1s, width 0.2s, height 0.2s, border-color 0.3s;
+}
+#cursor.active, #cursor-ring.active { opacity: 1; }
+
+/* Fallback: em dispositivos sem mouse (touch), nunca esconder
+   o cursor do sistema — evita "tela sem cursor" em híbridos
+   (notebooks touchscreen) */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
 }
 
-@media (max-width: 768px) {
-  .container                    { padding: 0 24px; }
-  #navbar                       { padding: 0 24px; }
-  .nav-links                    { display: none; }
-  .hamburger                    { display: flex; }
-  .metrics-grid                 { grid-template-columns: repeat(2, 1fr); }
-  .metric-item:nth-child(2)     { border-right: none; }
-  .proj-grid                    { grid-template-columns: 1fr; }
-  .cert-extra                   { grid-template-columns: 1fr; }
-  .cert-finance-grid            { grid-template-columns: 1fr; }
-  .tech-grid                    { grid-template-columns: repeat(3, 1fr); }
-  .hero-img-frame               { width: 240px; height: 280px; }
-  .hero-float-badge             { display: none; }
-  .hybrid-pillar-name           { font-size: 0.8rem; }
-  .hybrid-pillars               { flex-direction: column; gap: 12px; }
-  .hybrid-connector             { display: none; }
-  section                       { padding: 80px 0; }
+/* ── FIX 3: Limitar densidade visual de partículas/btc-canvas
+   em telas muito largas (2K/4K/Ultrawide) via container central
+   — o canvas continua full-bleed, mas adicionamos uma máscara
+   suave nas bordas para não competir com o conteúdo central ── */
+@media (min-width: 1920px) {
+  #bg-canvas, #btc-canvas {
+    mask-image: radial-gradient(ellipse 80% 80% at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.35) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.35) 100%);
+  }
 }
 
-@media (max-width: 600px) {
-  .hybrid-pillars   { flex-direction: column; gap: 12px; }
-  .hybrid-connector { display: none; }
+/* ── FIX 4: Hero — impedir que o glow (.hero-img-bg) vaze
+   visualmente para fora do card em telas largas, e estabilizar
+   proporção do frame entre 1366px–1920px ── */
+.hero-img-wrap {
+  overflow: visible; /* mantém badges flutuantes visíveis */
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hero-img-frame { width: 320px; height: 380px; }
+}
+@media (min-width: 1441px) {
+  .hero-img-frame { width: 380px; height: 440px; }
 }
 
-@media (max-width: 480px) {
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-  .tech-grid    { grid-template-columns: repeat(2, 1fr); }
-  .hero-stats   { flex-wrap: wrap; gap: 24px; }
+/* ── FIX 5: Badges flutuantes — impedir overflow horizontal
+   em notebooks com largura efetiva entre 1024px–1280px, onde
+   o badge-top (right:-20px) pode ultrapassar o container ── */
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .hero-float-badge.badge-top  { right: -8px; }
+  .hero-float-badge.badge-bottom { left: -8px; }
 }
 
+/* Garante que elementos absolutos do hero nunca criem scroll
+   horizontal em nenhuma resolução desktop */
+#hero, .hero-grid, .hero-img-wrap { max-width: 100%; }
+
+/* ── FIX 6: Easter Egg — badges flutuantes e cantos decorativos
+   não devem interromper o hover do frame da foto. Sem alterar
+   a animação, apenas removemos da árvore de eventos de mouse ── */
+.hero-float-badge,
+.hero-corner,
+.hero-img-overlay,
+.hero-img-bg,
+.photo-hint {
+  pointer-events: none;
+}
+/* O elemento que efetivamente recebe hover/click é a própria
+   moldura da foto — comportamento idêntico ao touch no mobile */
+#profile-img-border { pointer-events: auto; }
+
+/* ── FIX 7: Canvas em telas HiDPI/Retina/4K — evita canvas
+   borrado/desalinhado quando devicePixelRatio > 1. O JS aplica
+   o scale via setTransform; aqui garantimos que o elemento
+   <canvas> sempre ocupe 100% do viewport visual ── */
+#bg-canvas, #btc-canvas {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+/* ── FIX 8: Métricas — em ultrawide, limita o crescimento do
+   número para manter proporção com o label, sem alterar a
+   fonte (apenas via clamp, mantendo 2.8rem como teto atual) ── */
+@media (min-width: 1920px) {
+  .metric-num { font-size: clamp(2.4rem, 2vw, 3.2rem); }
+}
+
+/* ── FIX 9: Tipografia em monitores 2K/4K — permite que os
+   títulos cresçam levemente acima do cap atual em telas muito
+   grandes, evitando sensação de "zoom out" excessivo,
+   preservando os mesmos clamps em resoluções menores ── */
+@media (min-width: 2560px) {
+  .section-title { font-size: clamp(2rem, 3.2vw, 3.6rem); }
+  .hero-name     { font-size: clamp(2.2rem, 3.6vw, 4.4rem); }
+  .container     { max-width: 1400px; }
+}
+
+/* ── FIX 10: Garantia geral anti-overflow horizontal desktop
+   (Edge/Chrome/Firefox) — alguns navegadores desktop calculam
+   100vw incluindo a scrollbar, gerando ~15-17px de overflow
+   horizontal que não existe em mobile (sem scrollbar) ── */
+html, body { max-width: 100%; overflow-x: hidden; }
+.container, section, #navbar { max-width: 100vw; }
+
+/* ── FIX 11: Hover states — reforça que cards com hover
+   (.cert-card, .proj-card, .tech-item, .exp-block, .edu-card)
+   só aplicam transform em dispositivos com mouse, replicando
+   exatamente a ausência de "hover travado" do touch no mobile ── */
+@media (hover: hover) and (pointer: fine) {
+  /* hovers já definidos no arquivo aplicam normalmente aqui */
+}
 @media (hover: none) {
-  .photo-hint { opacity: 0.6; }
+  /* Em touch, neutraliza qualquer :hover residual de cards
+     para impedir estado "preso" após o tap — igual ao mobile atual */
+  .cert-card:hover .cert-img-wrap img,
+  .proj-card:hover .proj-img,
+  .tech-item:hover,
+  .exp-block:hover,
+  .edu-card:hover,
+  .info-panel:hover,
+  .contact-link:hover,
+  .cert-finance-pill:hover,
+  .edu-card-finance:hover,
+  .cert-card-finance:hover,
+  .tech-item-finance:hover {
+    transform: none;
+  }
+}
+
+/* ── FIX 12: Notebooks 1366px — .edu-grid com minmax(340px,1fr)
+   pode gerar 3 colunas com sobra de espaço estreito (~20px)
+   causando quebra de linha feia no card de finanças com tags.
+   Ajuste mínimo de minmax para telas médias ── */
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .edu-grid { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+}
+
+/* ── FIX 13: Navbar — em desktop com zoom de navegador >100%,
+   nav-links pode quebrar para segunda linha antes do breakpoint
+   de 768px. Adiciona folga de segurança entre 769px–900px ── */
+@media (min-width: 769px) and (max-width: 900px) {
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 6px 8px; font-size: 0.68rem; }
+  .nav-cta { padding: 6px 12px !important; }
 }
