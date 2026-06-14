@@ -1209,29 +1209,87 @@
       </div>
 
       <div class="fade-up fade-up-delay-1">
-        <form class="contact-form" id="contact-form" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="name">Nome</label>
-            <input class="form-input" id="name" type="text" placeholder="Seu nome completo" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-mail</label>
-            <input class="form-input" id="email" type="email" placeholder="seu@email.com" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="subject">Assunto</label>
-            <input class="form-input" id="subject" type="text" placeholder="Oportunidade / Projeto / Consumo da Vida / Colaboração" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Mensagem</label>
-            <textarea class="form-textarea" id="message" placeholder="Conte sobre sua empresa, a oportunidade ou o tema que deseja discutir..." required></textarea>
-          </div>
-          <div id="form-message"></div>
-          <button type="submit" class="form-submit">
-            ✈ &nbsp;Enviar Mensagem
-          </button>
-          <p class="form-note">Formulário visual · Resposta via e-mail ou LinkedIn</p>
-        </form>
+       <form
+  class="contact-form"
+  id="contact-form"
+  action="https://formsubmit.co/anderson.schultz@me.com"
+  data-endpoint="https://formsubmit.co/ajax/anderson.schultz@me.com"
+  method="POST"
+  novalidate
+>
+  <!-- Configurações FormSubmit -->
+  <input type="hidden" name="_subject" id="form-submit-subject" value="Nova mensagem pelo portfólio — Anderson Schultz Ribeiro" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+
+  <!-- Honeypot anti-spam simples -->
+  <input
+    type="text"
+    name="_honey"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+    style="display:none"
+  />
+
+  <div class="form-group">
+    <label class="form-label" for="name">Nome</label>
+    <input
+      class="form-input"
+      id="name"
+      name="Nome"
+      type="text"
+      placeholder="Seu nome completo"
+      autocomplete="name"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="email">E-mail</label>
+    <input
+      class="form-input"
+      id="email"
+      name="email"
+      type="email"
+      placeholder="seu@email.com"
+      autocomplete="email"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="subject">Assunto</label>
+    <input
+      class="form-input"
+      id="subject"
+      name="Assunto"
+      type="text"
+      placeholder="Oportunidade / Projeto / Consumo da Vida / Colaboração"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="message">Mensagem</label>
+    <textarea
+      class="form-textarea"
+      id="message"
+      name="Mensagem"
+      placeholder="Conte sobre sua empresa, a oportunidade ou o tema que deseja discutir..."
+      required
+    ></textarea>
+  </div>
+
+  <div id="form-message" role="status" aria-live="polite"></div>
+
+  <button type="submit" class="form-submit">
+    ✈ &nbsp;Enviar Mensagem
+  </button>
+
+  <p class="form-note">Formulário seguro · Resposta via e-mail ou LinkedIn</p>
+</form>
+
       </div>
     </div>
   </div>
