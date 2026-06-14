@@ -1880,6 +1880,38 @@ section {
   border: 1px solid rgba(0, 255, 136, 0.3);
   color: var(--green);
 }
+#form-message.error {
+  display: block;
+  background: rgba(255, 71, 87, 0.08);
+  border: 1px solid rgba(255, 71, 87, 0.35);
+  color: var(--red-alert);
+}
+
+#form-message.info {
+  display: block;
+  background: var(--cyan-dim);
+  border: 1px solid var(--border-bright);
+  color: var(--cyan);
+}
+
+.form-input[aria-invalid="true"],
+.form-textarea[aria-invalid="true"] {
+  border-color: rgba(255, 71, 87, 0.65);
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.08);
+}
+
+.form-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-submit:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 
 /* ============================================================
    FOOTER
