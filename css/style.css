@@ -1,6 +1,6 @@
 /* ============================================================
    Anderson Schultz Ribeiro — DevOps/SRE Premium Portfolio
-   v3.0 PROD — Consolidado, auditado, desktop-ready
+   v3.1 PROD — Cursor "Folha Viva" integrado, auditado
    Design System: Deep-space dark, electric-cyan accents
    ============================================================ */
 
@@ -63,7 +63,7 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   max-width: 100%;
-  cursor: none;
+  cursor: auto; /* cursor nativo — JS assume após primeiro mousemove */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -72,48 +72,208 @@ img {
   height: auto;
   display: block;
 }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-button { cursor: none; }
+a    { color: inherit; text-decoration: none; }
+ul   { list-style: none; }
+/* Botão com cursor padrão do sistema enquanto JS não ativa */
+button { cursor: pointer; }
 
-/* === CURSOR CUSTOMIZADO === */
-#cursor {
+/* ============================================================
+   CURSOR SYSTEM — "Folha Viva"
+   Tema: Consumo Consciente · Sustentabilidade · Bem-estar
+   Estratégia de segurança:
+   · cursor: none SOMENTE após JS confirmar suporte via classe
+   · Fallback automático: cursor nativo visível sem JS
+   · Touch/mobile: sistema desativado, cursor nativo restaurado
+   ============================================================ */
+
+/* ── cursor: none via classe JS — nunca aplicado no reset ─── */
+body.custom-cursor-active {
+  cursor: none;
+}
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [role="button"],
+body.custom-cursor-active label,
+body.custom-cursor-active select,
+body.custom-cursor-active input,
+body.custom-cursor-active textarea,
+body.custom-cursor-active [tabindex],
+body.custom-cursor-active .cert-card,
+body.custom-cursor-active .proj-card,
+body.custom-cursor-active .tech-item,
+body.custom-cursor-active .edu-card,
+body.custom-cursor-active .exp-block,
+body.custom-cursor-active .contact-link,
+body.custom-cursor-active .hamburger,
+body.custom-cursor-active .nav-links a,
+body.custom-cursor-active .nav-cta,
+body.custom-cursor-active .btn-primary,
+body.custom-cursor-active .btn-ghost,
+body.custom-cursor-active .btn-consumo-vida,
+body.custom-cursor-active .proj-consumo-link,
+body.custom-cursor-active .cdv-mvp-card,
+body.custom-cursor-active .cdv-pillar-card,
+body.custom-cursor-active .cdv-conv-item,
+body.custom-cursor-active .info-panel,
+body.custom-cursor-active .form-submit {
+  cursor: none;
+}
+
+/* ── Elementos base — ocultos até JS inicializar ───────────── */
+#cursor-dot,
+#cursor-ring,
+#cursor-trail-container {
   position: fixed;
-  width: 12px;
-  height: 12px;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.4s ease,
+              width  0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease,
+              border-radius 0.3s ease;
+  will-change: transform, opacity;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Visível após primeiro mousemove (JS adiciona .cursor-ready) */
+#cursor-dot.cursor-ready,
+#cursor-ring.cursor-ready,
+#cursor-trail-container.cursor-ready {
+  opacity: 1;
+}
+
+/* ── Ponto central — forma de folha ───────────────────────── */
+#cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--green);
+  border-radius: 50% 0 50% 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow:
+    0 0 8px  rgba(0, 255, 136, 0.9),
+    0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+/* Folha vira ciano sobre clicáveis */
+body.custom-cursor-active.cursor-on-link #cursor-dot {
+  width: 13px;
+  height: 13px;
   background: var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: screen;
+  border-radius: 50% 0 50% 0;
+  box-shadow:
+    0 0 10px rgba(0, 212, 255, 0.9),
+    0 0 24px rgba(0, 212, 255, 0.5);
 }
+
+/* Folha some sobre campos de texto */
+body.custom-cursor-active.cursor-on-input #cursor-dot {
+  opacity: 0;
+}
+
+/* ── Anel externo — círculo orgânico ──────────────────────── */
 #cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--cyan-glow);
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(0, 255, 136, 0.45);
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.15s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+  background: rgba(0, 255, 136, 0.03);
 }
-#cursor.active  { opacity: 1; }
-#cursor-ring.active { opacity: 1; }
 
-/* Touch / coarse pointer: restaura cursor do sistema */
+/* Anel expande e muda forma sobre links */
+body.custom-cursor-active.cursor-on-link #cursor-ring {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(0, 212, 255, 0.55);
+  border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+  background: rgba(0, 212, 255, 0.04);
+}
+
+/* Anel vira barra de texto sobre inputs */
+body.custom-cursor-active.cursor-on-input #cursor-ring {
+  width: 3px;
+  height: 28px;
+  border-radius: 2px;
+  border-color: rgba(0, 212, 255, 0.9);
+  background: rgba(0, 212, 255, 0.2);
+}
+
+/* ── Trail de partículas ──────────────────────────────────── */
+#cursor-trail-container {
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  transform: none;
+  overflow: visible;
+  z-index: 99998;
+}
+
+.cursor-trail-particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50% 0 50% 0;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+/* ── Canvas e overlays não bloqueiam eventos de mouse ─────── */
+#bg-canvas,
+#btc-canvas,
+#penguin-rain {
+  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Easter Egg: transição suave na troca de foto ─────────── */
+#profile-photo {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* ── Touch / dispositivo sem mouse ────────────────────────── */
 @media (hover: none) and (pointer: coarse) {
-  body { cursor: auto; }
-  button { cursor: pointer; }
-  #cursor,
-  #cursor-ring { display: none !important; }
+  html,
+  body {
+    cursor: auto !important;
+  }
+  body.custom-cursor-active {
+    cursor: auto !important;
+  }
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"],
+  body.custom-cursor-active label,
+  body.custom-cursor-active select,
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active .form-submit {
+    cursor: pointer !important;
+  }
+  #cursor-dot,
+  #cursor-ring,
+  #cursor-trail-container {
+    display: none !important;
+    opacity: 0 !important;
+  }
 }
 
-/* === LOADING SCREEN === */
+/* ── Acessibilidade: redução de movimento ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-trail-particle {
+    display: none;
+  }
+  #cursor-dot,
+  #cursor-ring {
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -158,7 +318,9 @@ button { cursor: none; }
   letter-spacing: 0.1em;
 }
 
-/* === CANVAS LAYERS === */
+/* ============================================================
+   CANVAS LAYERS
+   ============================================================ */
 #bg-canvas {
   position: fixed;
   inset: 0;
@@ -192,7 +354,9 @@ button { cursor: none; }
   }
 }
 
-/* === BITCOIN MODE === */
+/* ============================================================
+   BITCOIN MODE
+   ============================================================ */
 body.btc-mode #bg-canvas {
   opacity: 0;
   transition: opacity 1s ease;
@@ -202,7 +366,9 @@ body.btc-mode-restore #bg-canvas {
   transition: opacity 1.5s ease;
 }
 
-/* === PENGUIN RAIN === */
+/* ============================================================
+   PENGUIN RAIN
+   ============================================================ */
 #penguin-rain {
   position: fixed;
   inset: 0;
@@ -222,24 +388,27 @@ body.btc-mode-restore #bg-canvas {
   100% { transform: translateY(110vh) rotate(20deg); opacity: 0; }
 }
 
-/* === CONTAINER === */
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .container {
-  max-width: 1200px;
+  max-width: min(1200px, 100vw);
   margin: 0 auto;
   padding: 0 40px;
-  max-width: 100vw; /* anti-overflow fallback */
 }
-/* Sobrescreve o max-width fallback acima com o valor real */
-.container { max-width: min(1200px, 100vw); }
 
-/* === SECTIONS BASE === */
+/* ============================================================
+   SECTIONS BASE
+   ============================================================ */
 section {
   position: relative;
   z-index: 1;
   max-width: 100%;
 }
 
-/* === TYPOGRAPHY HELPERS === */
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
 .section-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -275,7 +444,9 @@ section {
   max-width: 600px;
 }
 
-/* === SCROLL ANIMATIONS === */
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
 .fade-up {
   opacity: 0;
   transform: translateY(32px);
@@ -306,7 +477,9 @@ section {
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
-  transition: background var(--transition), backdrop-filter var(--transition), border-color var(--transition);
+  transition: background var(--transition),
+              backdrop-filter var(--transition),
+              border-color var(--transition);
   max-width: 100vw;
 }
 #navbar.scrolled {
@@ -554,7 +727,7 @@ section {
   margin-top: 4px;
 }
 
-/* Hero Image */
+/* ── Hero Image ───────────────────────────────────────────── */
 .hero-img-wrap {
   position: relative;
   display: flex;
@@ -576,7 +749,7 @@ section {
   pointer-events: none;
 }
 @keyframes pulse-bg {
-  0%, 100% { transform: scale(1);    opacity: 0.6; }
+  0%, 100% { transform: scale(1);     opacity: 0.6; }
   50%       { transform: scale(1.08); opacity: 1;   }
 }
 .hero-img-border {
@@ -593,6 +766,8 @@ section {
   object-fit: cover;
   object-position: top;
   filter: brightness(0.9) contrast(1.05);
+  /* Transição para o Easter Egg de troca de foto */
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 .hero-img-overlay {
   position: absolute;
@@ -610,10 +785,10 @@ section {
   border-width: 0;
   pointer-events: none;
 }
-.hero-corner.tl { top: -8px;    left: -8px;  border-top-width: 2px; border-left-width: 2px;   }
-.hero-corner.tr { top: -8px;    right: -8px; border-top-width: 2px; border-right-width: 2px;  }
+.hero-corner.tl { top: -8px;    left: -8px;  border-top-width: 2px; border-left-width: 2px;    }
+.hero-corner.tr { top: -8px;    right: -8px; border-top-width: 2px; border-right-width: 2px;   }
 .hero-corner.bl { bottom: -8px; left: -8px;  border-bottom-width: 2px; border-left-width: 2px; }
-.hero-corner.br { bottom: -8px; right: -8px; border-bottom-width: 2px; border-right-width: 2px; }
+.hero-corner.br { bottom: -8px; right: -8px; border-bottom-width: 2px; border-right-width: 2px;}
 .hero-float-badge {
   position: absolute;
   background: var(--bg-card);
@@ -1887,12 +2062,12 @@ footer {
   text-align: center;
   margin-top: 1px;
 }
-.cdv-orbit-item-1 { transform: rotate(0deg)   translate(110px) rotate(0deg);     animation: orbitRotate1 12s linear infinite; }
-.cdv-orbit-item-2 { transform: rotate(60deg)  translate(110px) rotate(-60deg);   animation: orbitRotate2 12s linear infinite; animation-delay: -2s; }
-.cdv-orbit-item-3 { transform: rotate(120deg) translate(110px) rotate(-120deg);  animation: orbitRotate3 12s linear infinite; animation-delay: -4s; }
-.cdv-orbit-item-4 { transform: rotate(180deg) translate(110px) rotate(-180deg);  animation: orbitRotate4 12s linear infinite; animation-delay: -6s; }
-.cdv-orbit-item-5 { transform: rotate(240deg) translate(110px) rotate(-240deg);  animation: orbitRotate5 12s linear infinite; animation-delay: -8s; }
-.cdv-orbit-item-6 { transform: rotate(300deg) translate(110px) rotate(-300deg);  animation: orbitRotate6 12s linear infinite; animation-delay: -10s; }
+.cdv-orbit-item-1 { transform: rotate(0deg)   translate(110px) rotate(0deg);    animation: orbitRotate1 12s linear infinite; }
+.cdv-orbit-item-2 { transform: rotate(60deg)  translate(110px) rotate(-60deg);  animation: orbitRotate2 12s linear infinite; animation-delay: -2s;  }
+.cdv-orbit-item-3 { transform: rotate(120deg) translate(110px) rotate(-120deg); animation: orbitRotate3 12s linear infinite; animation-delay: -4s;  }
+.cdv-orbit-item-4 { transform: rotate(180deg) translate(110px) rotate(-180deg); animation: orbitRotate4 12s linear infinite; animation-delay: -6s;  }
+.cdv-orbit-item-5 { transform: rotate(240deg) translate(110px) rotate(-240deg); animation: orbitRotate5 12s linear infinite; animation-delay: -8s;  }
+.cdv-orbit-item-6 { transform: rotate(300deg) translate(110px) rotate(-300deg); animation: orbitRotate6 12s linear infinite; animation-delay: -10s; }
 
 @keyframes orbitRotate1 { from { transform: rotate(0deg)   translate(110px) rotate(0deg);    } to { transform: rotate(360deg)  translate(110px) rotate(-360deg);  } }
 @keyframes orbitRotate2 { from { transform: rotate(60deg)  translate(110px) rotate(-60deg);  } to { transform: rotate(420deg)  translate(110px) rotate(-420deg);  } }
@@ -2048,7 +2223,7 @@ footer {
   min-width: 0;
 }
 
-/* CTA — Botão único Consumo da Vida */
+/* CTA */
 .cdv-cta {
   background: linear-gradient(135deg, rgba(0, 255, 136, 0.06), rgba(0, 212, 255, 0.04));
   border: 1px solid rgba(0, 255, 136, 0.25);
@@ -2136,7 +2311,7 @@ footer {
 }
 
 /* ============================================================
-   RESPONSIVIDADE — Desktop FIX + Mobile
+   RESPONSIVIDADE
    ============================================================ */
 
 /* ── Ultrawide 2560px+ ──────────────────────────────────── */
@@ -2170,18 +2345,16 @@ footer {
 
 /* ── Navbar — zoom alto (769px–900px) ───────────────────── */
 @media (min-width: 769px) and (max-width: 900px) {
-  .nav-links     { gap: 2px; }
-  .nav-links a   { padding: 6px 8px; font-size: 0.65rem; }
-  .nav-cta       { padding: 6px 10px !important; }
+  .nav-links   { gap: 2px; }
+  .nav-links a { padding: 6px 8px; font-size: 0.65rem; }
+  .nav-cta     { padding: 6px 10px !important; }
 }
 
 /* ── Tablet / Laptop <1024px ────────────────────────────── */
 @media (max-width: 1024px) {
-  /* Nav */
   .nav-links  { display: none; }
   .hamburger  { display: flex; }
 
-  /* Hero */
   .hero-grid      { grid-template-columns: 1fr; text-align: center; gap: 48px; }
   .hero-subtitle  { max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero-actions   { justify-content: center; }
@@ -2189,29 +2362,24 @@ footer {
   .hero-img-wrap  { order: -1; }
   .hero-img-frame { width: 280px; height: 320px; margin: 0 auto; }
 
-  /* Layout */
-  .sobre-grid   { grid-template-columns: 1fr; }
-  .exp-timeline { grid-template-columns: 1fr; }
-  .award-feature {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .award-img-wrap { display: flex; justify-content: center; }
+  .sobre-grid    { grid-template-columns: 1fr; }
+  .exp-timeline  { grid-template-columns: 1fr; }
+  .award-feature { grid-template-columns: 1fr; text-align: center; }
+  .award-img-wrap  { display: flex; justify-content: center; }
   .award-img-frame { max-width: 360px; width: 100%; }
-  .award-pills  { justify-content: center; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .proj-grid    { grid-template-columns: repeat(2, 1fr); }
-  .cert-grid    { grid-template-columns: 1fr; }
+  .award-pills     { justify-content: center; }
+  .contact-grid  { grid-template-columns: 1fr; }
+  .proj-grid     { grid-template-columns: repeat(2, 1fr); }
+  .cert-grid     { grid-template-columns: 1fr; }
 
-  /* CDV */
-  .cdv-hero          { grid-template-columns: 1fr; gap: 40px; padding: 36px; }
-  .cdv-hero-visual   { display: none; }
-  .cdv-mvp-grid      { grid-template-columns: 1fr; gap: 16px; }
-  .cdv-pillars-grid  { grid-template-columns: repeat(2, 1fr); }
+  .cdv-hero           { grid-template-columns: 1fr; gap: 40px; padding: 36px; }
+  .cdv-hero-visual    { display: none; }
+  .cdv-mvp-grid       { grid-template-columns: 1fr; gap: 16px; }
+  .cdv-pillars-grid   { grid-template-columns: repeat(2, 1fr); }
   .cdv-convergence-grid { grid-template-columns: 1fr; }
-  .cdv-cta-inner     { flex-direction: column; text-align: center; }
-  .cdv-cta-actions   { flex-direction: row; justify-content: center; flex-wrap: wrap; }
-  .sib-pillars       { grid-template-columns: repeat(2, 1fr); }
+  .cdv-cta-inner      { flex-direction: column; text-align: center; }
+  .cdv-cta-actions    { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .sib-pillars        { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── Mobile <768px ──────────────────────────────────────── */
@@ -2223,32 +2391,32 @@ footer {
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .metric-item:nth-child(2) { border-right: none; }
 
-  .hero-img-frame    { width: 240px; height: 280px; }
-  .hero-float-badge  { display: none; }
+  .hero-img-frame   { width: 240px; height: 280px; }
+  .hero-float-badge { display: none; }
 
-  .proj-grid    { grid-template-columns: 1fr; }
-  .cert-extra   { grid-template-columns: 1fr; }
-  .tech-grid    { grid-template-columns: repeat(3, 1fr); }
+  .proj-grid   { grid-template-columns: 1fr; }
+  .cert-extra  { grid-template-columns: 1fr; }
+  .tech-grid   { grid-template-columns: repeat(3, 1fr); }
 
-  .cert-finance-grid { grid-template-columns: 1fr; }
+  .cert-finance-grid  { grid-template-columns: 1fr; }
   .hybrid-pillar-name { font-size: 0.8rem; }
 
-  .cdv-hero     { padding: 28px 20px; }
-  .cdv-orbit    { display: none; }
+  .cdv-hero        { padding: 28px 20px; }
+  .cdv-orbit       { display: none; }
   .cdv-pillars-grid  { grid-template-columns: 1fr; }
-  .cdv-convergence   { padding: 28px 20px; }
-  .cdv-cta      { padding: 28px 20px; }
-  .sib-pillars  { grid-template-columns: repeat(2, 1fr); }
+  .cdv-convergence { padding: 28px 20px; }
+  .cdv-cta         { padding: 28px 20px; }
+  .sib-pillars     { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── Mobile pequeno <480px ──────────────────────────────── */
 @media (max-width: 480px) {
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .tech-grid    { grid-template-columns: repeat(2, 1fr); }
-  .hero-stats   { flex-wrap: wrap; gap: 24px; }
+  .metrics-grid     { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tech-grid        { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats       { flex-wrap: wrap; gap: 24px; }
   .hybrid-pillars   { flex-direction: column; gap: 12px; }
   .hybrid-connector { display: none; }
-  .sib-pillars  { grid-template-columns: repeat(2, 1fr); }
+  .sib-pillars      { grid-template-columns: repeat(2, 1fr); }
   .cdv-cta-actions  { flex-direction: column; width: 100%; }
   .btn-consumo-vida { width: 100%; justify-content: center; }
 }
