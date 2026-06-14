@@ -1681,3 +1681,480 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .nav-links a { padding: 6px 8px; font-size: 0.68rem; }
   .nav-cta { padding: 6px 12px !important; }
 }
+/* ============================================================
+   SOBRE — Bloco Impacto Social
+   ============================================================ */
+
+.sobre-impact-block {
+  margin-top: 32px;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.04), rgba(13, 31, 53, 0.9));
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.sobre-impact-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--cyan), var(--amber));
+}
+.sib-header { margin-bottom: 20px; }
+.sib-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: block;
+  margin-bottom: 8px;
+}
+.sib-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.sib-accent { color: var(--green); }
+.sib-body {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.sib-body p + p { margin-top: 12px; }
+.sib-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.sib-pillar {
+  text-align: center;
+  background: rgba(0, 255, 136, 0.04);
+  border: 1px solid rgba(0, 255, 136, 0.12);
+  border-radius: var(--radius);
+  padding: 12px 8px;
+}
+.sib-pillar-icon { font-size: 1.4rem; margin-bottom: 6px; }
+.sib-pillar-text {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   PROJETOS — Card Consumo da Vida
+   ============================================================ */
+
+.proj-card-consumo {
+  border-color: rgba(0, 255, 136, 0.2) !important;
+  background: linear-gradient(135deg, var(--bg-card), rgba(0, 255, 136, 0.03));
+  grid-column: span 1;
+}
+.proj-card-consumo:hover {
+  border-color: rgba(0, 255, 136, 0.5) !important;
+  box-shadow: 0 8px 40px rgba(0, 255, 136, 0.12) !important;
+}
+.proj-card-badge-consumo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 255, 136, 0.15);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+.proj-tag-consumo {
+  background: rgba(0, 255, 136, 0.08) !important;
+  color: var(--green) !important;
+  border-color: rgba(0, 255, 136, 0.25) !important;
+}
+.proj-consumo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+  padding-bottom: 2px;
+  transition: gap var(--transition), border-color var(--transition);
+}
+.proj-consumo-link:hover {
+  gap: 10px;
+  border-color: var(--green);
+}
+
+/* ============================================================
+   SEÇÃO CONSUMO DA VIDA
+   ============================================================ */
+
+#consumo-da-vida {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-void) 100%);
+  position: relative;
+  overflow: hidden;
+}
+#consumo-da-vida::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+}
+#consumo-da-vida::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+}
+
+/* Header CDV */
+.cdv-header { margin-bottom: 64px; }
+.cdv-header .section-eyebrow { color: var(--green); }
+.cdv-header .section-eyebrow::before { background: var(--green); }
+
+/* Hero CDV */
+.cdv-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 80px;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.cdv-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--cyan), var(--amber));
+}
+.cdv-manifesto-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.cdv-quote {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.7;
+  border-left: 3px solid var(--green);
+  padding-left: 24px;
+  font-style: italic;
+}
+.cdv-quote-author {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--green);
+  margin-top: 16px;
+  padding-left: 24px;
+  letter-spacing: 0.08em;
+}
+
+/* Orbit visual */
+.cdv-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cdv-orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+.cdv-orbit-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 212, 255, 0.1));
+  border: 2px solid rgba(0, 255, 136, 0.35);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  animation: orbitPulse 3s ease-in-out infinite;
+}
+.cdv-orbit-icon { font-size: 1.4rem; line-height: 1; }
+.cdv-orbit-label {
+  font-family: var(--font-mono);
+  font-size: 0.45rem;
+  color: var(--green);
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.cdv-orbit-item {
+  position: absolute;
+  width: 48px; height: 48px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  animation: orbitRotate 12s linear infinite;
+  transform-origin: 130px 130px;
+}
+.cdv-orbit-item span {
+  font-family: var(--font-mono);
+  font-size: 0.38rem;
+  color: var(--text-muted);
+  display: block;
+  text-align: center;
+  margin-top: 1px;
+}
+.cdv-orbit-item-1 { transform: rotate(0deg)   translate(110px) rotate(0deg); }
+.cdv-orbit-item-2 { transform: rotate(60deg)  translate(110px) rotate(-60deg);  animation-delay: -2s; }
+.cdv-orbit-item-3 { transform: rotate(120deg) translate(110px) rotate(-120deg); animation-delay: -4s; }
+.cdv-orbit-item-4 { transform: rotate(180deg) translate(110px) rotate(-180deg); animation-delay: -6s; }
+.cdv-orbit-item-5 { transform: rotate(240deg) translate(110px) rotate(-240deg); animation-delay: -8s; }
+.cdv-orbit-item-6 { transform: rotate(300deg) translate(110px) rotate(-300deg); animation-delay: -10s; }
+
+@keyframes orbitPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); }
+  50%       { box-shadow: 0 0 40px rgba(0, 255, 136, 0.5); }
+}
+@keyframes orbitRotate {
+  from { transform: rotate(var(--start-angle, 0deg)) translate(110px) rotate(calc(-1 * var(--start-angle, 0deg))); }
+  to   { transform: rotate(calc(var(--start-angle, 0deg) + 360deg)) translate(110px) rotate(calc(-1 * (var(--start-angle, 0deg) + 360deg))); }
+}
+
+/* MVPs CDV */
+.cdv-mvp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+.cdv-mvp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: border-color var(--transition), transform var(--transition);
+  text-align: center;
+}
+.cdv-mvp-card:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  transform: translateY(-4px);
+}
+.cdv-mvp-icon { font-size: 2rem; margin-bottom: 12px; }
+.cdv-mvp-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.cdv-mvp-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Pilares CDV */
+.cdv-pillars-section { margin-bottom: 80px; }
+.cdv-pillars-header { text-align: center; margin-bottom: 40px; }
+.cdv-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.cdv-pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.cdv-pillar-card:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.08);
+}
+.cdv-pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+.cdv-pillar-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.cdv-pillar-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.cdv-pillar-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Convergência CDV */
+.cdv-convergence {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  margin-bottom: 64px;
+}
+.cdv-convergence-header { text-align: center; margin-bottom: 40px; }
+.cdv-convergence-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.cdv-convergence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.cdv-conv-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color var(--transition);
+}
+.cdv-conv-item:hover { border-color: rgba(0, 255, 136, 0.25); }
+.cdv-conv-from {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+.cdv-conv-icon { font-size: 1.4rem; }
+.cdv-conv-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--cyan);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+.cdv-conv-arrow {
+  font-size: 1.2rem;
+  color: var(--green);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+.cdv-conv-insight {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* CTA CDV */
+.cdv-cta {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.06), rgba(0, 212, 255, 0.04));
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+.cdv-cta-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.cdv-cta-icon { font-size: 2.5rem; flex-shrink: 0; }
+.cdv-cta-text { flex: 1; }
+.cdv-cta-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.cdv-cta-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.cdv-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Tech Item — Sustentabilidade */
+.tech-item-sustain { border-color: rgba(0, 255, 136, 0.15); }
+.tech-item-sustain:hover {
+  border-color: rgba(0, 255, 136, 0.45);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.12);
+}
+.tech-item-sustain .tech-name { color: var(--green); }
+
+/* ============================================================
+   MEDIA QUERIES — Adicionais para as novas seções
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .cdv-hero          { grid-template-columns: 1fr; gap: 40px; }
+  .cdv-mvp-grid      { grid-template-columns: 1fr; gap: 16px; }
+  .cdv-pillars-grid  { grid-template-columns: repeat(2, 1fr); }
+  .cdv-convergence-grid { grid-template-columns: 1fr; }
+  .cdv-cta-inner     { flex-direction: column; text-align: center; }
+  .cdv-cta-actions   { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .sib-pillars       { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .cdv-hero          { padding: 32px 24px; }
+  .cdv-pillars-grid  { grid-template-columns: 1fr; }
+  .cdv-convergence   { padding: 28px 20px; }
+  .cdv-orbit         { display: none; }
+  .cdv-hero-visual   { display: none; }
+  .cdv-hero          { grid-template-columns: 1fr; }
+  .sib-pillars       { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .sib-pillars { grid-template-columns: repeat(2, 1fr); }
+  .cdv-cta-actions { flex-direction: column; width: 100%; }
+  .cdv-cta-actions .btn-primary,
+  .cdv-cta-actions .btn-ghost { justify-content: center; }
+}
