@@ -203,20 +203,176 @@
   counters.forEach(c => observer.observe(c));
 })();
 
-/* ─── CONTACT FORM ───────────────────────────────────────── */
+/* ─── CONTACT FORM — FormSubmit / GitHub Pages ───────────── */
 (function () {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const msg = document.getElementById('form-message');
+
+  const msg = document.getElementById('form-message');
+  const submitBtn = form.querySelector('.form-submit');
+  const submitSubject = document.getElementById('form-submit-subject');
+
+  const fields = {
+    name: document.getElementById('name'),
+    email: document.getElementById('email'),
+    subject: document.getElementById('subject'),
+    message: document.getElementById('message'),
+  };
+
+  const DEFAULT_BUTTON_HTML = submitBtn ? submitBtn.innerHTML : '✈ &nbsp;Enviar Mensagem';
+  const DEFAULT_SUBJECT = 'Nova mensagem pelo portfólio — Anderson Schultz Ribeiro';
+
+  function showMessage(type, text) {
+    if (!msg) return;
     msg.style.display = 'block';
-    msg.className = 'success';
-    msg.textContent = '✓ Mensagem recebida! Responderei em breve.';
-    form.reset();
-    setTimeout(() => { msg.style.display = 'none'; }, 5000);
+    msg.className = type;
+    msg.textContent = text;
+  }
+
+  function hideMessage() {
+    if (!msg) return;
+    msg.style.display = 'none';
+    msg.className = '';
+    msg.textContent = '';
+  }
+
+  function setButtonLoading(isLoading) {
+    if (!submitBtn) return;
+
+    submitBtn.disabled = isLoading;
+    submitBtn.setAttribute('aria-busy', isLoading ? 'true' : 'false');
+
+    if (isLoading) {
+      submitBtn.innerHTML = 'Enviando...';
+    } else {
+      submitBtn.innerHTML = DEFAULT_BUTTON_HTML;
+    }
+  }
+
+  function clearInvalidStates() {
+    Object.values(fields).forEach((field) => {
+      if (!field) return;
+      field.removeAttribute('aria-invalid');
+    });
+  }
+
+  function markInvalid(field) {
+    if (!field) return;
+    field.setAttribute('aria-invalid', 'true');
+    field.focus({ preventScroll: false });
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email).trim());
+  }
+
+  function validateForm() {
+    clearInvalidStates();
+
+    const name = fields.name?.value.trim() || '';
+    const email = fields.email?.value.trim() || '';
+    const subject = fields.subject?.value.trim() || '';
+    const message = fields.message?.value.trim() || '';
+
+    if (!name) {
+      markInvalid(fields.name);
+      showMessage('error', 'Por favor, informe seu nome.');
+      return false;
+    }
+
+    if (!email) {
+      markInvalid(fields.email);
+      showMessage('error', 'Por favor, informe seu e-mail.');
+      return false;
+    }
+
+    if (!isValidEmail(email)) {
+      markInvalid(fields.email);
+      showMessage('error', 'Por favor, informe um e-mail válido.');
+      return false;
+    }
+
+    if (!subject) {
+      markInvalid(fields.subject);
+      showMessage('error', 'Por favor, informe o assunto da mensagem.');
+      return false;
+    }
+
+    if (!message) {
+      markInvalid(fields.message);
+      showMessage('error', 'Por favor, escreva sua mensagem.');
+      return false;
+    }
+
+    return true;
+  }
+
+  Object.values(fields).forEach((field) => {
+    if (!field) return;
+
+    field.addEventListener('input', () => {
+      field.removeAttribute('aria-invalid');
+      hideMessage();
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    const endpoint = form.dataset.endpoint || 'https://formsubmit.co/ajax/anderson.schultz@me.com';
+
+    const subjectValue = fields.subject.value.trim();
+
+    if (submitSubject) {
+      submitSubject.value = subjectValue
+        ? `Portfólio — ${subjectValue}`
+        : DEFAULT_SUBJECT;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      setButtonLoading(true);
+      showMessage('info', 'Enviando sua mensagem...');
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha no envio pelo FormSubmit.');
+      }
+
+      showMessage('success', 'Mensagem enviada com sucesso! Entrarei em contato em breve.');
+
+      form.reset();
+
+      if (submitSubject) {
+        submitSubject.value = DEFAULT_SUBJECT;
+      }
+
+      clearInvalidStates();
+
+      setTimeout(() => {
+        hideMessage();
+      }, 7000);
+    } catch (error) {
+      showMessage(
+        'error',
+        'Não foi possível enviar a mensagem agora. Tente novamente em alguns instantes ou envie diretamente para anderson.schultz@me.com.'
+      );
+    } finally {
+      setButtonLoading(false);
+    }
   });
 })();
+
 
 /* ─── SMOOTH SCROLL ──────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
