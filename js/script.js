@@ -229,8 +229,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* Certificate & project image preview / full-size viewer */
 (() => {
-  const images = Array.from(document.querySelectorAll('.cert-img-wrap img, .proj-img-wrap img'));
-  if (!images.length) return;
+  const wrappers = Array.from(document.querySelectorAll('.cert-img-wrap, .proj-img-wrap'))
+    .filter(wrapper => wrapper.querySelector('img'));
+  if (!wrappers.length) return;
 
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let hoverPreview = null;
@@ -267,20 +268,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const caption = lightbox.querySelector('.media-lightbox-caption');
   let lastFocused = null;
 
-  const positionPreview = (event) => {
+  const hidePreview = () => {
     if (!hoverPreview) return;
-    const pad = 18;
-    const rect = hoverPreview.getBoundingClientRect();
-    let left = event.clientX + 22;
-    let top = event.clientY + 18;
-    if (left + rect.width > window.innerWidth - pad) left = event.clientX - rect.width - 22;
-    if (top + rect.height > window.innerHeight - pad) top = window.innerHeight - rect.height - pad;
-    if (top < pad) top = pad;
-    hoverPreview.style.left = `${Math.max(pad, left)}px`;
-    hoverPreview.style.top = `${top}px`;
+    hoverPreview.classList.remove('visible');
+    hoverPreview.setAttribute('aria-hidden', 'true');
   };
 
-  const hidePreview = () => hoverPreview?.classList.remove('visible');
+  const showPreview = (img) => {
+    if (!hoverPreview || !hoverImg) return;
+    hoverImg.src = img.currentSrc || img.src;
+    hoverPreview.classList.add('visible');
+    hoverPreview.setAttribute('aria-hidden', 'false');
+  };
 
   const openLightbox = (img) => {
     hidePreview();
@@ -299,31 +298,32 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     lightbox.classList.remove('open');
     document.body.classList.remove('media-lightbox-open');
     fullImg.removeAttribute('src');
-    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus({ preventScroll: true });
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus({ preventScroll: true });
+    }
   };
 
-  images.forEach(img => {
+  wrappers.forEach(wrapper => {
+    const img = wrapper.querySelector('img');
     img.classList.add('media-viewer-trigger');
-    img.setAttribute('tabindex', '0');
-    img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', `${img.alt || 'Imagem'} — abrir em tamanho real`);
+
+    wrapper.setAttribute('tabindex', '0');
+    wrapper.setAttribute('role', 'button');
+    wrapper.setAttribute('aria-label', `${img.alt || 'Imagem'} — ampliar imagem`);
+    wrapper.title = 'Passe o mouse para visualizar completa · clique para abrir em tamanho real';
 
     if (canHover) {
-      img.addEventListener('mouseenter', event => {
-        hoverImg.src = img.currentSrc || img.src;
-        hoverImg.alt = '';
-        hoverPreview.classList.add('visible');
-        requestAnimationFrame(() => positionPreview(event));
-      });
-      img.addEventListener('mousemove', positionPreview);
-      img.addEventListener('mouseleave', hidePreview);
+      wrapper.addEventListener('mouseenter', () => showPreview(img));
+      wrapper.addEventListener('mouseleave', hidePreview);
     }
 
-    img.addEventListener('click', event => {
+    wrapper.addEventListener('click', event => {
+      /* Impede links internos acidentais, mas mantém o wrapper como alvo confiável. */
       event.preventDefault();
       openLightbox(img);
     });
-    img.addEventListener('keydown', event => {
+
+    wrapper.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         openLightbox(img);

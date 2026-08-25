@@ -1065,6 +1065,7 @@ section {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--bg-card) 0%, transparent 60%);
+  pointer-events: none;
 }
 .cert-info { padding: 20px 24px; }
 .cert-issuer {
@@ -1209,6 +1210,7 @@ section {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--bg-card) 0%, transparent 60%);
+  pointer-events: none;
 }
 .proj-body {
   padding: 24px;
@@ -2462,35 +2464,54 @@ footer { border-top-color: var(--border); background: #060d17; }
   cursor: zoom-in;
 }
 
+/* A interação fica no wrapper para não depender de camadas decorativas. */
+.cert-img-wrap,
+.proj-img-wrap {
+  cursor: zoom-in;
+}
+.cert-img-wrap > *,
+.proj-img-wrap > * {
+  user-select: none;
+}
+.cert-img-overlay,
+.proj-img-overlay {
+  pointer-events: none !important;
+}
+
+/* Prévia completa no hover: fora do card, sem sofrer corte por overflow. */
 .media-hover-preview {
   position: fixed;
-  z-index: 5000;
-  width: min(560px, 46vw);
-  max-height: 72vh;
-  padding: 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(242,246,251,.22);
-  background: rgba(6,13,23,.96);
-  box-shadow: 0 28px 80px rgba(0,0,0,.5);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  left: 50%;
+  top: 50%;
+  z-index: 50000;
+  width: min(920px, 78vw);
+  max-height: 84vh;
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  border: 1px solid rgba(242,246,251,.24);
+  background: rgba(3,9,16,.97);
+  box-shadow: 0 32px 110px rgba(0,0,0,.68);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   pointer-events: none;
   opacity: 0;
-  transform: translateY(8px) scale(.985);
-  transition: opacity .16s ease, transform .16s ease;
+  visibility: hidden;
+  transform: translate(-50%, -48%) scale(.965);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
 }
 .media-hover-preview.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
-.media-hover-preview { place-items: center; }
-.media-hover-preview.visible { display: grid; }
 .media-hover-preview img {
   display: block;
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: calc(72vh - 24px);
+  max-height: calc(84vh - 28px);
   object-fit: contain;
   border-radius: 10px;
   background: #f5f5f3;
@@ -2500,9 +2521,9 @@ footer { border-top-color: var(--border); background: #060d17; }
 .media-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 100000;
   display: none;
-  background: rgba(2,7,13,.97);
+  background: rgba(2,7,13,.985);
   color: #f2f6fb;
 }
 .media-lightbox.open { display: block; }
@@ -2511,13 +2532,13 @@ footer { border-top-color: var(--border); background: #060d17; }
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10002;
+  z-index: 100002;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   padding: 16px 22px;
-  background: linear-gradient(180deg, rgba(2,7,13,.98), rgba(2,7,13,.78), transparent);
+  background: linear-gradient(180deg, rgba(2,7,13,.99), rgba(2,7,13,.86), transparent);
 }
 .media-lightbox-back {
   display: inline-flex;
@@ -2527,7 +2548,7 @@ footer { border-top-color: var(--border); background: #060d17; }
   padding: 9px 14px;
   border-radius: 10px;
   border: 1px solid rgba(242,246,251,.2);
-  background: rgba(255,255,255,.04);
+  background: rgba(255,255,255,.05);
   color: #f2f6fb;
   font: 600 .82rem/1 var(--font-body);
   cursor: pointer;
@@ -2535,8 +2556,8 @@ footer { border-top-color: var(--border); background: #060d17; }
 }
 .media-lightbox-back:hover {
   transform: translateX(-2px);
-  background: rgba(255,255,255,.08);
-  border-color: rgba(242,246,251,.38);
+  background: rgba(255,255,255,.1);
+  border-color: rgba(242,246,251,.4);
 }
 .media-lightbox-caption {
   max-width: 52vw;
@@ -2577,10 +2598,6 @@ body.media-lightbox-open { overflow: hidden; }
   .media-lightbox-topbar { padding: 12px 14px; }
   .media-lightbox-caption { display: none; }
   .media-lightbox-stage { padding: 68px 12px 20px; }
-  .media-lightbox-image {
-    max-width: none;
-    max-height: none;
-  }
 }
 
 /* Ícones vetoriais das competências */
