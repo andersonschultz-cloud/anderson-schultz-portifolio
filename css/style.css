@@ -1,7 +1,6 @@
 /* ============================================================
-   Anderson Schultz Ribeiro — DevOps/SRE Premium Portfolio
-   v3.1 PROD — Cursor "Folha Viva" integrado, auditado
-   Design System: Deep-space dark, electric-cyan accents
+   Anderson Schultz Ribeiro — Portfolio Profissional
+   Executive Consulting Edition — 2026
    ============================================================ */
 
 /* === FONTS === */
@@ -63,7 +62,7 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   max-width: 100%;
-  cursor: auto; /* cursor nativo — JS assume após primeiro mousemove */
+  cursor: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -74,318 +73,29 @@ img {
 }
 a    { color: inherit; text-decoration: none; }
 ul   { list-style: none; }
-/* Botão com cursor padrão do sistema enquanto JS não ativa */
 button { cursor: pointer; }
 
 /* ============================================================
-   CURSOR SYSTEM — "Folha Viva"
-   Tema: Consumo Consciente · Sustentabilidade · Bem-estar
-   Estratégia de segurança:
-   · cursor: none SOMENTE após JS confirmar suporte via classe
-   · Fallback automático: cursor nativo visível sem JS
-   · Touch/mobile: sistema desativado, cursor nativo restaurado
-   ============================================================ */
-
-/* ── cursor: none via classe JS — nunca aplicado no reset ─── */
-body.custom-cursor-active {
-  cursor: none;
-}
-body.custom-cursor-active a,
-body.custom-cursor-active button,
-body.custom-cursor-active [role="button"],
-body.custom-cursor-active label,
-body.custom-cursor-active select,
-body.custom-cursor-active input,
-body.custom-cursor-active textarea,
-body.custom-cursor-active [tabindex],
-body.custom-cursor-active .cert-card,
-body.custom-cursor-active .proj-card,
-body.custom-cursor-active .tech-item,
-body.custom-cursor-active .edu-card,
-body.custom-cursor-active .exp-block,
-body.custom-cursor-active .contact-link,
-body.custom-cursor-active .hamburger,
-body.custom-cursor-active .nav-links a,
-body.custom-cursor-active .nav-cta,
-body.custom-cursor-active .btn-primary,
-body.custom-cursor-active .btn-ghost,
-body.custom-cursor-active .btn-consumo-vida,
-body.custom-cursor-active .proj-consumo-link,
-body.custom-cursor-active .cdv-mvp-card,
-body.custom-cursor-active .cdv-pillar-card,
-body.custom-cursor-active .cdv-conv-item,
-body.custom-cursor-active .info-panel,
-body.custom-cursor-active .form-submit {
-  cursor: none;
-}
-
-/* ── Elementos base — ocultos até JS inicializar ───────────── */
-#cursor-dot,
-#cursor-ring,
-#cursor-trail-container {
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  opacity: 0;
-  transition: opacity 0.4s ease,
-              width  0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s ease,
-              border-radius 0.3s ease;
-  will-change: transform, opacity;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Visível após primeiro mousemove (JS adiciona .cursor-ready) */
-#cursor-dot.cursor-ready,
-#cursor-ring.cursor-ready,
-#cursor-trail-container.cursor-ready {
-  opacity: 1;
-}
-
-/* ── Ponto central — forma de folha ───────────────────────── */
-#cursor-dot {
-  width: 10px;
-  height: 10px;
-  background: var(--green);
-  border-radius: 50% 0 50% 0;
-  transform: translate(-50%, -50%) rotate(45deg);
-  box-shadow:
-    0 0 8px  rgba(0, 255, 136, 0.9),
-    0 0 20px rgba(0, 255, 136, 0.4);
-}
-
-/* Folha vira ciano sobre clicáveis */
-body.custom-cursor-active.cursor-on-link #cursor-dot {
-  width: 13px;
-  height: 13px;
-  background: var(--cyan);
-  border-radius: 50% 0 50% 0;
-  box-shadow:
-    0 0 10px rgba(0, 212, 255, 0.9),
-    0 0 24px rgba(0, 212, 255, 0.5);
-}
-
-/* Folha some sobre campos de texto */
-body.custom-cursor-active.cursor-on-input #cursor-dot {
-  opacity: 0;
-}
-
-/* ── Anel externo — círculo orgânico ──────────────────────── */
-#cursor-ring {
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid rgba(0, 255, 136, 0.45);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 255, 136, 0.03);
-}
-
-/* Anel expande e muda forma sobre links */
-body.custom-cursor-active.cursor-on-link #cursor-ring {
-  width: 54px;
-  height: 54px;
-  border-color: rgba(0, 212, 255, 0.55);
-  border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-  background: rgba(0, 212, 255, 0.04);
-}
-
-/* Anel vira barra de texto sobre inputs */
-body.custom-cursor-active.cursor-on-input #cursor-ring {
-  width: 3px;
-  height: 28px;
-  border-radius: 2px;
-  border-color: rgba(0, 212, 255, 0.9);
-  background: rgba(0, 212, 255, 0.2);
-}
-
-/* ── Trail de partículas ──────────────────────────────────── */
-#cursor-trail-container {
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  transform: none;
-  overflow: visible;
-  z-index: 99998;
-}
-
-.cursor-trail-particle {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50% 0 50% 0;
-  transform: translate(-50%, -50%) rotate(45deg) scale(1);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-/* ── Canvas e overlays não bloqueiam eventos de mouse ─────── */
-#bg-canvas,
-#btc-canvas,
-#penguin-rain {
-  pointer-events: none !important;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* ── Easter Egg: transição suave na troca de foto ─────────── */
-#profile-photo {
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-/* ── Touch / dispositivo sem mouse ────────────────────────── */
-@media (hover: none) and (pointer: coarse) {
-  html,
-  body {
-    cursor: auto !important;
-  }
-  body.custom-cursor-active {
-    cursor: auto !important;
-  }
-  body.custom-cursor-active a,
-  body.custom-cursor-active button,
-  body.custom-cursor-active [role="button"],
-  body.custom-cursor-active label,
-  body.custom-cursor-active select,
-  body.custom-cursor-active input,
-  body.custom-cursor-active textarea,
-  body.custom-cursor-active .form-submit {
-    cursor: pointer !important;
-  }
-  #cursor-dot,
-  #cursor-ring,
-  #cursor-trail-container {
-    display: none !important;
-    opacity: 0 !important;
-  }
-}
-
-/* ── Acessibilidade: redução de movimento ─────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  .cursor-trail-particle {
-    display: none;
-  }
-  #cursor-dot,
-  #cursor-ring {
-    transition: opacity 0.3s ease;
-  }
-}
-
-/* ============================================================
-   LOADING SCREEN
-   ============================================================ */
-#loading-screen {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-void);
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-#loading-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.loading-logo {
-  font-family: var(--font-mono);
-  font-size: 1.2rem;
-  color: var(--cyan);
-  letter-spacing: 0.3em;
-}
-.loading-bar-wrap {
-  width: min(280px, 80vw);
-  height: 2px;
-  background: var(--bg-panel);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.loading-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.05s linear;
-}
-.loading-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-}
-
-/* ============================================================
-   CANVAS LAYERS
+   BACKGROUND CANVAS
    ============================================================ */
 #bg-canvas {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.34;
 }
-#btc-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-#btc-canvas.active { opacity: 1; }
 
-/* HiDPI / 2K / 4K — máscara suave nas bordas */
-@media (min-width: 1920px) {
-  #bg-canvas,
-  #btc-canvas {
-    mask-image: radial-gradient(ellipse 80% 80% at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.35) 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.35) 100%);
+@media (prefers-reduced-motion: reduce) {
+  #bg-canvas { display: none; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-}
-
-/* ============================================================
-   BITCOIN MODE
-   ============================================================ */
-body.btc-mode #bg-canvas {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-body.btc-mode-restore #bg-canvas {
-  opacity: 1;
-  transition: opacity 1.5s ease;
-}
-
-/* ============================================================
-   PENGUIN RAIN
-   ============================================================ */
-#penguin-rain {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  overflow: hidden;
-}
-.penguin-svg {
-  position: absolute;
-  top: -80px;
-  animation: penguinFall linear forwards;
-  will-change: transform, opacity;
-}
-@keyframes penguinFall {
-  0%   { transform: translateY(0) rotate(0deg);      opacity: 1; }
-  80%  { opacity: 1; }
-  100% { transform: translateY(110vh) rotate(20deg); opacity: 0; }
 }
 
 /* ============================================================
@@ -766,8 +476,6 @@ section {
   object-fit: cover;
   object-position: top;
   filter: brightness(0.9) contrast(1.05);
-  /* Transição para o Easter Egg de troca de foto */
-  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 .hero-img-overlay {
   position: absolute;
@@ -819,24 +527,6 @@ section {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-8px); }
-}
-.photo-hint {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--cyan);
-  letter-spacing: 0.12em;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 4;
-}
-@media (hover: none) {
-  .photo-hint { opacity: 0.6; }
 }
 
 /* ============================================================
@@ -2473,3 +2163,293 @@ footer {
     box-shadow: none;
   }
 }
+
+
+/* ============================================================
+   EXECUTIVE CONSULTING LAYER — 2026
+   Visual direction: understated, premium, confident.
+   ============================================================ */
+:root {
+  --bg-void:        #07101d;
+  --bg-deep:        #0a1524;
+  --bg-panel:       #0e1b2d;
+  --bg-card:        #122238;
+  --bg-glass:       rgba(12, 27, 46, 0.76);
+
+  --cyan:           #6fc7e8;
+  --cyan-dim:       rgba(111, 199, 232, 0.10);
+  --cyan-glow:      rgba(111, 199, 232, 0.18);
+  --green:          #8ecbb7;
+  --green-dim:      rgba(142, 203, 183, 0.10);
+  --amber:          #d3b57b;
+  --purple:         #8b96c9;
+
+  --text-primary:   #f2f6fb;
+  --text-secondary: #b2c0d1;
+  --text-muted:     #718198;
+  --text-mono:      #91cce3;
+
+  --border:         rgba(178, 192, 209, 0.12);
+  --border-bright:  rgba(178, 192, 209, 0.24);
+
+  --radius:         10px;
+  --radius-lg:      20px;
+  --shadow-cyan:    0 12px 40px rgba(0, 0, 0, 0.22);
+  --shadow-card:    0 18px 55px rgba(0, 0, 0, 0.28);
+}
+
+body {
+  background:
+    radial-gradient(circle at 80% 8%, rgba(111, 199, 232, 0.07), transparent 28%),
+    radial-gradient(circle at 12% 35%, rgba(211, 181, 123, 0.045), transparent 24%),
+    var(--bg-void);
+}
+
+.container { max-width: min(1240px, 100vw); }
+section { padding-top: 112px; padding-bottom: 112px; }
+
+#navbar {
+  height: 74px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-bottom: 1px solid transparent;
+}
+#navbar.scrolled {
+  background: rgba(7, 16, 29, 0.90);
+  border-bottom-color: var(--border);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.16);
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  line-height: 1.05;
+  font-weight: 650;
+  letter-spacing: .13em;
+  color: var(--text-primary);
+}
+.nav-logo span {
+  font-family: var(--font-mono);
+  font-size: .52rem;
+  letter-spacing: .22em;
+  color: var(--amber);
+}
+.nav-links { gap: 6px; }
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: .76rem;
+  letter-spacing: .02em;
+  color: var(--text-secondary);
+  padding: 8px 10px;
+}
+.nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,.025); }
+.nav-cta {
+  border-color: rgba(211,181,123,.42) !important;
+  color: #ecd9ad !important;
+  padding: 9px 16px !important;
+}
+.nav-cta:hover { background: rgba(211,181,123,.08) !important; }
+
+#hero {
+  min-height: 92svh;
+  padding-top: 132px;
+  padding-bottom: 78px;
+}
+.hero-grid { grid-template-columns: minmax(0,1.14fr) minmax(340px,.86fr); gap: 96px; }
+.hero-badge {
+  background: transparent;
+  border-color: var(--border-bright);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: .78rem;
+  letter-spacing: .035em;
+  padding: 8px 13px;
+  margin-bottom: 30px;
+}
+.hero-badge .dot { background: var(--amber); animation: none; }
+.hero-name {
+  font-size: clamp(3rem, 5.7vw, 5.25rem);
+  line-height: .92;
+  font-weight: 600;
+  letter-spacing: -.055em;
+  margin-bottom: 26px;
+}
+.hero-name .name-accent {
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+  color: var(--text-primary);
+}
+.hero-title {
+  font-family: var(--font-body);
+  color: var(--amber);
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .025em;
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+.hero-subtitle {
+  max-width: 650px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.82;
+  margin-bottom: 34px;
+}
+.hero-subtitle strong { color: var(--text-primary); font-weight: 600; }
+.hero-actions { gap: 10px; margin-bottom: 42px; }
+.btn-primary,
+.btn-ghost {
+  min-height: 44px;
+  border-radius: 9px;
+  padding: 11px 18px;
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .015em;
+}
+.btn-primary {
+  background: #e9eef5;
+  color: #0a1524;
+  box-shadow: none;
+}
+.btn-primary:hover { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+.btn-ghost { border-color: var(--border-bright); color: var(--text-secondary); }
+.btn-ghost:hover { color: var(--text-primary); border-color: rgba(242,246,251,.38); background: rgba(255,255,255,.035); }
+.btn-impact { color: #dfc997; border-color: rgba(211,181,123,.34); }
+.btn-impact:hover { color: #f3dfad; border-color: rgba(211,181,123,.55); background: rgba(211,181,123,.05); }
+.hero-stats { gap: 44px; }
+.hero-stat-num { color: var(--text-primary); font-size: 1.8rem; font-weight: 600; }
+.hero-stat-label { color: var(--text-muted); font-family: var(--font-body); letter-spacing: .045em; }
+
+.hero-img-frame { width: 365px; height: 450px; }
+.hero-img-bg { inset: -28px; opacity: .35; animation: none; background: radial-gradient(ellipse, rgba(111,199,232,.12), transparent 68%); }
+.hero-img-border {
+  border: 1px solid rgba(242,246,251,.17);
+  box-shadow: 0 28px 70px rgba(0,0,0,.35);
+}
+.hero-img-border img { filter: saturate(.88) contrast(1.02) brightness(.94); }
+.hero-img-overlay { background: linear-gradient(to top, rgba(7,16,29,.55), transparent 48%); }
+.hero-corner { display: none; }
+.hero-float-badge {
+  background: rgba(10,21,36,.88);
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: .68rem;
+  letter-spacing: .02em;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  animation: none;
+}
+
+#metrics { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.metrics-bar { background: rgba(10,21,36,.62); }
+.metric-item { border-color: var(--border); }
+.metric-num { color: var(--text-primary); }
+.metric-label { color: var(--text-muted); font-family: var(--font-body); letter-spacing: .03em; }
+
+.section-eyebrow {
+  color: var(--amber);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: .15em;
+  margin-bottom: 14px;
+}
+.section-eyebrow::before { background: var(--amber); width: 26px; }
+.section-title {
+  font-size: clamp(2.15rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  margin-bottom: 20px;
+}
+.section-title .accent { color: #9ed0e4; }
+.section-subtitle { color: var(--text-secondary); line-height: 1.8; max-width: 760px; }
+
+.info-panel, .edu-card, .cert-card, .proj-card, .exp-block, .tech-item,
+.contact-link, .contact-form, .cdv-mvp-card, .cdv-pillar-card, .cdv-convergence,
+.cdv-cta, .cert-finance-pill {
+  border-color: var(--border) !important;
+  box-shadow: none;
+}
+.info-panel:hover, .edu-card:hover, .cert-card:hover, .proj-card:hover,
+.exp-block:hover, .tech-item:hover, .contact-link:hover, .cdv-mvp-card:hover,
+.cdv-pillar-card:hover, .cert-finance-pill:hover {
+  border-color: var(--border-bright) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.16);
+}
+
+.tech-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.tech-item {
+  min-height: 110px;
+  background: rgba(255,255,255,.018);
+  border-radius: 14px;
+  padding: 18px 12px;
+}
+.tech-item:hover { transform: translateY(-3px); background: rgba(255,255,255,.028); }
+.tech-icon { filter: saturate(.65); opacity: .88; }
+.tech-name { font-family: var(--font-body); color: var(--text-secondary); font-size: .73rem; letter-spacing: .01em; }
+.tech-item-finance .tech-name { color: #d9c18c; }
+.tech-item-sustain .tech-name { color: #a7cfbf; }
+
+#contato { background: linear-gradient(180deg, transparent, rgba(255,255,255,.015)); }
+.contact-link { border-radius: 12px; background: rgba(255,255,255,.015); }
+.contact-link:hover { transform: translateY(-2px); }
+.contact-link-icon { color: var(--amber); }
+.contact-link-value { color: var(--text-secondary); }
+.contact-form { background: rgba(255,255,255,.018); border-radius: 18px; }
+.form-input, .form-textarea {
+  background: rgba(2,8,16,.38);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+.form-input:focus, .form-textarea:focus { border-color: rgba(111,199,232,.55); box-shadow: 0 0 0 3px rgba(111,199,232,.06); }
+.form-submit { background: #e9eef5; color: #0a1524; border: none; font-family: var(--font-body); font-weight: 650; }
+.form-submit:hover { background: #fff; box-shadow: 0 10px 28px rgba(0,0,0,.18); }
+.form-note { color: var(--text-muted); }
+
+footer { border-top-color: var(--border); background: #060d17; }
+.footer-logo { color: var(--text-primary); }
+.footer-nav a, .footer-text { color: var(--text-muted); }
+.footer-nav a:hover { color: var(--text-primary); }
+
+@media (max-width: 1100px) {
+  .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 1024px) {
+  #navbar { padding-left: 28px; padding-right: 28px; }
+  #hero { padding-top: 112px; }
+  .hero-grid { gap: 54px; }
+  .hero-img-frame { width: 300px; height: 360px; }
+}
+@media (max-width: 768px) {
+  section { padding-top: 84px; padding-bottom: 84px; }
+  #navbar { height: 68px; padding-left: 22px; padding-right: 22px; }
+  .nav-logo { font-size: .7rem; }
+  #hero { min-height: auto; padding-top: 108px; padding-bottom: 64px; }
+  .hero-name { font-size: clamp(3rem, 15vw, 4.6rem); }
+  .hero-title { font-size: .84rem; }
+  .hero-subtitle { font-size: .98rem; line-height: 1.72; }
+  .hero-stats { gap: 24px; }
+  .hero-img-frame { width: 250px; height: 300px; }
+  .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tech-item { min-height: 96px; }
+}
+
+/* Monogramas das competências */
+.tech-icon {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #9ed0e4;
+  filter: none;
+  opacity: .92;
+}
+.tech-item-finance .tech-icon { color: #d9c18c; }
+.tech-item-sustain .tech-icon { color: #a7cfbf; }
