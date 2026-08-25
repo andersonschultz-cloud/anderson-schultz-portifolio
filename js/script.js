@@ -225,3 +225,117 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 })();
+
+
+/* Certificate & project image preview / full-size viewer */
+(() => {
+  const images = Array.from(document.querySelectorAll('.cert-img-wrap img, .proj-img-wrap img'));
+  if (!images.length) return;
+
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let hoverPreview = null;
+  let hoverImg = null;
+
+  if (canHover) {
+    hoverPreview = document.createElement('div');
+    hoverPreview.className = 'media-hover-preview';
+    hoverPreview.setAttribute('aria-hidden', 'true');
+    hoverImg = document.createElement('img');
+    hoverImg.alt = '';
+    hoverPreview.appendChild(hoverImg);
+    document.body.appendChild(hoverPreview);
+  }
+
+  const lightbox = document.createElement('div');
+  lightbox.className = 'media-lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Visualizador de imagem em tamanho real');
+  lightbox.innerHTML = `
+    <div class="media-lightbox-topbar">
+      <button class="media-lightbox-back" type="button" aria-label="Voltar para a página">← <span>Voltar</span></button>
+      <div class="media-lightbox-caption"></div>
+    </div>
+    <div class="media-lightbox-stage">
+      <img class="media-lightbox-image" alt="" />
+    </div>`;
+  document.body.appendChild(lightbox);
+
+  const backBtn = lightbox.querySelector('.media-lightbox-back');
+  const stage = lightbox.querySelector('.media-lightbox-stage');
+  const fullImg = lightbox.querySelector('.media-lightbox-image');
+  const caption = lightbox.querySelector('.media-lightbox-caption');
+  let lastFocused = null;
+
+  const positionPreview = (event) => {
+    if (!hoverPreview) return;
+    const pad = 18;
+    const rect = hoverPreview.getBoundingClientRect();
+    let left = event.clientX + 22;
+    let top = event.clientY + 18;
+    if (left + rect.width > window.innerWidth - pad) left = event.clientX - rect.width - 22;
+    if (top + rect.height > window.innerHeight - pad) top = window.innerHeight - rect.height - pad;
+    if (top < pad) top = pad;
+    hoverPreview.style.left = `${Math.max(pad, left)}px`;
+    hoverPreview.style.top = `${top}px`;
+  };
+
+  const hidePreview = () => hoverPreview?.classList.remove('visible');
+
+  const openLightbox = (img) => {
+    hidePreview();
+    lastFocused = document.activeElement;
+    fullImg.src = img.currentSrc || img.src;
+    fullImg.alt = img.alt || 'Imagem ampliada';
+    caption.textContent = img.alt || 'Imagem em tamanho real';
+    stage.scrollTop = 0;
+    stage.scrollLeft = 0;
+    lightbox.classList.add('open');
+    document.body.classList.add('media-lightbox-open');
+    backBtn.focus({ preventScroll: true });
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.classList.remove('media-lightbox-open');
+    fullImg.removeAttribute('src');
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus({ preventScroll: true });
+  };
+
+  images.forEach(img => {
+    img.classList.add('media-viewer-trigger');
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', `${img.alt || 'Imagem'} — abrir em tamanho real`);
+
+    if (canHover) {
+      img.addEventListener('mouseenter', event => {
+        hoverImg.src = img.currentSrc || img.src;
+        hoverImg.alt = '';
+        hoverPreview.classList.add('visible');
+        requestAnimationFrame(() => positionPreview(event));
+      });
+      img.addEventListener('mousemove', positionPreview);
+      img.addEventListener('mouseleave', hidePreview);
+    }
+
+    img.addEventListener('click', event => {
+      event.preventDefault();
+      openLightbox(img);
+    });
+    img.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(img);
+      }
+    });
+  });
+
+  backBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox || event.target === stage) closeLightbox();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+})();
