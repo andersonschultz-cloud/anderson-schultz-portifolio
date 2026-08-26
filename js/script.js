@@ -15,14 +15,33 @@
   const btn = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobile-nav');
   if (!btn || !mobileNav) return;
-  btn.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+  const setMenu = open => {
+    mobileNav.classList.toggle('open', open);
+    document.body.classList.toggle('mobile-menu-open', open);
+    btn.classList.toggle('active', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+  btn.setAttribute('role', 'button');
+  btn.setAttribute('tabindex', '0');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.addEventListener('click', () => setMenu(!mobileNav.classList.contains('open')));
+  btn.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setMenu(!mobileNav.classList.contains('open'));
+    }
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileNav.classList.contains('open')) setMenu(false);
+  });
 })();
 
 /* Subtle background network */
 (() => {
   const canvas = document.getElementById('bg-canvas');
-  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(max-width: 768px)').matches) return;
   const ctx = canvas.getContext('2d');
   let W = 0, H = 0, particles = [];
 
@@ -229,7 +248,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* Certificate & project image preview / full-size viewer */
 (() => {
-  const wrappers = Array.from(document.querySelectorAll('.cert-img-wrap, .proj-img-wrap'))
+  const wrappers = Array.from(document.querySelectorAll('.cert-img-wrap, .proj-img-wrap, .award-img-frame'))
     .filter(wrapper => wrapper.querySelector('img'));
   if (!wrappers.length) return;
 
@@ -310,7 +329,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     wrapper.setAttribute('tabindex', '0');
     wrapper.setAttribute('role', 'button');
     wrapper.setAttribute('aria-label', `${img.alt || 'Imagem'} — ampliar imagem`);
-    wrapper.title = 'Passe o mouse para visualizar completa · clique para abrir em tamanho real';
+    wrapper.title = canHover ? 'Passe o mouse para visualizar completa · clique para abrir em tamanho real' : 'Toque para ampliar a imagem';
 
     if (canHover) {
       wrapper.addEventListener('mouseenter', () => showPreview(img));

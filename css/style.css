@@ -2623,3 +2623,500 @@ body.media-lightbox-open { overflow: hidden; }
 .tech-item-finance .tech-icon { color: #d9c18c; }
 .tech-item-sustain .tech-icon { color: #a7cfbf; }
 .tech-name { line-height: 1.25; }
+
+
+/* ============================================================
+   MOBILE EXPERIENCE V4 — 2026-08-26
+   Smartphone-first polish + prêmio mundial no visualizador
+   ============================================================ */
+
+/* O prêmio mundial usa o mesmo visualizador dos certificados/projetos. */
+.award-img-frame {
+  cursor: zoom-in;
+  position: relative;
+  touch-action: manipulation;
+}
+.award-img-frame > * { user-select: none; }
+.award-rank-badge { pointer-events: none; }
+
+/* Foco visível em todas as imagens interativas. */
+.cert-img-wrap:focus-visible,
+.proj-img-wrap:focus-visible,
+.award-img-frame:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+/* Estado do menu mobile. */
+body.mobile-menu-open { overflow: hidden; }
+.hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 72px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    min-width: 0;
+    width: 100%;
+    overflow-x: clip;
+    background: var(--bg-void);
+  }
+  #bg-canvas { display: none !important; }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  section,
+  #sobre,
+  #experiencia,
+  #formacao,
+  #certificacoes,
+  #projetos,
+  #premiacoes,
+  #tecnologias,
+  #contato,
+  #consumo-da-vida {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  /* Navegação compacta e confortável para toque */
+  #navbar {
+    height: 64px;
+    padding-left: 14px !important;
+    padding-right: 10px !important;
+    background: rgba(7,16,29,.94);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .nav-logo {
+    max-width: calc(100vw - 72px);
+    font-size: .72rem !important;
+    letter-spacing: .09em;
+    line-height: 1.08;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-logo span { font-size: .46rem; letter-spacing: .17em; }
+  .mobile-nav {
+    top: 64px;
+    height: calc(100dvh - 64px);
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px 18px max(26px, env(safe-area-inset-bottom));
+    gap: 0;
+    background: rgba(7,16,29,.985);
+  }
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 12px 2px;
+    font-family: var(--font-body);
+    font-size: .92rem;
+    letter-spacing: .015em;
+  }
+
+  /* Hero: reduz altura excessiva e melhora hierarquia no celular */
+  #hero {
+    min-height: auto;
+    padding-top: 88px !important;
+    padding-bottom: 54px !important;
+    overflow: visible;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 30px !important;
+    text-align: center;
+  }
+  .hero-img-wrap { order: -1; }
+  .hero-img-frame {
+    width: min(56vw, 205px) !important;
+    height: min(66vw, 240px) !important;
+    margin: 0 auto;
+  }
+  .hero-img-bg { inset: -14px; }
+  .hero-badge {
+    margin: 0 auto 18px;
+    padding: 7px 11px;
+    font-size: .7rem;
+    line-height: 1.45;
+    justify-content: center;
+  }
+  .hero-name {
+    font-size: clamp(2.65rem, 13.5vw, 3.5rem) !important;
+    line-height: .94;
+    letter-spacing: -.045em;
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    margin: 0 auto 18px;
+    max-width: 340px;
+    font-size: .78rem !important;
+    line-height: 1.6;
+  }
+  .hero-subtitle {
+    margin: 0 auto 26px;
+    max-width: 100%;
+    font-size: .94rem !important;
+    line-height: 1.66 !important;
+  }
+  .hero-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 9px;
+    margin-bottom: 30px;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px 12px;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    font-size: .76rem;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-impact { grid-column: 1 / -1; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 8px !important;
+    width: 100%;
+  }
+  .hero-stats > div {
+    min-width: 0;
+    padding: 10px 4px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stat-num { font-size: 1.45rem; }
+  .hero-stat-label {
+    margin-top: 4px;
+    font-size: .59rem;
+    line-height: 1.35;
+    letter-spacing: .025em;
+  }
+
+  /* Métricas */
+  .metrics-bar { padding: 22px 0; }
+  .metrics-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .metric-item {
+    min-width: 0;
+    padding: 16px 8px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .metric-item:nth-child(2n) { border-right: none; }
+  .metric-item:nth-last-child(-n+2) { border-bottom: none; }
+  .metric-num { font-size: 1.85rem; }
+  .metric-num .plus { font-size: 1.15rem; }
+  .metric-label {
+    font-size: .56rem;
+    line-height: 1.4;
+    letter-spacing: .08em;
+  }
+
+  /* Tipografia e respiros gerais */
+  .section-eyebrow {
+    font-size: .64rem;
+    letter-spacing: .11em;
+    gap: 9px;
+    margin-bottom: 10px;
+  }
+  .section-eyebrow::before { width: 20px; }
+  .section-title {
+    font-size: clamp(1.9rem, 9vw, 2.45rem) !important;
+    line-height: 1.08;
+    letter-spacing: -.03em;
+    margin-bottom: 14px;
+  }
+  .section-subtitle {
+    font-size: .94rem;
+    line-height: 1.66;
+  }
+  .section-subtitle[style] { margin-bottom: 34px !important; }
+
+  /* Sobre / painéis */
+  .sobre-grid { gap: 32px; }
+  .sobre-body { font-size: .95rem; line-height: 1.72; }
+  .sobre-panels { gap: 10px; }
+  .info-panel {
+    padding: 15px 14px;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .info-panel-icon { width: 32px; font-size: 1.25rem; }
+  .info-panel-label { font-size: .56rem; letter-spacing: .09em; }
+  .info-panel-value { font-size: .84rem; line-height: 1.45; }
+  .hybrid-card,
+  .sobre-impact-block { padding: 20px 16px; }
+  .hybrid-pillars { gap: 10px; }
+  .hybrid-pillar { min-width: 0; }
+  .sib-pillars { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+
+  /* Experiência e formação */
+  .exp-header { margin-bottom: 34px; }
+  .exp-timeline { gap: 16px; }
+  .exp-block { padding: 22px 17px; border-radius: 16px; }
+  .exp-company { font-size: 1.3rem; }
+  .exp-period { font-size: .62rem; letter-spacing: .07em; margin-bottom: 18px; }
+  .exp-tags { gap: 6px; margin-bottom: 18px; }
+  .exp-tag { font-size: .58rem; padding: 4px 7px; }
+  .timeline-step { gap: 11px; }
+  .timeline-role { font-size: .9rem; line-height: 1.4; }
+  .exp-award { padding: 13px 12px; align-items: flex-start; }
+  .exp-award-text { font-size: .68rem; }
+
+  .edu-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 12px;
+  }
+  .edu-card { padding: 20px 17px; }
+  .edu-degree { font-size: 1rem; line-height: 1.4; }
+
+  /* Certificados: imagem inteira no card e toque para abrir */
+  .cert-grid,
+  .cert-extra,
+  .cert-finance-grid { gap: 14px; }
+  .cert-card { border-radius: 14px; overflow: hidden; }
+  .cert-img-wrap {
+    height: auto !important;
+    aspect-ratio: auto !important;
+    min-height: 0;
+    background: #eef1f4;
+    display: grid;
+    place-items: center;
+  }
+  .cert-img-wrap img {
+    width: 100%;
+    height: auto !important;
+    max-height: 62vh;
+    object-fit: contain !important;
+    transform: none !important;
+  }
+  .cert-img-overlay { display: none; }
+  .cert-info { padding: 15px 16px; }
+  .cert-issuer { font-size: .58rem; letter-spacing: .08em; }
+  .cert-name { font-size: .9rem; line-height: 1.4; }
+  .cert-finance-section[style] { margin-top: 38px !important; }
+  .cert-finance-header { margin-bottom: 20px; }
+  .cert-finance-title { font-size: 1.45rem; }
+  .cert-finance-info-col { gap: 10px; }
+  .cert-finance-pill { padding: 13px; gap: 10px; }
+
+  /* Projetos */
+  .proj-grid { gap: 16px; }
+  .proj-card { border-radius: 16px; overflow: hidden; }
+  .proj-img-wrap { aspect-ratio: 16 / 10; }
+  .proj-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none !important;
+  }
+  .proj-body { padding: 18px 16px; }
+  .proj-tags { gap: 5px; }
+  .proj-tag { font-size: .57rem; padding: 4px 7px; }
+  .proj-name { font-size: 1.05rem; line-height: 1.35; }
+  .proj-desc { font-size: .86rem; line-height: 1.63; }
+
+  /* Premiação: certificado clicável, badge sem sair da tela */
+  .award-feature { gap: 30px; text-align: left !important; }
+  .award-img-wrap {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+  }
+  .award-img-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .award-img-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .award-rank-badge {
+    right: 10px !important;
+    bottom: 10px;
+    top: auto;
+    width: 66px;
+    height: 66px;
+    border-radius: 14px;
+  }
+  .award-rank-num { font-size: 1.55rem; }
+  .award-rank-label { font-size: .47rem; }
+  .award-event { font-size: .63rem; letter-spacing: .13em; }
+  .award-title { font-size: clamp(1.75rem, 8.5vw, 2.3rem); line-height: 1.12; }
+  .award-desc { font-size: .92rem; line-height: 1.68; }
+  .award-pills { justify-content: flex-start !important; gap: 7px; }
+  .award-pill { font-size: .69rem; padding: 8px 10px; }
+
+  /* Competências */
+  .tech-subtitle { margin-bottom: 30px; }
+  .tech-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 8px;
+  }
+  .tech-item {
+    min-width: 0;
+    min-height: 96px !important;
+    padding: 14px 8px;
+    border-radius: 12px;
+  }
+  .tech-icon { width: 38px; height: 38px; margin-bottom: 7px; }
+  .tech-icon svg { width: 32px; height: 32px; }
+  .tech-name { font-size: .68rem; overflow-wrap: anywhere; }
+
+  /* Consumo da Vida */
+  .cdv-header { margin-bottom: 34px; }
+  .cdv-hero {
+    padding: 22px 16px !important;
+    margin-bottom: 34px;
+    gap: 22px;
+  }
+  .cdv-quote {
+    padding-left: 15px;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+  .cdv-quote-author { padding-left: 15px; }
+  .cdv-mvp-grid { margin-bottom: 42px; }
+  .cdv-mvp-card { padding: 21px 16px; }
+  .cdv-pillars-section { margin-bottom: 42px; }
+  .cdv-pillars-header { margin-bottom: 24px; }
+  .cdv-pillar-card { padding: 20px 16px; }
+  .cdv-convergence {
+    padding: 22px 14px !important;
+    margin-bottom: 36px;
+  }
+  .cdv-convergence-header { margin-bottom: 24px; }
+  .cdv-conv-item {
+    padding: 14px 12px;
+    gap: 9px;
+    align-items: flex-start;
+  }
+  .cdv-conv-from { min-width: 54px; }
+  .cdv-conv-arrow { font-size: .95rem; }
+  .cdv-conv-insight { font-size: .78rem; }
+  .cdv-cta { padding: 22px 16px !important; }
+  .cdv-cta-inner { gap: 16px; }
+  .cdv-cta-icon { font-size: 2rem; }
+  .cdv-cta-text { min-width: 0; width: 100%; }
+  .cdv-cta-actions { width: 100%; }
+  .btn-consumo-vida {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    padding: 13px 14px;
+  }
+
+  /* Contato */
+  .contact-grid { gap: 24px; }
+  .contact-links { gap: 9px; }
+  .contact-link {
+    padding: 15px 13px;
+    gap: 11px;
+    transform: none !important;
+  }
+  .contact-link-icon { font-size: 1.2rem; }
+  .contact-link-label { font-size: .55rem; letter-spacing: .09em; }
+  .contact-link-value {
+    font-size: .8rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .contact-form { padding: 20px 16px; border-radius: 14px; }
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    min-width: 0;
+    font-size: 16px; /* impede zoom automático do iOS */
+  }
+  .form-submit { width: 100%; min-height: 48px; }
+
+  /* Footer */
+  footer { padding-left: 18px; padding-right: 18px; }
+  .footer-inner { gap: 18px; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; gap: 10px 14px; }
+
+  /* Lightbox móvel: começa ajustado à tela e aceita pinch zoom do navegador. */
+  .media-lightbox {
+    touch-action: pan-x pan-y pinch-zoom;
+    overscroll-behavior: contain;
+  }
+  .media-lightbox-topbar {
+    min-height: 58px;
+    padding: max(10px, env(safe-area-inset-top)) 12px 10px;
+    background: rgba(2,7,13,.97);
+  }
+  .media-lightbox-back {
+    min-width: 92px;
+    min-height: 44px;
+    justify-content: center;
+    font-size: .84rem;
+  }
+  .media-lightbox-stage {
+    inset: 0;
+    padding: calc(66px + env(safe-area-inset-top)) 8px max(14px, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .media-lightbox-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container { padding-left: 15px; padding-right: 15px; }
+  .nav-logo { font-size: .67rem !important; }
+  .hero-name { font-size: clamp(2.45rem, 13vw, 3rem) !important; }
+  .hero-actions { grid-template-columns: 1fr; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-impact { grid-column: auto; }
+  .hero-stats { gap: 5px !important; }
+  .hero-stat-num { font-size: 1.3rem; }
+  .hero-stat-label { font-size: .54rem; }
+  .metrics-grid { gap: 0 !important; }
+  .metric-item { padding: 14px 5px; }
+  .award-pills { display: grid; grid-template-columns: 1fr; }
+  .award-pill { width: 100%; }
+  .tech-grid { gap: 7px; }
+  .cdv-conv-item { flex-wrap: wrap; }
+  .cdv-conv-from { flex-direction: row; min-width: 100%; justify-content: flex-start; }
+  .cdv-conv-arrow { display: none; }
+}
+
+/* Certificado da premiação: sempre exibir a imagem completa, sem crop. */
+.award-img-frame {
+  aspect-ratio: auto;
+  background: #eef1f4;
+}
+.award-img-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
