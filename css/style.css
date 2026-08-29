@@ -3456,3 +3456,47 @@ section { padding-top: 72px; padding-bottom: 72px; }
   .cfp-icon,
   .exp-award-icon { width: 42px; min-width: 42px; }
 }
+
+/* ============================================================
+   PREMIUM V8 — TAGS PARA TODA A FORMAÇÃO ACADÊMICA
+   ============================================================ */
+.edu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.edu-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+.edu-tags-cyan span {
+  background: rgba(0, 212, 255, 0.07);
+  color: var(--cyan);
+  border-color: rgba(0, 212, 255, 0.18);
+}
+.edu-tags-purple span {
+  background: rgba(168, 85, 247, 0.08);
+  color: #c6a4ff;
+  border-color: rgba(168, 85, 247, 0.22);
+}
+.edu-tags-blue span {
+  background: rgba(96, 165, 250, 0.08);
+  color: #8fc3ff;
+  border-color: rgba(96, 165, 250, 0.22);
+}
+.edu-tags-green span {
+  background: rgba(0, 255, 136, 0.07);
+  color: #9fe3c1;
+  border-color: rgba(0, 255, 136, 0.18);
+}
+@media (max-width: 768px) {
+  .edu-tags span,
+  .edu-finance-tags span {
+    font-size: 0.55rem;
+  }
+}
