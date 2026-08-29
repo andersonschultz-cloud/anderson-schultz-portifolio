@@ -3120,3 +3120,98 @@ body.mobile-menu-open { overflow: hidden; }
   height: auto;
   object-fit: contain;
 }
+
+/* ============================================================
+   PREMIUM V5 — SITE MAIS ENXUTO
+   ============================================================ */
+section { padding-top: 72px; padding-bottom: 72px; }
+#tecnologias, #contato, #consumo-da-vida { padding-top: 80px; padding-bottom: 80px; }
+.hero-subtitle { max-width: 760px; }
+.section-subtitle { max-width: 860px; }
+
+/* Remove redundância e melhora ritmo vertical */
+#sobre .sobre-grid { align-items: start; }
+#sobre .sobre-body p + p { margin-top: 14px; }
+#sobre .hybrid-card { margin-top: 26px; }
+#sobre .sobre-panels { gap: 14px; }
+#sobre .skill-bars-panel { margin-top: 4px; }
+#projetos .proj-desc,
+#experiencia .exp-block p,
+#contato .section-subtitle { max-width: none; }
+
+/* Consumo da Vida — versão resumida com mesmo sistema de ícones das competências */
+#consumo-da-vida.compact-section {
+  background: radial-gradient(circle at top, rgba(0,255,136,.06), transparent 46%), var(--bg-deep);
+}
+.cdv-compact-intro { max-width: 920px; }
+.cdv-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+  margin: 34px 0 30px;
+}
+.cdv-value-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(0,255,136,.12);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.16);
+}
+.cdv-value-title {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .72rem;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.cdv-value-text {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: .93rem;
+}
+.cdv-summary-block { margin-top: 18px; }
+.cdv-summary-grid {
+  margin-top: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.cdv-skill-item {
+  text-align: left;
+  padding: 18px 16px;
+}
+.cdv-skill-item .tech-icon { margin: 0 0 12px 0; }
+.cdv-skill-item .tech-name {
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.cdv-skill-desc {
+  color: var(--text-secondary);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.cdv-cta-inner-compact {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 960px) {
+  .cdv-value-grid { grid-template-columns: 1fr; }
+  .cdv-cta-inner-compact { grid-template-columns: 1fr; }
+  .cdv-cta-actions { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  section { padding-top: 58px; padding-bottom: 58px; }
+  #tecnologias, #contato, #consumo-da-vida { padding-top: 64px; padding-bottom: 64px; }
+  .cdv-summary-grid { grid-template-columns: 1fr 1fr; }
+  .cdv-skill-item { min-height: 100%; }
+}
+
+@media (max-width: 560px) {
+  .cdv-summary-grid { grid-template-columns: 1fr; }
+  .cdv-value-card { padding: 18px 16px; }
+}
