@@ -1,859 +1,593 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- ═══════════════════════════════════════════════════
-       FAVICON / ÍCONES — logo.png
-  ════════════════════════════════════════════════════ -->
-<link href="assets/images/logo.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="assets/images/logo.png" rel="apple-touch-icon"/>
-<link href="assets/site.webmanifest" rel="manifest"/>
-<meta content="#07101d" name="theme-color"/>
-<title>Anderson Schultz Ribeiro — DevOps/SRE | Estratégia, Tecnologia e Confiabilidade</title>
-<!-- ═══════════════════════════════════════════════════
-       SEO META TAGS — v2 Atualizado
-  ════════════════════════════════════════════════════ -->
-<meta content="Anderson Schultz Ribeiro — profissional de DevOps/SRE, middleware, automação e observabilidade, com visão estratégica de negócios, finanças e inteligência artificial. Experiência em ambientes corporativos críticos e projetos de alta disponibilidade." name="description"/>
-<meta content="DevOps, SRE, Site Reliability Engineering, Cloud, Middleware, Observabilidade, Automação, Inteligência Artificial, Kubernetes, Docker, Azure, Grafana, Prometheus, CI/CD, Ansible, Linux, Bitcoin, Mercado de Capitais, Finanças, Economia, Educação Financeira, Consumo Consciente, Sustentabilidade, Desenvolvimento Humano, Planejamento Financeiro, Consumo da Vida, Impacto Social, Qualidade de Vida, Bem-estar Financeiro, Investimentos, B3, Renda Variável, Saúde Financeira, Prosperidade Sustentável, FinTech, Cooperativismo" name="keywords"/>
-<meta content="Anderson Schultz Ribeiro" name="author">
-<meta content="index, follow" name="robots"/>
-<link href="https://andersonschultz-cloud.github.io/anderson-schultz-portifolio/" rel="canonical"/>
-<!-- Open Graph -->
-<meta content="profile" property="og:type"/>
-<meta content="Anderson Schultz Ribeiro — DevOps/SRE | Estratégia, Tecnologia e Confiabilidade" property="og:title"/>
-<meta content="Experiência em ambientes corporativos críticos, conectando engenharia, confiabilidade operacional, automação e visão de negócio." property="og:description"/>
-<meta content="assets/images/fotoperfil.jpg" property="og:image"/>
-<meta content="https://andersonschultz-cloud.github.io/anderson-schultz-portifolio/" property="og:url"/>
-<meta content="pt_BR" property="og:locale"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Anderson Schultz Ribeiro — DevOps/SRE | Estratégia e Tecnologia" name="twitter:title"/>
-<meta content="DevOps/SRE, middleware, automação, observabilidade e estratégia para ambientes corporativos críticos." name="twitter:description"/>
-<meta content="assets/images/fotoperfil.jpg" name="twitter:image"/>
-<!-- ═══════════════════════════════════════════════════
-       SCHEMA.ORG — Person + Project expandido
-  ════════════════════════════════════════════════════ -->
-<script type="application/ld+json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Consumo da Vida | Plataforma de Inteligência Financeira</title>
+  <meta name="description" content="Plataforma completa de educação financeira: calcule o custo da vida em horas de trabalho, planeje compras com inteligência e simule investimentos com a Selic ao vivo.">
+  <meta name="keywords" content="educação financeira, calculadora financeira, planejador de compras, simulador de investimentos, juros compostos, selic">
+  <meta name="theme-color" content="#030914">
+  <meta name="color-scheme" content="dark light">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:title" content="Consumo da Vida | Plataforma de Inteligência Financeira">
+  <meta property="og:description" content="Três ferramentas, um ecossistema: Calculadora de Vida, Planejador de Compras e Simulador de Rendimentos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://consumodavida.com.br">
+  <link rel="canonical" href="https://consumodavida.com.br">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo/icon-schultz-32.png">
+  <link rel="apple-touch-icon" href="assets/img/logo/icon-schultz-192.png">
+
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Anderson Schultz Ribeiro",
-    "jobTitle": "DevOps Engineer | SRE | Middleware | Cloud & Automation | Economia & Mercado de Capitais",
-    "url": "https://andersonschultz-cloud.github.io/anderson-schultz-portifolio/",
-    "image": "assets/images/fotoperfil.jpg",
-    "description": "Profissional com 15+ anos em Tecnologia, MBA em Finanças e Mercado de Capitais, MBA em Inteligência Artificial. Criador do projeto Consumo da Vida — iniciativa de educação financeira, consumo consciente e sustentabilidade.",
-    "sameAs": [
-      "https://www.linkedin.com/in/anderson-schultz-ribeiro0001/",
-      "https://github.com/andersonschultz-cloud"
-    ],
-    "knowsAbout": [
-      "DevOps","SRE","Cloud Computing","Kubernetes","Docker","Ansible",
-      "Observabilidade","Automação","Inteligência Artificial","Middleware",
-      "Linux","Economia","Mercado de Capitais","Bitcoin","Finanças",
-      "Business Intelligence","Educação Financeira","Consumo Consciente",
-      "Sustentabilidade","Planejamento Financeiro","Desenvolvimento Humano",
-      "Qualidade de Vida","Impacto Social","Cooperativismo"
-    ],
-    "founder": {
-      "@type": "Project",
-      "name": "Consumo da Vida",
-      "description": "Iniciativa voltada à valorização da vida por meio de escolhas conscientes de consumo, hábitos saudáveis, sustentabilidade, educação financeira e bem-estar. Promove reflexões sobre como as decisões diárias impactam qualidade de vida, saúde financeira, sustentabilidade, meio ambiente e desenvolvimento pessoal.",
-      "url": "https://consumodavida.com.br/"
+    "@type": "WebApplication",
+    "name": "Consumo da Vida",
+    "url": "https://consumodavida.com.br",
+    "description": "Plataforma de educação financeira com calculadora, planejador e simulador de investimentos.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "pt-BR",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+    "creator": {
+      "@type": "Person",
+      "name": "Anderson Schultz Ribeiro",
+      "url": "https://www.linkedin.com/in/anderson-schultz-ribeiro0001/"
     }
   }
   </script>
-<link href="css/style.css?v=20260829-premium-v7" rel="stylesheet"/>
-</meta></head>
+
+  <!-- Google Analytics 4 (opcional) -->
+  <!-- 1. analytics.google.com → criar propriedade → copiar Measurement ID -->
+  <!-- 2. Descomente e substitua G-XXXXXXXXXX abaixo: -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  -->
+
+
+  <!-- Treasury CSS (inline - componentes do Tesouro Direto) -->
+  <style>
+    /* ── Separador com botão de refresh do Tesouro ─────── */
+    .treasury-separator {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .treasury-separator span { flex: 1; }
+    .treasury-separator .btn-refresh {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 6px;
+    }
+    /* ── Status do Tesouro Direto ───────────────────────── */
+    .treasury-status-line {
+      font-size: 11px; line-height: 1.4; padding: 5px 0 8px;
+    }
+    .treasury-status-line.ok      { color: var(--teal); }
+    .treasury-status-line.loading { color: var(--azul); }
+    .treasury-status-line.warn    { color: var(--dourado-dk); font-weight: 500; }
+    .treasury-status-line.error   { color: #B45309; }
+    .treasury-status-line.idle    { color: var(--text3); }
+    [data-theme="dark"] .treasury-status-line.ok   { color: var(--teal-lt); }
+    [data-theme="dark"] .treasury-status-line.warn { color: var(--dourado-lt); }
+    /* ── IPCA input row ─────────────────────────────────── */
+    .ipca-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 12px; margin-top: 8px;
+      background: var(--surface2); border: 1.5px solid var(--border2);
+      border-radius: var(--radius-sm);
+    }
+    .ipca-row-text strong { display: block; font-size: 13px; color: var(--text); margin-bottom: 2px; }
+    .ipca-row-text span   { font-size: 11.5px; color: var(--text3); line-height: 1.4; }
+    .ipca-input-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+    .ipca-input-wrap input {
+      width: 58px; padding: 7px 8px; font-size: 14px; text-align: right;
+      font-family: 'DM Mono', monospace; font-weight: 600;
+      background: var(--surface); border: 1.5px solid var(--border-ctrl);
+      border-radius: var(--radius-sm); color: var(--text);
+      outline: none; -moz-appearance: textfield;
+    }
+    .ipca-input-wrap input:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+    }
+    .ipca-input-wrap .suf-label { font-size: 12px; color: var(--text3); white-space: nowrap; }
+    /* Treasury bond badge */
+    .opt-treasury-tag {
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .4px; background: var(--azul-2xl); color: var(--azul-dk);
+      padding: 2px 6px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+    }
+    [data-theme="dark"] .opt-treasury-tag { background: var(--azul-2xl); color: var(--azul-xl); }
+  </style>
+  <!-- Chart.js (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+  <!-- Design System CSS (ordem importa) -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/premium.css">
+  <link rel="stylesheet" href="assets/css/brand-v6.css">
+  <link rel="stylesheet" href="assets/css/professional-v7.css">
+  <link rel="stylesheet" href="assets/css/option1-dark-premium.css">
+  <link rel="stylesheet" href="assets/css/corporate-portfolio.css">
+  <link rel="stylesheet" href="assets/css/portfolio-clean-v2.css">
+</head>
 <body>
-<!-- BACKGROUND CANVAS (partículas originais) -->
-<canvas id="bg-canvas"></canvas>
-<!-- ═══════════════════════════════════════════════════
-     NAV — "Impacto" adicionado ao menu
-════════════════════════════════════════════════════ -->
-<nav id="navbar">
-<div class="nav-logo">ANDERSON SCHULTZ <span>CONSULTORIA</span></div>
-<div class="nav-links">
-<a href="#sobre">Sobre</a>
-<a href="#experiencia">Experiência</a>
-<a href="#formacao">Formação</a>
-<a href="#certificacoes">Certificações</a>
-<a href="#projetos">Projetos</a>
-<a href="#consumo-da-vida">Impacto</a>
-<a href="#premiacoes">Premiações</a>
-<a href="#tecnologias">Competências</a>
-<a class="nav-cta" href="#contato">Contato</a>
-</div>
-<div aria-label="Abrir menu" class="hamburger" id="hamburger">
-<span></span><span></span><span></span>
-</div>
-</nav>
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobile-nav">
-<a href="#sobre">Sobre</a>
-<a href="#experiencia">Experiência</a>
-<a href="#formacao">Formação</a>
-<a href="#certificacoes">Certificações</a>
-<a href="#projetos">Projetos</a>
-<a href="#consumo-da-vida">Impacto</a>
-<a href="#premiacoes">Premiações</a>
-<a href="#tecnologias">Competências</a>
-<a href="#contato">Contato</a>
-</div>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║           HERO               ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="hero">
-<div class="container">
-<div class="hero-grid">
-<!-- LEFT -->
-<div class="hero-left">
-<div class="hero-badge fade-up">
-<span class="dot"></span>
-          Engenharia de Plataformas · SRE · Estratégia &amp; Operações
-        </div>
-<h1 class="hero-name fade-up fade-up-delay-1">
-          Anderson<br/>
-<span class="name-accent">Schultz</span><br/>
-          Ribeiro
-        </h1>
-<p class="hero-title fade-up fade-up-delay-2">
-          Tecnologia &amp; Confiabilidade  ·  Estratégia &amp; Negócios  ·  Inteligência Artificial
-        </p>
-<p class="hero-subtitle fade-up fade-up-delay-3">Atuo na evolução e sustentação de ambientes corporativos críticos, unindo <strong>engenharia, confiabilidade operacional e visão de negócio</strong> para apoiar decisões mais seguras, eficientes e orientadas a resultado.</p>
-<div class="hero-actions fade-up fade-up-delay-4">
-<a class="btn-primary" download="" href="assets/images/cv.jpg">
-            Baixar currículo
-          </a>
-<a class="btn-ghost" href="https://www.linkedin.com/in/anderson-schultz-ribeiro0001/" rel="noopener" target="_blank">
-            LinkedIn
-          </a>
-<a class="btn-ghost" href="https://github.com/andersonschultz-cloud" rel="noopener" target="_blank">
-            GitHub
-          </a>
-<a class="btn-ghost btn-impact" href="#consumo-da-vida">
-            Consumo da Vida
-          </a>
-</div>
-<div class="hero-stats fade-up">
-<div>
-<div class="hero-stat-num"><span data-counter="" data-target="15">0</span><sup>+</sup></div>
-<div class="hero-stat-label">Anos de experiência em TI</div>
-</div>
-<div>
-<div class="hero-stat-num"><span data-counter="" data-target="50">0</span><sup>+</sup></div>
-<div class="hero-stat-label">Projetos entregues</div>
-</div>
-<div>
-<div class="hero-stat-num"><span data-counter="" data-target="5">0</span></div>
-<div class="hero-stat-label">Formações</div>
-</div>
-</div>
-</div>
-<!-- RIGHT / PHOTO -->
-<div class="hero-img-wrap fade-up fade-up-delay-2">
-<div class="hero-img-frame">
-<div class="hero-img-bg"></div>
-<div class="hero-img-border">
-<img alt="Anderson Schultz Ribeiro — DevOps Engineer &amp; SRE" id="profile-photo" loading="eager" src="assets/images/fotoperfil.jpg"/>
-<div class="hero-img-overlay"></div>
-</div>
-<div class="hero-corner tl"></div>
-<div class="hero-corner tr"></div>
-<div class="hero-corner bl"></div>
-<div class="hero-corner br"></div>
-<div class="hero-float-badge badge-top">Technology • Reliability • Strategy</div>
-<div class="hero-float-badge badge-bottom">DevOps • SRE • Critical Operations</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- METRICS BAR -->
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║         SOBRE MIM            ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="sobre">
-<div class="container">
-<div class="sobre-grid">
-<div>
-<div class="section-eyebrow fade-up">Sobre mim</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-          Engenharia como <span class="accent">evolução contínua</span>
-</h2>
-<div class="sobre-body fade-up fade-up-delay-2">
-<p>Atuo há mais de <strong>15 anos em Tecnologia da Informação</strong>, com trajetória construída em operações críticas, telecomunicações, monitoramento, middleware, automação, <strong>DevOps</strong> e <strong>Site Reliability Engineering</strong>.</p>
-<p>Hoje conecto desenvolvimento, operações e negócios por meio de <strong>observabilidade, confiabilidade e automação</strong>. A formação em <strong>economia, mercado financeiro e inteligência artificial</strong> amplia essa visão e fortalece decisões orientadas a impacto.</p>
-</div>
-<!-- Card perfil híbrido -->
-<div class="hybrid-card fade-up fade-up-delay-3">
-<div class="hybrid-card-header">
-<span class="hybrid-card-label">Perfil Híbrido</span>
-</div>
-<div class="hybrid-pillars">
-<div class="hybrid-pillar">
-<div class="hybrid-pillar-icon" style="color:var(--cyan)"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="7"></circle><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"></path></svg></span></div>
-<div class="hybrid-pillar-name">Tecnologia</div>
-<div class="hybrid-pillar-desc">DevOps · SRE · Cloud · Linux · Automação</div>
-</div>
-<div class="hybrid-connector">✕</div>
-<div class="hybrid-pillar">
-<div class="hybrid-pillar-icon" style="color:var(--amber)"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M20 14v20M27 14v4M27 30v4M18 19h10c5 0 5 7 0 7H18h11c5 0 5 7 0 7H18"></path></svg></span></div>
-<div class="hybrid-pillar-name">Economia</div>
-<div class="hybrid-pillar-desc">Mercado de Capitais · B3 · Finanças · Criptoativos</div>
-</div>
-<div class="hybrid-connector">✕</div>
-<div class="hybrid-pillar">
-<div class="hybrid-pillar-icon" style="color:var(--green)"><span class="tech-icon ui-icon icon-green"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V22M24 24c-7-10-15-10-17-10 1 10 7 16 17 15M24 22c6-9 14-10 17-9-1 10-7 15-17 15"></path></svg></span></div>
-<div class="hybrid-pillar-name">Impacto Social</div>
-<div class="hybrid-pillar-desc">Consumo Consciente · Sustentabilidade · Bem-estar</div>
-</div>
-</div>
-</div>
-<!-- ═══════════════════════════════════════════════════
-             [NOVO] BLOCO — Economia, Consumo Consciente e Impacto Social
-        ════════════════════════════════════════════════════ -->
-</div>
-<div class="sobre-panels">
-<div class="info-panel fade-up">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40s-10-8-10-18a10 10 0 1 1 20 0c0 10-10 18-10 18z"></path><circle cx="24" cy="22" r="3.5"></circle></svg></span></div>
-<div>
-<div class="info-panel-label">Localização</div>
-<div class="info-panel-value">Brasil/RS/Canoas — Remoto / Híbrido</div>
-</div>
-</div>
-<div class="info-panel fade-up fade-up-delay-1">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M14 40V11h20v29M10 40h28M19 17h4M25 17h4M19 23h4M25 23h4M19 29h4M25 29h4M22 40V33h4v7"></path></svg></span></div>
-<div>
-<div class="info-panel-label">Empresa Atual</div>
-<div class="info-panel-value">Sicredi — Analista DevOps SRE</div>
-</div>
-</div>
-<div class="info-panel fade-up fade-up-delay-2">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 20l16-8 16 8-16 8z"></path><path d="M14 23v8c0 2 5 5 10 5s10-3 10-5v-8"></path><path d="M40 20v10"></path></svg></span></div>
-<div>
-<div class="info-panel-label">Formação Mais Recente</div>
-<div class="info-panel-value">Especialização em Perícia Computacional - Facuminas (2026)</div>
-</div>
-</div>
-<div class="info-panel fade-up fade-up-delay-3">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M16 10h16v6c0 6-3 11-8 13-5-2-8-7-8-13z"></path><path d="M16 14H9c0 6 3 10 9 10M32 14h7c0 6-3 10-9 10M20 30h8M18 38h12M24 29v9"></path></svg></span></div>
-<div>
-<div class="info-panel-label">Reconhecimento Global</div>
-<div class="info-panel-value">IT Challenge 2015 — 3º Lugar Mundial</div>
-</div>
-</div>
-<div class="info-panel fade-up fade-up-delay-4">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M26 6L13 27h9l-2 15 15-22h-9z"></path></svg></span></div>
-<div>
-<div class="info-panel-label">Especialidades</div>
-<div class="info-panel-value">DevOps · SRE · Observabilidade · Middleware · IA · Economia</div>
-</div>
-</div>
-<!-- [NOVO] Painel Consumo da Vida destaque -->
-<div class="info-panel fade-up" style="transition-delay:0.5s;border-color:rgba(0,255,136,0.3);background:linear-gradient(135deg,var(--bg-card),rgba(0,255,136,0.03));">
-<div class="info-panel-icon"><span class="tech-icon ui-icon icon-green"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V22M24 24c-7-10-15-10-17-10 1 10 7 16 17 15M24 22c6-9 14-10 17-9-1 10-7 15-17 15"></path></svg></span></div>
-<div>
-<div class="info-panel-label">Iniciativa Social</div>
-<div class="info-panel-value" style="color:var(--green);">Consumo da Vida — Edu. Financeira &amp; Sustentabilidade</div>
-</div>
-</div>
-<!-- Painel de competências visuais -->
-<div class="skill-bars-panel fade-up" style="transition-delay:0.6s">
-<div class="skill-bar-item">
-<div class="skill-bar-header">
-<span class="skill-bar-label" style="color:var(--cyan)">Tecnologia &amp; DevOps</span>
-<span class="skill-bar-pct">Senior</span>
-</div>
-<div class="skill-bar-track">
-<div class="skill-bar-fill" data-width="95" style="background:linear-gradient(90deg,var(--cyan),#0099cc)"></div>
-</div>
-</div>
-<div class="skill-bar-item">
-<div class="skill-bar-header">
-<span class="skill-bar-label" style="color:var(--amber)">Finanças &amp; Economia</span>
-<span class="skill-bar-pct">MBA</span>
-</div>
-<div class="skill-bar-track">
-<div class="skill-bar-fill" data-width="80" style="background:linear-gradient(90deg,var(--amber),#cc8800)"></div>
-</div>
-</div>
-<div class="skill-bar-item">
-<div class="skill-bar-header">
-<span class="skill-bar-label" style="color:var(--green)">Educação Financeira</span>
-<span class="skill-bar-pct">Avançado</span>
-</div>
-<div class="skill-bar-track">
-<div class="skill-bar-fill" data-width="82" style="background:linear-gradient(90deg,var(--green),#00cc66)"></div>
-</div>
-</div>
-<div class="skill-bar-item">
-<div class="skill-bar-header">
-<span class="skill-bar-label" style="color:var(--purple);filter:brightness(1.6)">Automação &amp; SRE</span>
-<span class="skill-bar-pct">Expert</span>
-</div>
-<div class="skill-bar-track">
-<div class="skill-bar-fill" data-width="92" style="background:linear-gradient(90deg,#a855f7,#7c3aed)"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║         EXPERIÊNCIA          ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="experiencia">
-<div class="container">
-<div class="exp-header">
-<div class="section-eyebrow fade-up">Trajetória Profissional</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-        15 anos de <span class="accent">evolução</span> ininterrupta
-      </h2>
-</div>
-<div class="exp-timeline">
-<!-- ATOS -->
-<div class="exp-block fade-up">
-<div class="exp-company">Atos</div>
-<div class="exp-period">7 anos de atuação</div>
-<div class="exp-tags">
-<span class="exp-tag">Telecom</span>
-<span class="exp-tag">Cisco</span>
-<span class="exp-tag">Avaya</span>
-<span class="exp-tag">Siemens</span>
-<span class="exp-tag">Ericsson</span>
-<span class="exp-tag">Service Desk</span>
-<span class="exp-tag">Gestão de Incidentes</span>
-<span class="exp-tag">Programação</span>
-<span class="exp-tag">Treinamentos</span>
-<span class="exp-tag">Hipath 3800|4000</span>
-<span class="exp-tag">Netviz</span>
-</div>
-<p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">Atuação em infraestrutura e telecom corporativa, com gestão de incidentes, suporte avançado, integração de legados e formação técnica de equipes.</p>
-<div class="exp-award">
-<div class="exp-award-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M18 8l6 10 6-10M21 18l-5 9M27 18l5 9"></path><circle cx="24" cy="31" r="8"></circle><path d="M21 31l2 2 4-4"></path></svg></span></div>
-<div class="exp-award-text">
-<strong>IT Challenge 2015 — 3º Lugar Mundial</strong><br/>
-            Representando o Brasil na competição global promovida pela Atos
-          </div>
-</div>
-</div>
-<!-- SICREDI -->
-<div class="exp-block fade-up fade-up-delay-1">
-<div class="exp-company">Sicredi</div>
-<div class="exp-period">8 anos de evolução</div>
-<p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">Crescimento contínuo em ambiente financeiro de missão crítica, com foco em confiabilidade, performance, observabilidade e evolução de plataformas.</p>
-<div class="exp-timeline-steps">
-<div class="timeline-step">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<div class="timeline-role">Analista de Monitoramento</div>
-<div class="timeline-year">Início da jornada · Observabilidade e NOC</div>
-</div>
-</div>
-<div class="timeline-step">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<div class="timeline-role">Analista Middleware</div>
-<div class="timeline-year">Gestão de servidores de aplicação e integração</div>
-</div>
-</div>
-<div class="timeline-step">
-<div class="timeline-dot active"></div>
-<div class="timeline-content">
-<div class="timeline-role">Analista DevOps SRE — <span style="color:var(--cyan)">Posição Atual</span></div>
-<div class="timeline-year">Estabilidade · Confiabilidade · Observabilidade · Engenharia de Plataforma</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║          FORMAÇÃO            ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="formacao"><!-- Convenção automática: assets/images/certificado 01.jpg até certificado 05.jpg (também aceita png, jpeg e webp). -->
-<div class="container">
-<div class="section-eyebrow fade-up">Formação Acadêmica</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-      Fundamentos que <span class="accent">sustentam</span> a prática
-    </h2>
-<p class="section-subtitle fade-up fade-up-delay-2" style="margin-bottom:56px;">Formação multidisciplinar que conecta tecnologia, inteligência artificial, finanças e perícia computacional.</p>
-<div class="edu-grid">
-<div class="edu-card fade-up">
-<div class="edu-level">Especialização</div>
-<div class="edu-degree">Especialização em Perícia Computacional</div>
-<div class="edu-school">Pós-Graduação</div>
-<button aria-label="Abrir certificado 01" class="edu-certificate-action" data-certificate-index="01" title="Abrir certificado da formação" type="button">
-<span class="tech-icon edu-certificate-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span>
-<span class="edu-certificate-label">Ver certificado</span>
-<span class="edu-certificate-code">01</span>
-</button><div class="edu-year">2026</div>
-</div>
-<div class="edu-card fade-up fade-up-delay-1">
-<div class="edu-level">MBA</div>
-<div class="edu-degree">MBA em Inteligência Artificial</div>
-<div class="edu-school">Facuminas</div>
-<button aria-label="Abrir certificado 02" class="edu-certificate-action" data-certificate-index="02" title="Abrir certificado da formação" type="button">
-<span class="tech-icon edu-certificate-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span>
-<span class="edu-certificate-label">Ver certificado</span>
-<span class="edu-certificate-code">02</span>
-</button><div class="edu-year">2024</div>
-</div>
-<!-- Card de Finanças destacado -->
-<div class="edu-card edu-card-finance fade-up fade-up-delay-2">
-<div class="edu-level edu-level-finance">MBA · Finanças</div>
-<div class="edu-degree">MBA em Finanças com Ênfase em Mercado de Capitais</div>
-<div class="edu-school">Descomplica</div>
-<div class="edu-finance-tags">
-<span>Mercado de Capitais</span>
-<span>Derivativos</span>
-<span>Valuation</span>
-<span>B3</span>
-</div>
-<button aria-label="Abrir certificado 03" class="edu-certificate-action" data-certificate-index="03" title="Abrir certificado da formação" type="button">
-<span class="tech-icon edu-certificate-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span>
-<span class="edu-certificate-label">Ver certificado</span>
-<span class="edu-certificate-code">03</span>
-</button><div class="edu-year">2023</div>
-</div>
-<div class="edu-card fade-up fade-up-delay-3">
-<div class="edu-level">Pós-Graduação</div>
-<div class="edu-degree">Business Intelligence</div>
-<div class="edu-school">Estácio Canoas</div>
-<button aria-label="Abrir certificado 04" class="edu-certificate-action" data-certificate-index="04" title="Abrir certificado da formação" type="button">
-<span class="tech-icon edu-certificate-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span>
-<span class="edu-certificate-label">Ver certificado</span>
-<span class="edu-certificate-code">04</span>
-</button><div class="edu-year">2021</div>
-</div>
-<div class="edu-card fade-up fade-up-delay-4">
-<div class="edu-level">Graduação</div>
-<div class="edu-degree">Tecnologia da Informação</div>
-<div class="edu-school">UNIFTEC Porto Alegre</div>
-<button aria-label="Abrir certificado 05" class="edu-certificate-action" data-certificate-index="05" title="Abrir certificado da formação" type="button">
-<span class="tech-icon edu-certificate-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span>
-<span class="edu-certificate-label">Ver certificado</span>
-<span class="edu-certificate-code">05</span>
-</button><div class="edu-year">2019</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║        CERTIFICAÇÕES         ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="certificacoes">
-<div class="container">
-<div class="section-eyebrow fade-up">Certificações</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-      Qualificações <span class="accent">reconhecidas</span> internacionalmente
-    </h2>
-<p class="section-subtitle fade-up fade-up-delay-2" style="margin-bottom:56px;">Certificações e formações que validam conhecimento técnico, governança e visão de mercado.</p>
-<div class="cert-grid fade-up">
-<div class="cert-card">
-<div class="cert-img-wrap">
-<img alt="Certificação PDPE EXIN" class="media-viewer-trigger" loading="lazy" src="assets/images/certificado1.jpg" title="Passe o mouse para ampliar · clique para abrir em tamanho real"/>
-<div class="cert-img-overlay"></div>
-</div>
-<div class="cert-info">
-<div class="cert-issuer">EXIN</div>
-<div class="cert-name">PDPE® — Privacy and Data Protection Essentials</div>
-</div>
-</div>
-<div class="cert-card">
-<div class="cert-img-wrap">
-<img alt="Certificação ITIL EXIN" class="media-viewer-trigger" loading="lazy" src="assets/images/certificado2.jpg" title="Passe o mouse para ampliar · clique para abrir em tamanho real"/>
-<div class="cert-img-overlay"></div>
-</div>
-<div class="cert-info">
-<div class="cert-issuer">EXIN</div>
-<div class="cert-name">ITIL® Foundation Certificate in IT Service Management</div>
-</div>
-</div>
-</div>
-<div class="cert-extra fade-up fade-up-delay-1">
-<div class="cert-card cert-text-card">
-<div class="cert-img-wrap">
-<img alt="Certificação 3" class="media-viewer-trigger" loading="lazy" src="assets/images/certificado3.jpg" title="Passe o mouse para ampliar · clique para abrir em tamanho real"/>
-<div class="cert-img-overlay"></div>
-</div>
-<div class="cert-info">
-<div class="cert-issuer">Certificação</div>
-<div class="cert-name">Qualificação Técnica — Área Cloud &amp; DevOps</div>
-</div>
-</div>
-<div class="cert-card cert-text-card">
-<div class="cert-img-wrap">
-<img alt="Certificação 4" class="media-viewer-trigger" loading="lazy" src="assets/images/certificado4.jpg" title="Passe o mouse para ampliar · clique para abrir em tamanho real"/>
-<div class="cert-img-overlay"></div>
-</div>
-<div class="cert-info">
-<div class="cert-issuer">Certificação</div>
-<div class="cert-name">Qualificação Técnica — Área SRE &amp; Observabilidade</div>
-</div>
-</div>
-</div>
-<!-- Subseção Economia & Mercado Financeiro -->
-<div class="cert-finance-section fade-up" style="margin-top:56px;">
-<div class="cert-finance-header">
-<div class="section-eyebrow" style="margin-bottom:8px;">Formação Complementar</div>
-<h3 class="cert-finance-title">Economia &amp; <span class="accent">Mercado Financeiro</span></h3>
-</div>
-<div class="cert-finance-grid">
-<div class="cert-card cert-card-finance">
-<div class="cert-img-wrap">
-<img alt="Certificado Economia e Mercado Financeiro" class="media-viewer-trigger" loading="lazy" src="assets/images/certificado5.jpg" title="Passe o mouse para ampliar · clique para abrir em tamanho real"/>
-<div class="cert-img-overlay"></div>
-</div>
-<div class="cert-info">
-<div class="cert-issuer cert-issuer-finance">Economia · Finanças · Mercado de Capitais</div>
-<div class="cert-name">MBA em Finanças com Ênfase em Mercado de Capitais</div>
-</div>
-</div>
-<div class="cert-finance-info-col">
-<div class="cert-finance-pill">
-<span class="cfp-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M20 14v20M27 14v4M27 30v4M18 19h10c5 0 5 7 0 7H18h11c5 0 5 7 0 7H18"></path></svg></span></span>
-<div>
-<div class="cfp-title">Bitcoin &amp; Criptoativos</div>
-<div class="cfp-desc">Fundamentos de blockchain, tokenomics e análise de mercado de criptoativos</div>
-</div>
-</div>
-<div class="cert-finance-pill">
-<span class="cfp-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 37h33M12 31V18M20 34V12M28 29V20M36 34V9"></path><path d="M9 27l10-8 9 4 10-10"></path></svg></span></span>
-<div>
-<div class="cfp-title">Mercado de Capitais</div>
-<div class="cfp-desc">Renda variável, derivativos, valuation e estratégias de investimento na B3</div>
-</div>
-</div>
-<div class="cert-finance-pill">
-<span class="cfp-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 36h32M12 30l8-8 7 5 9-11"></path><path d="M30 16h6v6"></path></svg></span></span>
-<div>
-<div class="cfp-title">Análise Econômica</div>
-<div class="cfp-desc">Macroeconomia, política monetária, ciclos econômicos e análise fundamentalista</div>
-</div>
-</div>
-<div class="cert-finance-pill">
-<span class="cfp-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M7 18l17-9 17 9zM10 21h28M12 21v14M20 21v14M28 21v14M36 21v14M8 39h32"></path></svg></span></span>
-<div>
-<div class="cfp-title">FinTech &amp; Sistemas Financeiros</div>
-<div class="cfp-desc">Operação de sistemas críticos em cooperativa de crédito de escala nacional</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║          PROJETOS            ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="projetos">
-<div class="container">
-<div class="section-eyebrow fade-up">Projetos em Destaque</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-      Soluções que <span class="accent">impactam</span> o negócio
-    </h2>
-<p class="section-subtitle fade-up fade-up-delay-2" style="margin-bottom:56px;">Projetos com foco em confiabilidade, arquitetura, visibilidade operacional e impacto prático.</p>
-<div class="proj-grid">
-<div class="proj-card project-icon-card fade-up">
-<div class="project-icon-stage">
-<div class="tech-icon project-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M5 24s7-11 19-11 19 11 19 11-7 11-19 11S5 24 5 24z"></path><circle cx="24" cy="24" r="5"></circle><path d="M24 19v5l4 2"></path></svg></div>
-</div>
-<div class="proj-body">
-<div class="proj-tags"><span class="proj-tag">Grafana</span><span class="proj-tag">Prometheus</span><span class="proj-tag">Alerting</span><span class="proj-tag">SRE</span></div>
-<div class="proj-name">Plataforma de Observabilidade</div>
-<p class="proj-desc">Stack de observabilidade com métricas, logs e rastreamento distribuído, elevando visibilidade operacional e reduzindo MTTR.</p>
-</div>
-</div>
-<div class="proj-card project-icon-card fade-up fade-up-delay-1">
-<div class="project-icon-stage">
-<div class="tech-icon project-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 14l16-7 16 7-16 7zM8 24l16 7 16-7M8 33l16 7 16-7"></path><path d="M8 14v19M40 14v19"></path><circle cx="8" cy="14" r="2"></circle><circle cx="40" cy="14" r="2"></circle></svg></div>
-</div>
-<div class="proj-body">
-<div class="proj-tags"><span class="proj-tag">SOA</span><span class="proj-tag">WebLogic</span><span class="proj-tag">OSB</span><span class="proj-tag">Oracle</span></div>
-<div class="proj-name">Arquitetura SOA e Middleware Corporativo</div>
-<p class="proj-desc">Arquitetura de alta disponibilidade em Linux com Varnish, HAProxy, Keepalived e, em alguns cenários, Apache na camada de entrega.</p>
-</div>
-</div>
-<div class="proj-card project-icon-card project-icon-card-finance fade-up fade-up-delay-2">
-<div class="project-icon-stage">
-<div class="tech-icon project-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 37h33M12 31V18M20 34V12M28 29V20M36 34V9"></path><path d="M9 27l10-8 9 4 10-10"></path></svg></div>
-</div>
-<div class="proj-body">
-<div class="proj-tags"><span class="proj-tag">Renda Variável</span><span class="proj-tag">Derivativos</span><span class="proj-tag">Valuation</span><span class="proj-tag">B3</span></div>
-<div class="proj-name">Análise de Mercado de Capitais</div>
-<p class="proj-desc">Estudos e análises sobre renda variável, derivativos, valuation e estratégias de investimento com foco em B3 e mercados globais.</p>
-</div>
-</div>
-<div class="proj-card proj-card-consumo project-icon-card project-icon-card-sustain fade-up fade-up-delay-3" id="proj-consumo">
-<div class="project-icon-stage">
-<div class="tech-icon project-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V21M24 25c-6-9-15-9-17-9 1 10 7 15 17 14M24 22c5-8 13-9 17-8-1 9-7 14-17 14"></path></svg></div>
-<div class="proj-card-badge-consumo">Iniciativa Social</div>
-</div>
-<div class="proj-body">
-<div class="proj-tags"><span class="proj-tag proj-tag-consumo">Educação Financeira</span><span class="proj-tag proj-tag-consumo">Consumo Consciente</span><span class="proj-tag proj-tag-consumo">Sustentabilidade</span><span class="proj-tag proj-tag-consumo">Bem-estar</span></div>
-<div class="proj-name">Consumo da Vida</div>
-<p class="proj-desc">Iniciativa voltada à educação financeira, consumo consciente e qualidade de vida, conectando escolhas diárias a prosperidade sustentável.</p>
-<a class="proj-consumo-link" href="#consumo-da-vida">Conhecer a iniciativa →</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════════════════════════╗ -->
-<!-- ║     [NOVA SEÇÃO] CONSUMO DA VIDA                 ║ -->
-<!-- ╚══════════════════════════════════════════════════╝ -->
-<section class="compact-section" id="consumo-da-vida">
-<div class="container">
-<div class="cdv-header fade-up">
-<div class="section-eyebrow" style="color:var(--green);">
-<span style="background:var(--green);width:32px;height:1px;display:inline-block;margin-right:12px;vertical-align:middle;"></span>
-        Iniciativa Social
+
+  <!-- Instituto Schultz — sistema vetorial de ícones premium -->
+  <svg class="icon-sprite" aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+    <symbol id="i-life-calc" viewBox="0 0 32 32"><rect x="5" y="3" width="18" height="25" rx="4"/><path d="M9 8h10v5H9zM9 18h2m4 0h2m4 0h2M9 23h2m4 0h2"/><path d="M24 8c3 1.7 4 4 4 7.2 0 4.5-2.4 7.7-6.8 9.8"/><path d="M25 20.5 21 25l5 1"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="22" rx="4"/><path d="M10 3v6m12-6v6M4 12h24"/><path d="m9 21 4-4 3 3 7-7"/><circle cx="23" cy="13" r="1"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 32 32"><path d="M5 27V15h5v12m2 0V10h5v17m2 0V5h5v22"/><path d="m5 11 7-5 5 2 9-6"/><path d="m22 2h4v4"/></symbol>
+    <symbol id="i-qdp" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="m10 16 4 4 8-9"/><path d="M16 1v3m0 24v3M1 16h3m24 0h3"/></symbol>
+    <symbol id="i-time" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 9v8l5 3"/><path d="M8 5 5 8m19-3 3 3"/></symbol>
+    <symbol id="i-choice" viewBox="0 0 32 32"><path d="M16 3 28 10v12l-12 7L4 22V10z"/><path d="m10 16 4 4 8-9"/></symbol>
+    <symbol id="i-future" viewBox="0 0 32 32"><path d="M4 25h24M6 22l6-7 5 3 9-11"/><circle cx="6" cy="22" r="2"/><circle cx="12" cy="15" r="2"/><circle cx="17" cy="18" r="2"/><circle cx="26" cy="7" r="2"/></symbol>
+    <symbol id="i-balance" viewBox="0 0 32 32"><path d="M16 4v23M8 8h16M10 8 5 18h10L10 8Zm12 0-5 10h10L22 8Z"/><path d="M4 18c1 3 3 4 6 4s5-1 6-4m0 0c1 3 3 4 6 4s5-1 6-4M11 27h10"/></symbol>
+    <symbol id="i-insight" viewBox="0 0 32 32"><circle cx="16" cy="14" r="9"/><path d="M12 23h8m-7 4h6M16 1v3M4 5l2 2m22-2-2 2M2 15h3m22 0h3"/><path d="m12 14 3 3 5-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></symbol>
+  </svg>
+  <div class="ambient-network" aria-hidden="true"></div>
+  <canvas id="connectivityCanvas" class="connectivity-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+
+  <!-- ═══ NAVEGAÇÃO ═══ -->
+  <nav class="topnav premium-nav" aria-label="Navegação principal">
+    <button class="nav-brand" onclick="navTo('home')" aria-label="Início — Instituto Schultz, Consumo da Vida">
+      <span class="nav-logo-frame" aria-hidden="true"><img class="nav-logo" src="assets/img/logo/logo-schultz-circular-v2.png" alt=""></span>
+      <div class="nav-brand-text brand-lockup">
+        <span class="brand-institute">INSTITUTO</span>
+        <span class="brand-schultz">SCHULTZ</span>
+        <span class="brand-product">CONSUMO <b>DA VIDA</b></span>
       </div>
-<h2 class="section-title fade-up fade-up-delay-1">Consumo da <span style="color:var(--green)">Vida</span></h2>
-<p class="section-subtitle fade-up fade-up-delay-2 cdv-compact-intro">
-        Projeto autoral que conecta <strong>educação financeira</strong>, <strong>consumo consciente</strong> e <strong>bem-estar</strong>, mostrando como escolhas do dia a dia impactam prosperidade, sustentabilidade e qualidade de vida.
-      </p>
-</div>
-<div class="cdv-value-grid fade-up fade-up-delay-2">
-<div class="cdv-value-card">
-<div class="cdv-value-title">Missão</div>
-<div class="cdv-value-text">Promover educação financeira acessível e incentivar escolhas mais conscientes.</div>
-</div>
-<div class="cdv-value-card">
-<div class="cdv-value-title">Visão</div>
-<div class="cdv-value-text">Estimular uma relação mais equilibrada entre consumo, dinheiro e qualidade de vida.</div>
-</div>
-<div class="cdv-value-card">
-<div class="cdv-value-title">Propósito</div>
-<div class="cdv-value-text">Unir tecnologia, economia e impacto social em uma proposta prática e humana.</div>
-</div>
-</div>
-<div class="cdv-summary-block fade-up fade-up-delay-3">
-<div class="section-eyebrow" style="justify-content:center;">Pilares da iniciativa</div>
-<div class="tech-grid cdv-summary-grid">
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="15"></circle><path d="M20 17h6a4 4 0 010 8h-6m0 0h8a4 4 0 010 8h-8M23 14v20"></path></svg></div>
-<div class="tech-name">Saúde Financeira</div>
-<div class="cdv-skill-desc">Planejamento, controle e construção de patrimônio com propósito.</div>
-</div>
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V22M24 24c-7-10-15-10-17-10 1 10 7 16 17 15M24 22c6-9 14-10 17-9-1 10-7 15-17 15"></path></svg></div>
-<div class="tech-name">Sustentabilidade</div>
-<div class="cdv-skill-desc">Consumo com responsabilidade e redução de desperdícios.</div>
-</div>
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 8c8 0 14 6 14 14 0 12-14 18-14 18S10 34 10 22c0-8 6-14 14-14z"></path><path d="M19 21c1-3 3-5 5-5 3 0 5 2 5 5 0 2-1 3-3 4v3"></path><circle cx="24" cy="31" r="1"></circle></svg></div>
-<div class="tech-name">Desenvolvimento Humano</div>
-<div class="cdv-skill-desc">Conhecimento e evolução contínua para decisões melhores.</div>
-</div>
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 39s-10-6-14-13c-3-5-2-12 4-15 4-2 8 0 10 4 2-4 6-6 10-4 6 3 7 10 4 15-4 7-14 13-14 13z"></path></svg></div>
-<div class="tech-name">Qualidade de Vida</div>
-<div class="cdv-skill-desc">Equilíbrio entre trabalho, saúde, relações e bem-estar.</div>
-</div>
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M16 27a7 7 0 1 1 0-14c4 0 6 3 8 6 2-3 4-6 8-6a7 7 0 1 1 0 14c-4 0-6-3-8-6-2 3-4 6-8 6z"></path><path d="M10 35c4-3 9-5 14-5s10 2 14 5"></path></svg></div>
-<div class="tech-name">Impacto Social</div>
-<div class="cdv-skill-desc">Escolhas individuais gerando benefício coletivo.</div>
-</div>
-<div class="tech-item tech-item-sustain cdv-skill-item">
-<div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 36h32M13 31V19M21 31V13M29 31V23M37 31V10"></path><path d="M11 25l9-8 8 4 9-9"></path></svg></div>
-<div class="tech-name">Decisões com Dados</div>
-<div class="cdv-skill-desc">Mentalidade analítica aplicada às finanças e ao consumo.</div>
-</div>
-</div>
-</div>
-<div class="cdv-cta fade-up">
-<div class="cdv-cta-inner cdv-cta-inner-compact">
-<div class="cdv-cta-icon"><span class="tech-icon ui-icon icon-green"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V22M24 24c-7-10-15-10-17-10 1 10 7 16 17 15M24 22c6-9 14-10 17-9-1 10-7 15-17 15"></path></svg></span></div>
-<div class="cdv-cta-text">
-<div class="cdv-cta-title">Conheça a iniciativa</div>
-<div class="cdv-cta-desc">Acesse o projeto e veja como tecnologia, finanças e escolhas conscientes podem caminhar juntas.</div>
-</div>
-<div class="cdv-cta-actions">
-<a aria-label="Visitar o site Consumo da Vida — abre em nova aba" class="btn-consumo-vida" href="https://consumodavida.com.br/" rel="noopener noreferrer" target="_blank" title="Consumo da Vida — Educação Financeira e Consumo Consciente"><span class="btn-inline-icon"><span class="tech-icon ui-icon icon-green"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V22M24 24c-7-10-15-10-17-10 1 10 7 16 17 15M24 22c6-9 14-10 17-9-1 10-7 15-17 15"></path></svg></span></span>Visitar o site Consumo da Vida</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║         PREMIAÇÕES           ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="premiacoes">
-<div class="container">
-<div class="section-eyebrow fade-up">Reconhecimento Internacional</div>
-<div class="award-feature">
-<div class="award-img-wrap fade-up">
-<div class="award-img-frame" title="Clique ou toque para ampliar o certificado do prêmio mundial">
-<img alt="Certificado do IT Challenge 2015 — 3º Lugar Mundial" class="media-viewer-trigger" loading="lazy" src="assets/images/premio1.jpg"/>
-</div>
-<div class="award-rank-badge">
-<div class="award-rank-num">3º</div>
-<div class="award-rank-label">MUNDIAL</div>
-</div>
-</div>
-<div class="award-content fade-up fade-up-delay-1">
-<div class="award-event">IT CHALLENGE 2015</div>
-<h2 class="award-title">
-<span class="gold">3º Lugar Mundial</span><br/>na Competição Global da Atos
-        </h2>
-<p class="award-desc">Representando o Brasil, participei da competição global promovida pela Atos com uma solução voltada à aproximação entre cidadãos e órgãos públicos.</p>
-<p class="award-desc">Fomos a única equipe brasileira na final mundial e conquistamos o 3º lugar global, competindo com equipes de diferentes países.</p>
-<div class="award-pills">
-<div class="award-pill"><span class="award-pill-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M7 24h34M24 7c5 5 7 11 7 17s-2 12-7 17c-5-5-7-11-7-17s2-12 7-17"></path></svg></span></span><span class="award-pill-text">Competição Global</span></div>
-<div class="award-pill"><span class="award-pill-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M12 7h18l7 7v27H12z"></path><path d="M30 7v8h7M18 21h13M18 27h10"></path><circle cx="27" cy="34" r="5"></circle><path d="M24 38l-2 5 5-2 5 2-2-5"></path></svg></span></span><span class="award-pill-text">Única equipe brasileira na final</span></div>
-<div class="award-pill"><span class="award-pill-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M18 8l6 10 6-10M21 18l-5 9M27 18l5 9"></path><circle cx="24" cy="31" r="8"></circle><path d="M21 31l2 2 4-4"></path></svg></span></span><span class="award-pill-text">3º Lugar Mundial</span></div>
-<div class="award-pill"><span class="award-pill-icon"><span class="tech-icon ui-icon icon-amber"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 10c-7 0-12 5-12 12 0 5 3 8 6 10 2 1 2 3 2 4h8c0-1 0-3 2-4 3-2 6-5 6-10 0-7-5-12-12-12z"></path><path d="M20 38h8M21 42h6"></path></svg></span></span><span class="award-pill-text">Inovação em GovTech</span></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║        TECNOLOGIAS           ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="tecnologias">
-<div class="container">
-<div class="section-eyebrow fade-up">Competências</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-      Capacidades para <span class="accent">ambientes críticos</span>
-</h2>
-<p class="section-subtitle tech-subtitle fade-up fade-up-delay-2">
-      Competências aplicadas à disponibilidade, observabilidade, automação,
-      integração e evolução de plataformas corporativas.
-    </p>
-<div class="tech-grid">
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 25h29c0 8-6 14-15 14-8 0-13-4-14-10"></path><path d="M12 20h6v5h-6zM19 20h6v5h-6zM26 20h6v5h-6zM19 14h6v5h-6zM26 14h6v5h-6zM33 20h5"></path><path d="M39 21c2-3 4-3 6-2-1 3-3 5-7 5"></path></svg></div><div class="tech-name">Docker</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 6l15 9v18l-15 9-15-9V15z"></path><circle cx="24" cy="24" r="5"></circle><path d="M24 11v8M24 29v8M13 18l7 4M28 26l7 4M13 30l7-4M28 22l7-4"></path></svg></div><div class="tech-name">Kubernetes</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><rect height="27" rx="4" width="34" x="7" y="10"></rect><path d="M14 20l6 5-6 5M24 30h9"></path></svg></div><div class="tech-name">Linux</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="16"></circle><path d="M17 31c2 2 4 3 7 3s5-1 7-3M16 21c2-4 5-6 8-6s6 2 8 6M17 13l2 5M31 13l-2 5"></path><circle cx="19" cy="24" r="1"></circle><circle cx="29" cy="24" r="1"></circle></svg></div><div class="tech-name">GitHub</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="15" cy="12" r="4"></circle><circle cx="33" cy="36" r="4"></circle><circle cx="15" cy="36" r="4"></circle><path d="M15 16v16M19 12c11 0 14 5 14 20"></path></svg></div><div class="tech-name">Git</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M17 32l7-18 8 18-10-6"></path></svg></div><div class="tech-name">Ansible</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M5 24s7-11 19-11 19 11 19 11-7 11-19 11S5 24 5 24z"></path><circle cx="24" cy="24" r="5"></circle><path d="M24 19v5l4 2"></path></svg></div><div class="tech-name">Observabilidade</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M9 34a17 17 0 1 1 30 0"></path><path d="M24 24l10-7"></path><circle cx="24" cy="24" r="3"></circle><path d="M12 31h5M31 31h5"></path></svg></div><div class="tech-name">Grafana</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 7c2 8 9 10 9 18 0 6-4 11-9 11s-9-5-9-11c0-5 3-9 7-13-1 5 1 7 3 9 2-4 1-8-1-14z"></path><path d="M14 39h20"></path></svg></div><div class="tech-name">Prometheus</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 14l16-7 16 7-16 7zM8 24l16 7 16-7M8 33l16 7 16-7"></path><path d="M8 14v19M40 14v19"></path></svg></div><div class="tech-name">Middleware</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 24c-6-9-10-12-15-9-6 4-4 13 2 16 6 3 10-1 13-7 3 6 7 10 13 7 6-3 8-12 2-16-5-3-9 0-15 9z"></path></svg></div><div class="tech-name">DevOps</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 6l14 6v10c0 10-6 17-14 20-8-3-14-10-14-20V12z"></path><path d="M15 25h6l3-6 4 11 3-5h4"></path></svg></div><div class="tech-name">SRE</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M18 11a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7h12a7 7 0 0 0 7-7V18a7 7 0 0 0-7-7z"></path><path d="M18 18h12M18 24h12M18 30h7M24 11V6M24 42v-5M11 24H6M42 24h-5"></path></svg></div><div class="tech-name">IA</div></div>
-<div class="tech-item fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="7"></circle><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"></path></svg></div><div class="tech-name">Automação</div></div>
-<!-- Economia, Mercado & Finanças -->
-<div class="tech-item tech-item-finance fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M20 14v20M27 14v4M27 30v4M18 19h10c5 0 5 7 0 7H18h11c5 0 5 7 0 7H18"></path></svg></div><div class="tech-name">Bitcoin</div></div>
-<div class="tech-item tech-item-finance fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><rect height="30" rx="7" width="34" x="7" y="9"></rect><path d="M16 17h8c5 0 5 7 0 7h-8 9c5 0 5 7 0 7h-9M31 17h4M31 24h4M31 31h4"></path></svg></div><div class="tech-name">B3</div></div>
-<div class="tech-item tech-item-finance fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 37h33M12 31V18M20 34V12M28 29V20M36 34V9"></path><path d="M9 27l10-8 9 4 10-10"></path></svg></div><div class="tech-name">Mercado de Capitais</div></div>
-<div class="tech-item tech-item-finance fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M7 18l17-9 17 9zM10 21h28M12 21v14M20 21v14M28 21v14M36 21v14M8 39h32"></path><path d="M32 12l5-5M35 7h5v5"></path></svg></div><div class="tech-name">FinTech</div></div>
-<!-- Sustentabilidade & Impacto -->
-<div class="tech-item tech-item-sustain fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M24 40V21M24 25c-6-9-15-9-17-9 1 10 7 15 17 14M24 22c5-8 13-9 17-8-1 9-7 14-17 14"></path></svg></div><div class="tech-name">Consumo da Vida</div></div>
-<div class="tech-item tech-item-sustain fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="17"></circle><path d="M7 24h34M24 7c5 5 7 11 7 17s-2 12-7 17c-5-5-7-11-7-17s2-12 7-17"></path><path d="M30 28c5-6 9-5 12-5-1 6-5 9-12 8"></path></svg></div><div class="tech-name">Sustentabilidade</div></div>
-<div class="tech-item tech-item-sustain fade-up"><div class="tech-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M8 12h13c4 0 7 3 7 7v20c0-4-3-7-7-7H8zM40 12H27c-4 0-7 3-7 7v20c0-4 3-7 7-7h13z"></path><circle cx="34" cy="21" r="4"></circle><path d="M34 17v8"></path></svg></div><div class="tech-name">Educação Financeira</div></div>
-</div>
-</div>
-</section>
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║          CONTATO             ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="contato">
-<div class="container">
-<div class="section-eyebrow fade-up">Contato</div>
-<h2 class="section-title fade-up fade-up-delay-1">
-      Vamos conversar sobre o <span class="accent">próximo desafio?</span>
-</h2>
-<div class="contact-grid">
-<div>
-<p class="section-subtitle fade-up fade-up-delay-2" style="margin-bottom:0;">Disponível para conversas sobre consultoria, colaboração e projetos em DevOps/SRE, middleware, automação, observabilidade e estratégia tecnológica.</p>
-<div class="contact-links">
-<a class="contact-link fade-up" href="https://www.linkedin.com/in/anderson-schultz-ribeiro0001/" rel="noopener" target="_blank">
-<div class="contact-link-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><rect height="30" rx="6" width="30" x="9" y="9"></rect><path d="M17 21v11M17 16v.1M24 32V21M24 24c1-2 3-3 5-3 3 0 5 2 5 6v5"></path></svg></span></div>
-<div>
-<div class="contact-link-label">LinkedIn</div>
-<div class="contact-link-value">Perfil profissional</div>
-</div>
-</a>
-<a class="contact-link fade-up fade-up-delay-1" href="https://github.com/andersonschultz-cloud" rel="noopener" target="_blank">
-<div class="contact-link-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="16"></circle><path d="M17 31c2 2 4 3 7 3s5-1 7-3M16 21c2-4 5-6 8-6s6 2 8 6M17 13l2 5M31 13l-2 5"></path><circle cx="19" cy="24" r="1"></circle><circle cx="29" cy="24" r="1"></circle></svg></span></div>
-<div>
-<div class="contact-link-label">GitHub</div>
-<div class="contact-link-value">GitSchultz</div>
-</div>
-</a>
-<a class="contact-link fade-up fade-up-delay-2" href="mailto:anderson.schultz@me.com">
-<div class="contact-link-icon"><span class="tech-icon ui-icon icon-cyan"><svg aria-hidden="true" viewbox="0 0 48 48"><rect height="22" rx="4" width="32" x="8" y="13"></rect><path d="M10 16l14 11 14-11"></path></svg></span></div>
-<div>
-<div class="contact-link-label">E-mail</div>
-<div class="contact-link-value">@me.com</div>
-</div>
-</a>
-<a class="contact-link fade-up fade-up-delay-3" href="https://wa.me/5551986133553" rel="noopener" style="border-color:rgba(0,255,136,0.25);background:rgba(0,255,136,0.03);" target="_blank">
-<div class="contact-link-icon"><span class="tech-icon ui-icon icon-green"><svg aria-hidden="true" viewbox="0 0 48 48"><rect height="36" rx="4" width="18" x="15" y="6"></rect><path d="M22 10h4M21 36h6"></path></svg></span></div>
-<div>
-<div class="contact-link-label">WhatsApp</div>
-<div class="contact-link-value" style="color:var(--green);">Iniciar conversa</div>
-</div>
-</a>
-</div>
-</div>
-<div class="fade-up fade-up-delay-1">
-<form action="https://formsubmit.co/anderson.schultz@me.com" class="contact-form" data-endpoint="https://formsubmit.co/ajax/anderson.schultz@me.com" id="contact-form" method="POST" novalidate="">
-<!-- Configurações FormSubmit -->
-<input id="form-submit-subject" name="_subject" type="hidden" value="Nova mensagem pelo portfólio — Anderson Schultz Ribeiro"/>
-<input name="_template" type="hidden" value="table"/>
-<input name="_captcha" type="hidden" value="false"/>
-<!-- Honeypot anti-spam simples -->
-<input aria-hidden="true" autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
-<div class="form-group">
-<label class="form-label" for="name">Nome</label>
-<input autocomplete="name" class="form-input" id="name" name="Nome" placeholder="Seu nome completo" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="email">E-mail</label>
-<input autocomplete="email" class="form-input" id="email" name="email" placeholder="seu@email.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="subject">Assunto</label>
-<input class="form-input" id="subject" name="Assunto" placeholder="Consultoria / Projeto / Colaboração" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="message">Mensagem</label>
-<textarea class="form-textarea" id="message" name="Mensagem" placeholder="Conte brevemente o contexto, objetivo e desafio que deseja discutir..." required=""></textarea>
-</div>
-<div aria-live="polite" id="form-message" role="status"></div>
-<button class="form-submit" type="submit">
-    Enviar mensagem
-  </button>
-<p class="form-note">Canal direto para oportunidades, projetos e consultoria</p>
-</form>
-</div>
-</div>
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="container">
-<div class="footer-inner">
-<div class="footer-logo">Anderson Schultz Ribeiro</div>
-<nav class="footer-nav">
-<a href="#sobre">Sobre</a>
-<a href="#experiencia">Experiência</a>
-<a href="#projetos">Projetos</a>
-<a href="#consumo-da-vida">Consumo da Vida</a>
-<a href="#contato">Contato</a>
-</nav>
-<p class="footer-text">
-        © 2026 Anderson Schultz Ribeiro  · 
-        DevOps / SRE · Middleware · Automação · Estratégia &amp; Tecnologia
-      </p>
-<p class="footer-text" style="color:var(--text-muted);font-size:0.6rem;">
-        Portfólio profissional · Anderson Schultz Ribeiro
-      </p>
-</div>
-</div>
-</footer>
-<script defer="" src="js/script.js?v=20260829-premium-v7"></script>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <button type="button" class="nav-link" data-nav="home" onclick="navTo('home')">Início</button>
+      <button type="button" class="nav-link" data-nav="calc" onclick="navTo('calc')">Calculadora</button>
+      <button type="button" class="nav-link" data-nav="plan" onclick="navTo('plan')">Planejador</button>
+      <button type="button" class="nav-link" data-nav="sim" onclick="navTo('sim')">Simulador</button>
+    </div>
+    <div class="nav-right">
+      <span class="nav-status" aria-hidden="true"><i></i> inteligência financeira</span>
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Alternar para o tema claro"></button>
+      <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HOME / DASHBOARD ═══ -->
+  <main id="main-content">
+
+  <div class="page active" id="page-home" role="main" aria-label="Página inicial">
+    <section class="home-hero premium-hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="home-eyebrow"><span class="eyebrow-dot"></span> Inteligência financeira · suporte à decisão</div>
+        <h1 id="hero-title">Transforme dados em escolhas que<br><em>constroem seu futuro.</em></h1>
+        <p>Ferramentas profissionais para organizar decisões financeiras, planejar objetivos e simular cenários com clareza, segurança e estratégia.</p>
+        <div class="hero-actions">
+          <button class="hero-primary" onclick="navTo('calc')">Analisar uma decisão <span><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></button>
+          <button class="hero-secondary" onclick="navTo('sim')">Projetar patrimônio <span><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></button>
+        </div>
+        <div class="hero-trust" aria-label="Características da plataforma">
+          <span><i></i> Sem cadastro obrigatório</span>
+          <span><i></i> Dados ficam no seu navegador</span>
+          <span><i></i> Responsivo e acessível</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
+        <div class="hero-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+        <div class="hero-emblem" id="heroEmblem">
+          <div class="hero-emblem-aura"></div>
+          <div class="hero-emblem-ring ring-outer"></div>
+          <div class="hero-emblem-ring ring-inner"></div>
+          <div class="hero-emblem-shell">
+            <img src="assets/img/logo/logo-schultz-circular-v2.png" alt="" class="hero-fox">
+            <span class="hero-emblem-shine"></span>
+          </div>
+          <span class="hero-node node-1"></span>
+          <span class="hero-node node-2"></span>
+          <span class="hero-node node-3"></span>
+          <span class="hero-node node-4"></span>
+        </div>
+
+        <div class="hero-circuit c1"></div><div class="hero-circuit c2"></div><div class="hero-circuit c3"></div>
+        <div class="hero-glow"></div>
+      </div>
+    </section>
+
+    <section class="consulting-strip" aria-label="Uso profissional da plataforma">
+      <div class="cs-copy">
+        <span class="cs-icon" aria-hidden="true"><svg class="premium-icon"><use href="#i-insight"></use></svg></span>
+        <span><strong>Ferramenta de apoio à conversa financeira.</strong> Visualize premissas, compare cenários e transforme conceitos em decisões mais fáceis de compreender.</span>
+      </div>
+      <span class="cs-tag">apoio consultivo</span>
+    </section>
+
+    <section class="quick-tools" aria-label="Ferramentas principais">
+      <button class="quick-tool" onclick="navTo('calc')"><span class="qt-icon"><svg class="premium-icon" aria-hidden="true"><use href="#i-life-calc"></use></svg></span><span><b>Calculadora de Vida</b><small>Descubra o custo de uma escolha em horas do seu tempo.</small></span><i><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></i></button>
+      <button class="quick-tool" onclick="navTo('plan')"><span class="qt-icon"><svg class="premium-icon" aria-hidden="true"><use href="#i-plan"></use></svg></span><span><b>Planejador Inteligente</b><small>Transforme intenção de compra em estratégia financeira.</small></span><i><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></i></button>
+      <button class="quick-tool" onclick="navTo('sim')"><span class="qt-icon"><svg class="premium-icon" aria-hidden="true"><use href="#i-growth"></use></svg></span><span><b>Simulador de Patrimônio</b><small>Compare cenários e visualize o efeito do tempo no capital.</small></span><i><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></i></button>
+      <button class="quick-tool" onclick="document.getElementById('qdp-home').scrollIntoView({behavior:'smooth',block:'center'})"><span class="qt-icon"><svg class="premium-icon" aria-hidden="true"><use href="#i-qdp"></use></svg></span><span><b>Método QDP</b><small>Quero · Devo · Posso: três filtros antes de decidir.</small></span><i><svg class="premium-icon" aria-hidden="true"><use href="#i-arrow"></use></svg></i></button>
+    </section>
+
+    <section class="home-dashboard">
+      <div class="dashboard-card life-card">
+        <div class="dashboard-kicker">SUA VIDA EM NÚMEROS</div>
+        <div class="life-metrics">
+          <div><span class="metric-symbol"><svg class="premium-icon" aria-hidden="true"><use href="#i-time"></use></svg></span><strong>Tempo</strong><small>Entenda quantas horas da sua vida financiam cada escolha.</small></div>
+          <div><span class="metric-symbol"><svg class="premium-icon" aria-hidden="true"><use href="#i-choice"></use></svg></span><strong>Escolha</strong><small>Antecipe o impacto financeiro antes de comprometer sua renda.</small></div>
+          <div><span class="metric-symbol"><svg class="premium-icon" aria-hidden="true"><use href="#i-future"></use></svg></span><strong>Futuro</strong><small>Compare consumo presente com construção de patrimônio.</small></div>
+          <div><span class="metric-symbol"><svg class="premium-icon" aria-hidden="true"><use href="#i-balance"></use></svg></span><strong>Equilíbrio</strong><small>Decida com liberdade sem abandonar objetivos importantes.</small></div>
+        </div>
+        <blockquote>“O dinheiro volta. O tempo usado para conquistá-lo não.”</blockquote>
+      </div>
+      <div class="dashboard-card spotlight-card">
+        <div class="dashboard-kicker">DESTAQUE</div>
+        <div class="spotlight-content">
+          <div class="spotlight-art"><span class="spot-ring"></span><span class="spot-hand"><svg class="premium-icon" aria-hidden="true"><use href="#i-insight"></use></svg></span></div>
+          <div><h3>O tempo é o ativo mais valioso que você possui.</h3><p>Dinheiro é uma ferramenta. Quando você enxerga o custo em tempo, oportunidade e futuro, cada escolha ganha contexto para ser realmente consciente.</p><button onclick="navTo('calc')">Calcular agora →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section" id="qdp-home">
+      <div class="section-intro"><span>MÉTODO QDP</span><h2>Três perguntas para decisões financeiras mais conscientes.</h2><p>O Método QDP organiza desejo, prioridade e capacidade financeira em uma sequência simples. Não se trata de eliminar o consumo, mas de fazer escolhas coerentes com a vida que você quer construir.</p></div>
+      <div class="method-grid">
+        <article><span>Q</span><h3>Quero?</h3><p>É desejo real ou impulso? Isso agrega valor à sua vida?</p></article>
+        <article><span>D</span><h3>Devo?</h3><p>É o melhor momento ou existem prioridades mais importantes?</p></article>
+        <article><span>P</span><h3>Posso?</h3><p>A compra cabe no orçamento sem comprometer seu futuro?</p></article>
+      </div>
+    </section>
+
+    <section class="principles-strip" aria-label="Princípios">
+      <div><b>01</b><span>Clareza antes da decisão</span></div>
+      <div><b>02</b><span>Tecnologia sem complexidade</span></div>
+      <div><b>03</b><span>Planejamento com propósito</span></div>
+      <div><b>04</b><span>Liberdade construída no tempo</span></div>
+    </section>
+  </div>
+
+  <!-- ═══ CALCULADORA DE VIDA ═══ -->
+  <div class="page" id="page-calc" role="main" aria-label="Calculadora de Vida">
+    <div class="tool-header">
+      <div class="th-badge b-calc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6h8v4H8zM8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg> Calculadora de Vida</div>
+      <h1>Quanto da sua <em>vida</em> custa essa compra?</h1>
+      <p>Converta o preço de uma compra em horas e dias do seu trabalho. Uma nova perspectiva para avaliar valor, esforço e prioridade antes de decidir.</p>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="section-label">Seus dados</div>
+        <div class="grid2">
+          <div class="field full">
+            <div class="field-label">Seu nome <span class="help-icon" tabindex="0">?<div class="tip">Informe seu nome para personalizar os resultados.</div></span></div>
+            <input type="text" id="nome" placeholder="Como você se chama?" autocomplete="given-name"/>
+          </div>
+          <div class="field">
+            <div class="field-label">Salário mensal <span class="help-icon" tabindex="0">?<div class="tip">Informe o valor bruto ou líquido que você recebe por mês.</div></span></div>
+            <input class="money-input-plain" type="text" id="salario" inputmode="numeric" placeholder="R$ 0,00" autocomplete="off"/>
+            <div class="err-msg" id="err-sal">Informe um valor válido.</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Horas trabalhadas/mês <span class="help-icon" tabindex="0">?<div class="tip">Total de horas que você trabalha por mês. Ex.: 220h.</div></span></div>
+            <input type="number" id="horas" placeholder="Ex: 220" min="1" max="744" inputmode="numeric"/>
+            <div class="err-msg" id="err-hor">Informe um valor válido.</div>
+          </div>
+          <div class="field full">
+            <div class="field-label">Valor do produto <span class="help-icon" tabindex="0">?<div class="tip">Informe o valor total do produto ou serviço que deseja adquirir.</div></span></div>
+            <input class="money-input-plain" type="text" id="produto" inputmode="numeric" placeholder="R$ 0,00" autocomplete="off"/>
+            <div class="err-msg" id="err-pro">Informe um valor válido.</div>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcular()">Calcular custo em vida →</button>
+      </div>
+      <div class="results" id="results" aria-live="polite" aria-atomic="false">
+        <div class="card">
+          <p class="greeting" id="greeting"></p>
+          <p class="greeting-sub" id="greetingSub"></p>
+          <div id="impact-badge-wrap"></div>
+          <div class="metrics-grid">
+            <div class="metric-card"><div class="m-label">Valor/hora</div><div class="m-val azul" id="m-hora">—</div><div class="m-unit">por hora</div></div>
+            <div class="metric-card"><div class="m-label">Horas necessárias</div><div class="m-val" id="m-horas">—</div><div class="m-unit">horas</div></div>
+            <div class="metric-card"><div class="m-label">Dias de trabalho</div><div class="m-val teal" id="m-dias">—</div><div class="m-unit">dias</div></div>
+            <div class="metric-card"><div class="m-label">Do salário</div><div class="m-val" id="m-perc">—</div><div class="m-unit">%</div></div>
+          </div>
+          <div class="msg-strip" id="msg-strip"></div>
+          <div class="chart-section">
+            <div class="chart-header">Impacto visual</div>
+            <div class="chart-canvas-wrap"><canvas id="myChart"></canvas></div>
+          </div>
+        </div>
+        <div class="reflection-card">
+          <div class="reflection-label">✦ Reflexão do Momento</div>
+          <div class="reflection-text" id="refl-text"></div>
+        </div>
+        <div class="cross-cta">
+          <div class="cross-cta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="m8 15 2 2 5-5"/></svg></div>
+          <div class="cross-cta-text"><strong>Quer planejar essa compra?</strong><span>Leve esses valores para o Planejador e monte um plano de economia.</span></div>
+          <button class="cross-cta-btn" onclick="calcToPlanejador()">Abrir Planejador →</button>
+        </div>
+        <div class="card" style="padding:clamp(16px,3vw,24px) clamp(20px,4vw,32px)">
+          <div class="section-label">Compartilhar</div>
+          <div class="share-row">
+            <button class="btn-share" onclick="share()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Copiar resultado
+            </button>
+          </div>
+          <div class="copy-ok" id="copy-ok">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copiado!
+          </div>
+        </div>
+        <div class="history-card card" id="history-card">
+          <div class="section-header">
+            <div class="section-label" style="margin:0">Histórico de simulações</div>
+            <button class="btn-clear" onclick="clearHistory()">Limpar tudo</button>
+          </div>
+          <div id="history-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PLANEJADOR DE COMPRAS ═══ -->
+  <div class="page" id="page-plan" role="main" aria-label="Planejador de Compras">
+    <div class="tool-header">
+      <div class="th-badge b-plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="m8 15 2 2 5-5"/></svg> Planejador de Compras</div>
+      <h1>Planeje com <em>inteligência</em> antes de decidir</h1>
+      <p>Avalie o impacto da compra na sua renda, compare ritmos de economia e construa um plano objetivo para chegar à decisão com mais segurança.</p>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="section-label">Planejador Inteligente de Compras</div>
+        <div class="grid2">
+          <div class="field">
+            <div class="field-label">Renda líquida mensal <span class="help-icon" tabindex="0">?<div class="tip">Sua renda líquida — o que efetivamente entra na sua conta por mês.</div></span></div>
+            <input class="money-input-plain" type="text" id="p-renda" inputmode="numeric" placeholder="R$ 0,00" autocomplete="off"/>
+            <span class="prefill-hint" onclick="prefillFromCalc()" tabindex="0">↑ Usar dados da Calculadora</span>
+            <div class="err-msg" id="p-err-renda">Informe um valor válido.</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Valor do produto desejado <span class="help-icon" tabindex="0">?<div class="tip">Valor total do produto ou serviço que você deseja adquirir.</div></span></div>
+            <input class="money-input-plain" type="text" id="p-produto" inputmode="numeric" placeholder="R$ 0,00" autocomplete="off"/>
+            <div class="err-msg" id="p-err-prod">Informe um valor válido.</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Prazo desejado (meses) <span class="help-icon" tabindex="0">?<div class="tip">Opcional — gera um 4.º cenário de economia personalizado.</div></span></div>
+            <input type="number" id="p-prazo" placeholder="Ex: 6" min="1" max="120" inputmode="numeric"/>
+          </div>
+          <div class="field">
+            <div class="field-label">Categoria do produto <span class="help-icon" tabindex="0">?<div class="tip">Opcional — gera recomendações específicas para a categoria.</div></span></div>
+            <select id="p-categoria">
+              <option value="">Selecione (opcional)</option>
+              <option value="eletronicos">Eletrônicos</option>
+              <option value="veiculo">Veículo</option>
+              <option value="imovel">Imóvel / Reforma</option>
+              <option value="roupas">Roupas e Acessórios</option>
+              <option value="lazer">Lazer e Entretenimento</option>
+              <option value="educacao">Educação</option>
+              <option value="saude">Saúde e Bem-estar</option>
+              <option value="viagem">Viagem</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-calc btn-teal" onclick="planejar()">Analisar compra →</button>
+      </div>
+      <div class="plan-results" id="plan-results">
+        <div class="card">
+          <div id="peso-badge-wrap"></div>
+          <div id="plan-summary"></div>
+          <div class="plan-chart-wrap"><canvas id="planChart"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="section-label">Plano de economia sugerido</div>
+          <p style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.6">Escolha o ritmo de poupança mais adequado ao seu estilo de vida:</p>
+          <div class="scenario-grid" id="scenario-grid"></div>
+        </div>
+        <div class="card">
+          <div class="section-label">Projeção de desconto à vista</div>
+          <div id="discount-section"></div>
+        </div>
+        <div class="cross-cta">
+          <div class="cross-cta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 2 5-6"/></svg></div>
+          <div class="cross-cta-text"><strong>E se você investisse esse valor?</strong><span>Veja quanto renderia no Simulador de Rendimentos com a Selic ao vivo.</span></div>
+          <button class="cross-cta-btn" onclick="planToSimulador()">Abrir Simulador →</button>
+        </div>
+        <div class="card">
+          <div class="section-label">Recomendações financeiras</div>
+          <div id="recommendations"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SIMULADOR DE RENDIMENTOS ═══ -->
+  <div class="page" id="page-sim" role="main" aria-label="Simulador de Rendimentos">
+    <div class="tool-header">
+      <div class="th-badge b-sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 2 5-6"/></svg> Simulador de Rendimentos</div>
+      <h1>Veja o seu patrimônio <em>trabalhar</em> com o tempo</h1>
+      <p>Projete aportes, compare alternativas e visualize o efeito dos juros compostos ao longo do tempo, usando a Selic como referência de cenário.</p>
+    </div>
+    <div class="container container-wide">
+      <div class="sim-grid">
+        <aside class="sim-controls">
+          <div class="card sim-selic-card">
+            <div class="selic-head">
+              <h3>Cenário de juros</h3>
+              <button class="btn-refresh" id="selicRefresh" onclick="fetchSelic()" aria-label="Atualizar Selic" title="Atualizar pelo Banco Central">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+              </button>
+            </div>
+            <div class="selic-row">
+              <div class="field" style="gap:5px">
+                <div class="field-label" style="font-size:11px">Selic (meta a.a.)</div>
+                <div class="money-prefix"><input type="number" min="0" step="0.05" id="selicInput" oninput="onSelicInput()"/><i class="suf">%</i></div>
+              </div>
+              <div class="cdi-box"><span>CDI estimado</span><strong id="cdiVal">—</strong></div>
+            </div>
+            <div class="selic-status idle" id="selicStatus" aria-live="polite" aria-atomic="true">Pronto para atualizar pelo Banco Central.</div>
+          </div>
+          <div class="card">
+            <div class="section-label" style="margin-bottom:14px">Quanto você tem</div>
+            <div class="field" style="margin-bottom:14px">
+              <div class="field-label">Valor inicial</div>
+              <div class="money-prefix"><i>R$</i><input type="number" min="0" step="50" id="simPrincipal" value="1000" oninput="renderSim()"/></div>
+            </div>
+            <div class="field">
+              <div class="field-label">Aporte mensal</div>
+              <div class="money-prefix"><i>R$</i><input type="number" min="0" step="50" id="simMonthly" value="200" oninput="renderSim()"/></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-label" style="margin-bottom:14px">Por quanto tempo</div>
+            <div class="years-display"><strong id="yearsVal">10</strong><span id="yearsLabel">anos</span></div>
+            <input type="range" class="year-slider" id="yearsSlider" min="1" max="30" value="10" oninput="onYearsInput()"/>
+            <div class="ir-toggle">
+              <div class="ir-toggle-text"><strong>Descontar Imposto de Renda</strong><span>Tabela regressiva (22,5% a 15%) sobre o rendimento</span></div>
+              <label class="switch"><input type="checkbox" id="irToggle" onchange="renderSim()"><span class="switch-slider"></span></label>
+            </div>
+            <!-- IPCA estimado — premissa para simulação do Tesouro IPCA+ -->
+            <div class="ipca-row">
+              <div class="ipca-row-text">
+                <strong>IPCA estimado (Tesouro IPCA+)</strong>
+                <span>Inflação anual esperada para o período de simulação</span>
+              </div>
+              <div class="ipca-input-wrap">
+                <input type="number" id="assumedIPCA" value="5.5" min="0" max="50" step="0.1"
+                  inputmode="decimal" oninput="onIPCAInput()" aria-label="IPCA estimado em % a.a."/>
+                <span class="suf-label">% a.a.</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-label" style="margin-bottom:14px">Onde deixar o dinheiro</div>
+            <div class="opt-list" id="optList"></div>
+            <button class="btn-add-bank" onclick="showCustomForm()" id="btnAddBank" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Adicionar instituição
+            </button>
+            <div id="customBankForm" class="custom-form" style="display:none" role="region" aria-label="Formulário de instituição personalizada">
+              <div class="cb-form-title" id="cbFormTitle">Adicionar instituição</div>
+              <div class="field" style="margin-bottom:10px">
+                <div class="field-label">Nome da instituição</div>
+                <input type="text" id="cbName" placeholder="Ex: Inter, XP, Rico…" maxlength="50" autocomplete="off"/>
+                <div class="err-msg" id="cbNameErr">Informe o nome da instituição.</div>
+              </div>
+              <div class="grid2" style="gap:12px;margin-bottom:10px">
+                <div class="field">
+                  <div class="field-label">Taxa</div>
+                  <input type="number" id="cbRate" min="0.01" max="9999" step="0.01" placeholder="Ex: 100" inputmode="decimal"/>
+                  <div class="err-msg" id="cbRateErr">Informe uma taxa válida (maior que zero).</div>
+                </div>
+                <div class="field">
+                  <div class="field-label">Tipo de rentabilidade</div>
+                  <select id="cbType">
+                    <option value="pct_cdi">% do CDI</option>
+                    <option value="pct_aa">% a.a. (taxa fixa)</option>
+                  </select>
+                </div>
+              </div>
+              <label class="cb-taxable-row">
+                <input type="checkbox" id="cbTaxable" checked>
+                <span>Sujeito ao Imposto de Renda (tabela regressiva)</span>
+              </label>
+              <div class="cb-form-actions">
+                <button class="btn-calc" style="flex:1;padding:11px;font-size:14px;margin-top:0" onclick="saveCustomBank()" type="button">Salvar</button>
+                <button class="btn-reflect" style="flex:1;padding:11px;font-size:14px" onclick="hideCustomForm()" type="button">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="sim-main">
+          <div class="card sim-hero-card" style="text-align:center;padding:clamp(24px,5vw,36px) clamp(20px,4vw,32px)">
+            <div class="sim-hero-label">Melhor resultado no fim do período</div>
+            <div class="sim-hero-leader" id="simLeader">—</div>
+            <div class="sim-hero-value" id="simHeroValue">R$ 0,00</div>
+            <div class="sim-hero-sub" id="simHeroSub"></div>
+          </div>
+          <div class="card sim-chart-card">
+            <div class="chart-header">Linha do tempo — arraste para comparar por período</div>
+            <div class="sim-chart-wrap" id="simChartWrap"></div>
+            <div class="scrub-info">
+              <span class="scrub-label">Posição na linha do tempo</span>
+              <span class="scrub-time" id="scrubTime">10 anos</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-label">Comparativo detalhado neste ponto do tempo</div>
+            <div id="rankingList" aria-live="polite"></div>
+          </div>
+          <div class="card">
+            <div class="section-label">Importante</div>
+            <div class="sim-disclaimer">Estimativas educacionais com Selic como referência de cenário. Taxas CDB utilizadas como referência podem variar por instituição, perfil, prazo e valor investido. Taxas variam por perfil, prazo e valor investido — consulte a instituição antes de aplicar. Não constitui recomendação de investimento.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </main><!-- /#main-content -->
+
+  <!-- ═══ MODAL QDP ═══ -->
+  <div class="modal-overlay" id="qdpOverlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+      <div class="modal-eyebrow"><span></span>Método QDP — Quero · Devo · Posso<span></span></div>
+      <h2>Uma reflexão antes da compra</h2>
+      <p class="modal-sub" id="modal-sub">Você está prestes a trocar parte da sua vida por este produto.</p>
+      <div class="qdp-steps">
+        <div class="qdp-step"><div class="qdp-letter q">Q</div><div><div class="qdp-title">Quero?</div><div class="qdp-desc">Você deseja este produto porque ele realmente agregará valor à sua vida, ou é o impulso do momento falando mais alto?</div></div></div>
+        <div class="qdp-step"><div class="qdp-letter d">D</div><div><div class="qdp-title">Devo?</div><div class="qdp-desc">Este produto atende uma necessidade real e presente, ou pode esperar por um momento mais oportuno?</div></div></div>
+        <div class="qdp-step"><div class="qdp-letter p">P</div><div><div class="qdp-title">Posso?</div><div class="qdp-desc" id="qdp-p">Você pode, de forma consciente e tranquila, trocar as horas calculadas da sua vida por este produto agora?</div></div></div>
+      </div>
+      <div class="modal-quote" id="modal-quote"></div>
+      <div class="time-reminder"><span>Dinheiro pode ser recuperado. O tempo investido para conquistá-lo é parte da sua própria vida — e esse não volta.</span></div>
+      <p class="final-q">Depois dessa reflexão, você ainda deseja realizar esta compra?</p>
+      <div class="modal-btns">
+        <button class="btn-yes" onclick="closeModal()">Sim, continuo interessado</button>
+        <button class="btn-reflect" onclick="closeModal()">Vou refletir mais</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RODAPÉ ═══ -->
+  <footer class="premium-footer">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <span class="footer-logo-frame" aria-hidden="true"><img class="footer-logo" src="assets/img/logo/logo-schultz-circular-v2.png" alt=""></span>
+        <div><span>INSTITUTO</span><strong>SCHULTZ</strong><small>Consumo da Vida · Inteligência Financeira</small></div>
+      </div>
+      <div class="footer-pillars">Inteligência financeira · planejamento · decisões conscientes</div>
+    </div>
+    <div class="footer-credits">
+      Consumo da Vida · plataforma de apoio à educação e ao planejamento financeiro · desenvolvido por
+      <a class="footer-link" href="https://www.linkedin.com/in/anderson-schultz-ribeiro0001/?skipRedirect=true" target="_blank" rel="noopener noreferrer">Anderson Schultz Ribeiro</a>
+    </div>
+  </footer>
+
+  <!-- ═══ JAVASCRIPT (ordem de dependências) ═══ -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/banks.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <!-- Tesouro Direto — módulo isolado (4 arquivos) -->
+  <script src="assets/js/treasuryCache.js"></script>
+  <script src="assets/js/treasuryApi.js"></script>
+  <script src="assets/js/treasuryCalculator.js"></script>
+  <script src="assets/js/treasuryUI.js"></script>
+  <script src="assets/js/simulator.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/connectivity.js"></script>
+  <script src="assets/js/hero-emblem.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>

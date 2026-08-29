@@ -1,0 +1,313 @@
+/* Consumo da Vida — Portfolio Clean v2
+   Visual inspirado na linguagem do portfólio profissional Anderson Schultz.
+   Camada exclusivamente visual: não altera regras de negócio. */
+
+:root{
+  --pc-bg:#080a0f;
+  --pc-bg-soft:#0d1017;
+  --pc-surface:#11151d;
+  --pc-surface-2:#151a24;
+  --pc-line:rgba(255,255,255,.10);
+  --pc-line-strong:rgba(255,255,255,.18);
+  --pc-text:#f3f6fb;
+  --pc-muted:#99a3b2;
+  --pc-muted-2:#6f7886;
+  --pc-accent:#19b8ff;
+  --pc-accent-2:#4ad7ff;
+  --pc-radius:16px;
+  --pc-shadow:0 18px 55px rgba(0,0,0,.22);
+}
+
+html[data-theme="light"]{
+  --pc-bg:#f6f7f9;
+  --pc-bg-soft:#ffffff;
+  --pc-surface:#ffffff;
+  --pc-surface-2:#f3f5f8;
+  --pc-line:rgba(16,24,40,.10);
+  --pc-line-strong:rgba(16,24,40,.17);
+  --pc-text:#10131a;
+  --pc-muted:#5f6978;
+  --pc-muted-2:#7d8693;
+  --pc-shadow:0 14px 40px rgba(16,24,40,.08);
+}
+
+html[data-theme="cooperative"]{
+  --pc-bg:#f5f8f2;
+  --pc-bg-soft:#ffffff;
+  --pc-surface:#ffffff;
+  --pc-surface-2:#eef5e8;
+  --pc-line:rgba(20,110,55,.13);
+  --pc-line-strong:rgba(20,110,55,.22);
+  --pc-text:#193022;
+  --pc-muted:#607063;
+  --pc-muted-2:#778479;
+  --pc-accent:#3FA110;
+  --pc-accent-2:#146E37;
+  --pc-shadow:0 14px 40px rgba(20,110,55,.08);
+}
+
+body{
+  background:var(--pc-bg)!important;
+  color:var(--pc-text)!important;
+  letter-spacing:-.01em;
+}
+
+/* O fundo permanece vivo, porém muito mais discreto. */
+.ambient-network{opacity:.14!important;filter:saturate(.75)!important}
+.connectivity-canvas{opacity:.22!important}
+html[data-theme="light"] .ambient-network,
+html[data-theme="light"] .connectivity-canvas{opacity:.09!important}
+html[data-theme="cooperative"] .ambient-network,
+html[data-theme="cooperative"] .connectivity-canvas{opacity:.11!important}
+
+/* NAV — compacto, corporativo e sem excesso de branding */
+.topnav.premium-nav{
+  max-width:1180px!important;
+  width:calc(100% - 40px)!important;
+  height:66px!important;
+  min-height:66px!important;
+  margin:14px auto 0!important;
+  padding:0 14px 0 16px!important;
+  position:sticky!important;
+  top:12px!important;
+  border:1px solid var(--pc-line)!important;
+  border-radius:14px!important;
+  background:color-mix(in srgb,var(--pc-bg-soft) 88%,transparent)!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
+  box-shadow:0 10px 35px rgba(0,0,0,.12)!important;
+}
+.nav-brand{gap:10px!important;min-width:0!important}
+.nav-logo-frame{width:34px!important;height:34px!important;border-radius:9px!important;border:1px solid var(--pc-line)!important;box-shadow:none!important;background:transparent!important}
+.nav-logo{width:30px!important;height:30px!important}
+.brand-lockup{gap:0!important}
+.brand-institute{display:none!important}
+.brand-schultz{font-size:13px!important;line-height:1!important;color:var(--pc-text)!important;letter-spacing:.02em!important;font-weight:750!important}
+.brand-product{font-size:9px!important;margin-top:4px!important;color:var(--pc-muted)!important;letter-spacing:.08em!important;font-weight:600!important}
+.brand-product b{color:var(--pc-accent)!important}
+.nav-status{display:none!important}
+.nav-links{gap:4px!important}
+.nav-link{font-size:12px!important;font-weight:650!important;color:var(--pc-muted)!important;padding:9px 11px!important;border-radius:8px!important}
+.nav-link:hover{color:var(--pc-text)!important;background:var(--pc-surface-2)!important}
+.nav-link.active{color:var(--pc-text)!important;background:transparent!important;box-shadow:inset 0 -2px 0 var(--pc-accent)!important;border-radius:0!important}
+.theme-btn,.nav-toggle{width:38px!important;height:38px!important;border:1px solid var(--pc-line)!important;border-radius:10px!important;background:var(--pc-surface)!important;color:var(--pc-text)!important;box-shadow:none!important}
+
+/* HERO — referência editorial/corporativa do portfólio */
+.home-hero.premium-hero{
+  max-width:1180px!important;
+  min-height:auto!important;
+  margin:0 auto!important;
+  padding:clamp(92px,11vw,148px) 8px clamp(68px,8vw,100px)!important;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.52fr)!important;
+  gap:clamp(40px,7vw,88px)!important;
+}
+.home-eyebrow{
+  margin-bottom:22px!important;
+  color:var(--pc-muted)!important;
+  text-transform:uppercase!important;
+  font-size:11px!important;
+  letter-spacing:.15em!important;
+  font-weight:700!important;
+}
+.eyebrow-dot{width:6px!important;height:6px!important;background:var(--pc-accent)!important;box-shadow:none!important}
+.home-hero h1{
+  max-width:790px!important;
+  margin:0 0 26px!important;
+  font-size:clamp(48px,6vw,82px)!important;
+  line-height:.96!important;
+  letter-spacing:-.06em!important;
+  font-weight:760!important;
+  color:var(--pc-text)!important;
+}
+.home-hero h1 br{display:none!important}
+.home-hero h1 em{display:inline!important;color:var(--pc-accent)!important;font-style:normal!important}
+.home-hero .hero-copy>p{
+  max-width:690px!important;
+  margin:0!important;
+  font-size:16px!important;
+  line-height:1.75!important;
+  color:var(--pc-muted)!important;
+}
+.hero-actions{margin-top:34px!important;gap:10px!important}
+.hero-primary,.hero-secondary{
+  min-height:46px!important;
+  padding:0 17px!important;
+  border-radius:9px!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  letter-spacing:.01em!important;
+  box-shadow:none!important;
+}
+.hero-primary{background:var(--pc-accent)!important;color:#041018!important;border:1px solid var(--pc-accent)!important}
+.hero-primary:hover{transform:translateY(-1px)!important;filter:brightness(1.07)!important}
+.hero-secondary{background:transparent!important;color:var(--pc-text)!important;border:1px solid var(--pc-line-strong)!important}
+.hero-secondary:hover{background:var(--pc-surface)!important;transform:translateY(-1px)!important}
+.hero-trust{margin-top:28px!important;color:var(--pc-muted-2)!important;font-size:11px!important;gap:18px!important}
+.hero-trust i{background:var(--pc-accent)!important;box-shadow:none!important}
+
+.hero-visual{min-height:370px!important;opacity:.88!important}
+.hero-orbit,.hero-circuit{opacity:.30!important}
+.hero-bars{opacity:.45!important}
+.hero-glow{opacity:.30!important;filter:blur(42px)!important}
+.hero-emblem{transform:scale(.78)!important}
+.hero-emblem-aura,.hero-emblem-shine{opacity:.22!important}
+
+/* Seções com largura e respiro do portfólio */
+.consulting-strip,.quick-tools,.home-dashboard,.method-section,.principles-strip,
+.container,.content-container{max-width:1180px!important}
+.consulting-strip{
+  margin:0 auto 20px!important;
+  padding:16px 18px!important;
+  border:1px solid var(--pc-line)!important;
+  border-radius:12px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.cs-icon{background:transparent!important;border:1px solid var(--pc-line)!important;color:var(--pc-accent)!important}
+.cs-copy,.cs-copy strong{color:var(--pc-muted)!important}
+.cs-copy strong{color:var(--pc-text)!important}
+.cs-tag{background:transparent!important;border:1px solid var(--pc-line)!important;color:var(--pc-muted)!important}
+
+.quick-tools{
+  padding:18px 0 52px!important;
+  gap:10px!important;
+}
+.quick-tool{
+  min-height:152px!important;
+  padding:19px!important;
+  border-radius:12px!important;
+  border:1px solid var(--pc-line)!important;
+  background:var(--pc-surface)!important;
+  box-shadow:none!important;
+}
+.quick-tool:hover{transform:translateY(-2px)!important;background:var(--pc-surface-2)!important;border-color:var(--pc-line-strong)!important}
+.qt-icon{width:38px!important;height:38px!important;border-radius:9px!important;background:transparent!important;border:1px solid var(--pc-line)!important;color:var(--pc-accent)!important;box-shadow:none!important}
+.quick-tool b{font-size:14px!important;color:var(--pc-text)!important}
+.quick-tool small{font-size:12px!important;line-height:1.55!important;color:var(--pc-muted)!important}
+.quick-tool>i{color:var(--pc-accent)!important}
+
+.home-dashboard{gap:12px!important;padding-bottom:72px!important}
+.dashboard-card,.method-grid article,.principles-strip>div{
+  border:1px solid var(--pc-line)!important;
+  background:var(--pc-surface)!important;
+  box-shadow:none!important;
+  border-radius:12px!important;
+}
+.dashboard-card{padding:24px!important}
+.dashboard-kicker,.section-intro>span{font-size:10px!important;letter-spacing:.14em!important;color:var(--pc-muted-2)!important}
+.life-metrics>div{border-color:var(--pc-line)!important;background:transparent!important}
+.metric-symbol{color:var(--pc-accent)!important;background:transparent!important;box-shadow:none!important}
+.dashboard-card h3,.life-metrics strong{color:var(--pc-text)!important}
+.dashboard-card p,.life-metrics small,.dashboard-card blockquote{color:var(--pc-muted)!important}
+
+.method-section{padding:76px 0!important;border-top:1px solid var(--pc-line)!important}
+.section-intro{max-width:800px!important}
+.section-intro h2{font-size:clamp(36px,4.8vw,58px)!important;line-height:1.03!important;letter-spacing:-.045em!important;color:var(--pc-text)!important}
+.section-intro p{color:var(--pc-muted)!important;line-height:1.75!important}
+.method-grid{gap:10px!important}
+.method-grid article{padding:24px!important}
+.method-grid article>span{background:transparent!important;border:1px solid var(--pc-line)!important;color:var(--pc-accent)!important;box-shadow:none!important}
+.method-grid h3{color:var(--pc-text)!important}.method-grid p{color:var(--pc-muted)!important}
+.principles-strip{margin-bottom:72px!important;border:1px solid var(--pc-line)!important;background:transparent!important;border-radius:12px!important;overflow:hidden!important}
+.principles-strip>div{border:0!important;border-right:1px solid var(--pc-line)!important;border-radius:0!important;background:transparent!important}
+.principles-strip>div:last-child{border-right:0!important}
+.principles-strip b{color:var(--pc-accent)!important}
+.principles-strip span{color:var(--pc-muted)!important}
+
+/* Cabeçalhos internos — visual editorial, centralizado e limpo */
+.tool-header{
+  max-width:900px!important;
+  padding:clamp(82px,9vw,116px) 20px 44px!important;
+}
+.th-badge{
+  margin-bottom:18px!important;
+  background:transparent!important;
+  border:1px solid var(--pc-line)!important;
+  color:var(--pc-muted)!important;
+  box-shadow:none!important;
+  border-radius:999px!important;
+  font-size:10px!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+}
+.th-badge svg{color:var(--pc-accent)!important}
+.tool-header h1{
+  max-width:860px!important;
+  font-size:clamp(42px,5vw,64px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.05em!important;
+  color:var(--pc-text)!important;
+}
+.tool-header h1 em{color:var(--pc-accent)!important}
+.tool-header p{max-width:700px!important;color:var(--pc-muted)!important;line-height:1.7!important}
+
+/* Formulários / cards / tabelas */
+.card,.panel,.result-card,.sim-card,.planner-card,.calc-card,
+.modal-content,.comparison-card,.bank-card,.bank-option,.form-card{
+  background:var(--pc-surface)!important;
+  border:1px solid var(--pc-line)!important;
+  border-radius:12px!important;
+  box-shadow:none!important;
+}
+.card:hover,.comparison-card:hover,.bank-card:hover{border-color:var(--pc-line-strong)!important;box-shadow:none!important}
+.card-header,.section-title,.card-title{color:var(--pc-text)!important}
+.form-label,label{color:var(--pc-muted)!important}
+input,select,textarea,.input-group input,.input-group select{
+  background:var(--pc-bg-soft)!important;
+  color:var(--pc-text)!important;
+  border:1px solid var(--pc-line-strong)!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none!important;
+  border-color:var(--pc-accent)!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--pc-accent) 14%,transparent)!important;
+}
+button.btn-primary,.btn-primary,.primary-button{
+  background:var(--pc-accent)!important;
+  border-color:var(--pc-accent)!important;
+  color:#041018!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+}
+button.btn-secondary,.btn-secondary{background:transparent!important;border:1px solid var(--pc-line-strong)!important;color:var(--pc-text)!important;border-radius:9px!important;box-shadow:none!important}
+
+/* Rodapé */
+footer,.footer,.site-footer{
+  border-top:1px solid var(--pc-line)!important;
+  background:transparent!important;
+  color:var(--pc-muted)!important;
+}
+
+/* Mobile */
+@media (max-width:900px){
+  .topnav.premium-nav{width:calc(100% - 24px)!important;margin-top:8px!important;top:8px!important}
+  .home-hero.premium-hero{grid-template-columns:1fr!important;padding:78px 18px 58px!important}
+  .hero-visual{display:none!important}
+  .home-hero h1{font-size:clamp(43px,12vw,64px)!important}
+  .quick-tools,.consulting-strip,.home-dashboard,.method-section,.principles-strip{margin-left:16px!important;margin-right:16px!important}
+  .quick-tools{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .nav-links{top:82px!important;left:12px!important;right:12px!important;background:var(--pc-bg-soft)!important;border:1px solid var(--pc-line)!important;box-shadow:var(--pc-shadow)!important}
+  .nav-link.active{border-radius:8px!important;background:var(--pc-surface-2)!important;box-shadow:none!important}
+}
+
+@media (max-width:620px){
+  .nav-logo-frame{width:32px!important;height:32px!important}.nav-logo{width:28px!important;height:28px!important}
+  .brand-schultz{font-size:12px!important}.brand-product{font-size:7.5px!important}
+  .home-hero.premium-hero{padding-top:68px!important}
+  .home-hero h1{font-size:clamp(42px,13vw,56px)!important;line-height:.98!important}
+  .home-hero .hero-copy>p{font-size:14px!important;line-height:1.7!important}
+  .hero-actions{flex-direction:column!important;align-items:stretch!important}.hero-primary,.hero-secondary{width:100%!important;justify-content:center!important}
+  .hero-trust{display:grid!important;gap:9px!important}
+  .quick-tools{grid-template-columns:1fr!important;margin-left:14px!important;margin-right:14px!important;padding-bottom:44px!important}
+  .quick-tool{min-height:126px!important}
+  .consulting-strip,.home-dashboard,.method-section,.principles-strip{margin-left:14px!important;margin-right:14px!important}
+  .tool-header{padding:62px 16px 34px!important}.tool-header h1{font-size:clamp(38px,11vw,50px)!important}
+  .principles-strip{display:grid!important;grid-template-columns:1fr!important}.principles-strip>div{border-right:0!important;border-bottom:1px solid var(--pc-line)!important}.principles-strip>div:last-child{border-bottom:0!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ambient-network,.connectivity-canvas{display:none!important}
+  *{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

@@ -1,0 +1,135 @@
+{
+  "version": "1.2.0",
+  "updated": "2026-06",
+  "note": "Taxas pesquisadas em jun/2026. Tesouro Direto: taxas atualizadas via API automaticamente. CDBs: consulte a instituição antes de aplicar.",
+  "banks": [
+    {
+      "id": "sicredi",
+      "name": "Sicredi",
+      "category": "cooperativa",
+      "product": "CDB Sicredi — liquidez diária (mín. R$1.000)",
+      "derive": {
+        "base": "cdi",
+        "factor": 1.08
+      },
+      "color": "#00843D",
+      "logo": "https://logo.clearbit.com/sicredi.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 1000
+    },
+    {
+      "id": "nubank",
+      "name": "Nubank",
+      "category": "fintech",
+      "product": "Conta Remunerada Nubank — CDB liquidez diária",
+      "derive": {
+        "base": "cdi",
+        "factor": 1.0
+      },
+      "color": "#820AD1",
+      "logo": "https://logo.clearbit.com/nubank.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 1
+    },
+    {
+      "id": "santander",
+      "name": "Santander",
+      "category": "banco_tradicional",
+      "product": "CDB DI Santander — liquidez diária",
+      "derive": {
+        "base": "cdi",
+        "factor": 1.0
+      },
+      "color": "#CC0000",
+      "logo": "https://logo.clearbit.com/santander.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 1
+    },
+    {
+      "id": "itau",
+      "name": "Itaú",
+      "category": "banco_tradicional",
+      "product": "CDB DI Itaú — liquidez diária",
+      "derive": {
+        "base": "cdi",
+        "factor": 1.0
+      },
+      "color": "#F47A20",
+      "logo": "https://logo.clearbit.com/itau.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 1
+    },
+    {
+      "id": "selic31",
+      "name": "Tesouro Selic 2031",
+      "category": "tesouro_selic",
+      "product": "Tesouro Selic — venc. 01/03/2031 (único disponível desde 2026)",
+      "derive": {
+        "base": "selicAdd",
+        "add": 0.08
+      },
+      "color": "#2563EB",
+      "logo": "https://logo.clearbit.com/tesourodireto.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 100,
+      "treasuryBond": true,
+      "treasuryIndexer": "SELIC",
+      "maturityDate": "2031-03-01"
+    },
+    {
+      "id": "prefixado31",
+      "name": "Tesouro Prefixado 2031",
+      "category": "tesouro_prefixado",
+      "product": "Tesouro Prefixado — venc. 01/01/2031 (taxa atualizada via API)",
+      "derive": {
+        "base": "manual",
+        "rate": 14.36
+      },
+      "color": "#4F46E5",
+      "logo": "https://logo.clearbit.com/tesourodireto.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 100,
+      "treasuryBond": true,
+      "treasuryIndexer": "PRE",
+      "maturityDate": "2031-01-01"
+    },
+    {
+      "id": "ipcaplus35",
+      "name": "Tesouro IPCA+ 2035",
+      "category": "tesouro_ipca",
+      "product": "Tesouro IPCA+ — venc. 15/05/2035 (spread real + IPCA estimado)",
+      "derive": {
+        "base": "ipcaPlus",
+        "realRate": 7.56
+      },
+      "color": "#7C3AED",
+      "logo": "https://logo.clearbit.com/tesourodireto.com.br",
+      "taxable": true,
+      "enabled": true,
+      "minInvestment": 100,
+      "treasuryBond": true,
+      "treasuryIndexer": "IPCA",
+      "maturityDate": "2035-05-15"
+    },
+    {
+      "id": "poupanca",
+      "name": "Poupança",
+      "category": "poupanca",
+      "product": "Conta poupança — qualquer banco (remuneração uniforme)",
+      "derive": {
+        "base": "poupanca"
+      },
+      "color": "#D97706",
+      "logo": null,
+      "taxable": false,
+      "enabled": true,
+      "minInvestment": 0.01
+    }
+  ]
+}
