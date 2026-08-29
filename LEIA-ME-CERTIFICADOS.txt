@@ -1,0 +1,29 @@
+CERTIFICADOS DA FORMAÇÃO ACADÊMICA
+=================================
+
+Para adicionar os certificados no futuro, basta enviar os arquivos para:
+assets/images/
+
+Use preferencialmente estes nomes:
+
+certificado 01.jpg  -> Especialização em Perícia Computacional
+certificado 02.jpg  -> MBA em Inteligência Artificial
+certificado 03.jpg  -> MBA em Finanças com Ênfase em Mercado de Capitais
+certificado 04.jpg  -> Pós-Graduação em Business Intelligence
+certificado 05.jpg  -> Graduação em Tecnologia da Informação
+
+Também são aceitas as extensões:
+.png
+.jpeg
+.webp
+
+O site também aceita a versão sem espaço, por exemplo:
+certificado01.jpg
+
+Não é necessário alterar index.html, CSS ou JavaScript.
+Depois do upload no GitHub, ao clicar em "Ver certificado" na formação correspondente, a imagem será localizada e aberta automaticamente no visualizador do site.
+
+IMPORTANTE:
+- mantenha os nomes em letras minúsculas;
+- mantenha a numeração com dois dígitos (01, 02, 03...);
+- os arquivos devem ficar exatamente dentro de assets/images/.

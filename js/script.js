@@ -313,6 +313,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     backBtn.focus({ preventScroll: true });
   };
 
+  // API interna reutilizada pelos certificados acadêmicos carregados por convenção de nome.
+  window.openPortfolioMedia = (src, alt = 'Imagem ampliada', focusElement = null) => {
+    hidePreview();
+    lastFocused = focusElement || document.activeElement;
+    fullImg.src = src;
+    fullImg.alt = alt;
+    caption.textContent = alt;
+    stage.scrollTop = 0;
+    stage.scrollLeft = 0;
+    lightbox.classList.add('open');
+    document.body.classList.add('media-lightbox-open');
+    backBtn.focus({ preventScroll: true });
+  };
+
   const closeLightbox = () => {
     lightbox.classList.remove('open');
     document.body.classList.remove('media-lightbox-open');
@@ -356,5 +370,82 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+})();
+
+
+/* ============================================================
+   CERTIFICADOS DA FORMAÇÃO ACADÊMICA
+   Convenção: assets/images/certificado 01.jpg, certificado 02.jpg...
+   Também aceita png, jpeg e webp. Não exige alteração do HTML.
+   ============================================================ */
+(() => {
+  const buttons = Array.from(document.querySelectorAll('.edu-certificate-action[data-certificate-index]'));
+  if (!buttons.length) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'certificate-missing-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  document.body.appendChild(toast);
+  let toastTimer = null;
+
+  const showMissing = (index, button) => {
+    button.classList.add('is-missing');
+    const expected = `assets/images/certificado ${index}.jpg`;
+    toast.innerHTML = `Certificado ainda não encontrado. Para ativar este botão, envie <strong>${expected}</strong> (também aceita .png, .jpeg ou .webp).`;
+    toast.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('visible'), 4300);
+  };
+
+  const buildCandidates = (index) => {
+    const bases = [
+      `assets/images/certificado ${index}`,
+      `assets/images/certificado${index}`
+    ];
+    const extensions = ['jpg', 'png', 'jpeg', 'webp'];
+    return bases.flatMap(base => extensions.map(ext => `${base}.${ext}`));
+  };
+
+  const resolveImage = (candidates) => new Promise(resolve => {
+    let position = 0;
+    const tryNext = () => {
+      if (position >= candidates.length) return resolve(null);
+      const src = candidates[position++];
+      const probe = new Image();
+      probe.onload = () => resolve(src);
+      probe.onerror = tryNext;
+      // evita resultado antigo quando um certificado acabou de ser publicado no GitHub Pages
+      probe.src = `${src}?v=${Date.now()}`;
+    };
+    tryNext();
+  });
+
+  buttons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const index = button.dataset.certificateIndex;
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+
+      const source = await resolveImage(buildCandidates(index));
+
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+
+      if (!source) {
+        showMissing(index, button);
+        return;
+      }
+
+      button.classList.remove('is-missing');
+      const card = button.closest('.edu-card');
+      const degree = card?.querySelector('.edu-degree')?.textContent?.trim() || `Formação ${index}`;
+      if (typeof window.openPortfolioMedia === 'function') {
+        window.openPortfolioMedia(source, `Certificado — ${degree}`, button);
+      } else {
+        window.open(source, '_blank', 'noopener');
+      }
+    });
   });
 })();
